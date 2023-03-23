@@ -34,6 +34,7 @@ ul {
   gap: 1rem;
   padding-left: 2.3rem;
   padding-right: 2.3rem;
+
 }
 .footer-links {
   display: grid;
@@ -183,7 +184,7 @@ ul {
     justify-content: center;
     align-items: center;
   }
-  .arrowDown{
+  .arrowDown {
     display: block;
     background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/toggle.svg");
     background-size: contain;

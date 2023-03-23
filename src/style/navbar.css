@@ -35,12 +35,16 @@
   line-height: 0.8;
 }
 
+.white-text .navItem {
+  color: white;
+}
+
 .navItem > a {
   color: inherit;
   text-decoration: none;
 }
 
-.fixed .sales {
+.white-text .sales {
   border: 1px solid white;
   color: white;
 }
@@ -103,24 +107,26 @@
   transform: translate3d(0, 0.2em, -1em);
 }
 
-.fixed .sign-up:hover {
+.white-text .sign-up:hover {
   background-color: #fff;
 }
 
-.fixed .sign-up {
+.white-text .sign-up {
   color: black;
   background-color: #fff;
 }
 
-.fixed .sign-up::before {
+.white-text .sign-up::before {
   background-color: #aaa9a9;
 }
 
-.fixed .language {
+.white-text .language {
   border: 1px white solid;
+  color: white;
+  display: grid;
 }
 
-.fixed .language::after {
+.white-text .language::after {
   background-image: url("../images/globeSvgWhite.svg");
 }
 

@@ -29,12 +29,25 @@ function Home({ quizes }) {
                 training, and events.
               </p>
               <p class="header-text-3">
-                <strong>Save over 35% today with offers starting from $24/month.</strong>
+                <strong>
+                  Save over 35% today with offers starting from $24/month.
+                </strong>
               </p>
               <a class="header-button">Buy now!</a>
             </div>
             <img src={require("../images/header.png")}></img>
           </div>
+        </div>
+        <div
+          class="hero-section"
+          style={{
+            height: "1000px",
+            width: "100vw",
+            fontSize: "100px",
+            display: "grid",
+            placeItems: "center",
+          }}>
+          WORK IN PROGRESS
         </div>
       </main>
 

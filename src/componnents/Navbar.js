@@ -9,18 +9,27 @@ const Navbar = () => {
   const [menu_class, setMenuClass] = useState("hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [kahoot_logo, setKahootLogo] = useState("purple");
+  const [text_color, setTextColor] = useState("black");
   // toggle burger menu change
   const updateMenu = () => {
     if (!isMenuClicked) {
       setBurgerClass("burger-bar clicked");
       setMenuClass("visible");
       setKahootLogo("white");
+      setTextColor("white-text");
       var body = document.getElementsByTagName("body")[0];
-      body.style.overflow = "hidden";
+      body.style.overflowY = "hidden";
     } else {
       setBurgerClass("burger-bar unclicked");
       setMenuClass("hidden");
       setKahootLogo("purple");
+      setTextColor("black");
+      var body = document.getElementsByTagName("body")[0];
+      body.style.overflowY = "scroll";
+      setTimeout(function () {
+        var canvasMenu = document.getElementsByClassName("canvasMenu");
+        canvasMenu.style.display = "none";
+      }, 1000);
     }
     setIsMenuClicked(!isMenuClicked);
   };
@@ -68,12 +77,12 @@ const Navbar = () => {
       <div className={"canvasMenu " + menu_class}>
         <ul>
           <li>
-            <h1>Kahoot! at school</h1>
+            <h1>Work in progress</h1>
           </li>
         </ul>
       </div>
 
-      <ul className={"navItems navLeft"}>
+      <ul className={"navItems navLeft " + text_color}>
         <a id="navBrand">
           <svg width="24" height="25" viewBox="0 0 30 32" class="k-logo">
             <title>K!</title>
@@ -154,7 +163,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <ul className={"navItems navMain nav-right"}>
+      <ul className={"navItems navMain nav-right " + text_color}>
         <li className="navItem not-very-important sales">Contact sales</li>
         <li className="navItem not-very-important">Explore content</li>
         <li className="navItem important">Play</li>
