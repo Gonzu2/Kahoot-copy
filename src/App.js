@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import QuizLoad from "./componnents/QuizLoad";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { reset, getQuizes } from "./features/quiz/quizSlice";
+
+
+
 
 function App() {
+const [quizes, setQuizes] = useState([]);
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const { quiz, isLoading, isError, isSuccess, message } = useSelector(
+  (state) => state.quiz
+);
+useEffect(() => {
+  dispatch(getQuizes());
+  setQuizes(quiz);
+}, [isSuccess]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+      <Route path="/quiz/:id" element={  <QuizLoad quizes={quizes}/> }/> 
+        <Route path="/" element={<Home quizes={quizes} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </>
   );
 }
 

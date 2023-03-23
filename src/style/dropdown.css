@@ -1,0 +1,15 @@
+.dropdown-body {
+    padding: 0;
+  }
+  .dropdown-title:hover + .dropdown-body-container{
+  }
+  .dropdown-body-container {
+    display: flex;
+  }
+
+  .show {
+    display: flex !important;
+  }
+  .hide{
+    display: none !important;
+  }

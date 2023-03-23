@@ -1,0 +1,212 @@
+/*Utilite classes*/
+.bold {
+  font-weight: bold;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.coll {
+  display: flex;
+  flex-direction: column;
+}
+a {
+  text-decoration: none !important;
+  color: #fff;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.fit {
+  width: fit-content;
+  height: fit-content;
+}
+li,
+ul {
+  list-style: none;
+}
+/*footer links*/
+.main-footer {
+  font-family: "Montserrat", sans-serif;
+  background-color: #333;
+  color: #fff;
+  gap: 1rem;
+  padding-left: 2.3rem;
+  padding-right: 2.3rem;
+}
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 10px;
+  justify-content: space-evenly;
+  padding: 3.75rem 0 3.75rem 0;
+}
+
+.footer-links ul li {
+  height: fit-content;
+}
+.footer-links ul {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.folllow-us_container {
+  display: flex;
+  justify-content: space-between;
+  padding: auto;
+  padding-left: 0;
+  padding-right: 2rem;
+  border-bottom: 0.0625rem solid #000;
+  border-top: 0.0625rem solid #000;
+}
+.follow-us {
+  padding: auto;
+  padding-left: 0;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+}
+.follow-us li {
+  margin: 1rem;
+}
+.follow-us li a {
+  margin: auto;
+}
+.follow-us #twitter {
+  content: "";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/twitter.svg");
+  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+}
+.follow-us #facebook {
+  content: "";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/facebook.svg");
+  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.follow-us #linkedin {
+  content: "";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/linkedin.svg");
+  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.follow-us #instagram {
+  content: "";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/instagram.png");
+  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.follow-us #tik-tok {
+  content: "";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/tiktok-icon.png");
+  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.partner {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.partner #google {
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/google-edu-partner-badge.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 120px;
+  height: 57px;
+  margin-left: 1rem;
+}
+.partner #microsoft {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 120px;
+  height: 57px;
+}
+.copyright-contaienr {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-grow: 80;
+}
+.logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.link-title {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+}
+.arrowDown {
+  display: none;
+  height: 8px;
+  width: 13px;
+  margin: auto;
+  margin-left: 0.3rem;
+}
+
+@media (max-width: 1000px) {
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .logos {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+  #kahoot-logo {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .folllow-us_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrowDown{
+    display: block;
+    background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/toggle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .follow-us {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: fit-content;
+  }
+  .partner {
+    justify-content: start;
+    margin: 1rem;
+    display: none;
+  }
+  .footer-links {
+    /* grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr); */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .copyright-contaienr {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,0 +1,105 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+} from "react-router-dom";
+import "../style/login-register.css";
+import Navbar from "../componnents/Navbar";
+
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "email") {
+      setEmail(value);
+    } else {
+      setPassword(value);
+    }
+  };
+  return (
+    <div id="main">
+      <div id="container">
+        <section id="main-container">
+          {/* Login */}
+
+          <h1 id="title">Log in</h1>
+          <label htmlFor="email">
+            <p>Email</p>
+          </label>
+          <input type="text" name="email" onChange={handleOnChange} required />
+
+          <label htmlFor="password">
+            <p>Password</p>
+          </label>
+          <input
+            type="password"
+            name="password"
+            onChange={handleOnChange}
+            required
+          />
+
+          <p id="forgot-password">
+            Forgot password? <a href="#">Reset your password</a>
+          </p>
+
+          <button
+            type="submit"
+            style={{
+              cursor: email && password ? "pointer" : "not-allowed",
+              background: email && password ? "green" : "rgb(204, 204, 204)",
+            }}>
+            Log in
+          </button>
+
+          <p id="breakpoint">or</p>
+
+          <div id="google" className="login-option">
+            <img src={require("../images/googleLogo.png")} />
+            <p>Continue with google</p>
+          </div>
+
+          <div id="Microsoft" className="login-option">
+            <img src={require("../images/microsoftLogo.png")} />
+            <p>Continue with Micorosft</p>
+          </div>
+
+          <div id="Apple" className="login-option">
+            <img src={require("../images/appleLogo.png")} />
+            <p>Continue with Apple</p>
+          </div>
+
+          <div id="Clever" className="login-option">
+            <img src={require("../images/cleverLogo.png")} />
+            <p>Continue with Clever</p>
+          </div>
+
+          <p id="prompt">
+            Don't have an account? <Link to={"/register"}>Sign up</Link>
+          </p>
+          <div id="tos">
+            <p>
+              By signing up, you accept our <a href="#">Terms and Conditions</a>
+              . Please read our <a href="#">Privacy Policy</a> and{" "}
+              <a href="#">Children’s Privacy Policy</a>.
+            </p>
+
+            <p>
+              I understand that I can withdraw my consent at any time and the
+              withdrawal will not affect the lawfulness of the consent before
+              its withdrawal, as described in the Kahoot!{" "}
+              <a href="#">Privacy Policy</a>.
+            </p>
+          </div>
+          {/* Login end */}
+        </section>
+      </div>
+    </div>
+  );
+}
+
+export default Login;
