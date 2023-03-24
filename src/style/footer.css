@@ -154,6 +154,10 @@ ul {
   gap: 0.4rem;
   justify-content: end;
 }
+.logos img {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .link-title {
   display: flex;
   grid-template-columns: repeat(2, 1fr);
