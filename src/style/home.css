@@ -470,6 +470,8 @@ html {
   height: 2.5rem;
   min-width: 2.5rem;
   min-height: 2.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-right: 0.5rem;
   background-repeat: no-repeat;
   background-size: contain;
