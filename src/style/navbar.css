@@ -361,11 +361,19 @@
   transition: 0.15s cubic-bezier(0, 0, 0.6, 1);
 }
 
+#navBrand:hover > svg > g,
+#navBrand:hover > svg > g {
+  fill: #0693e3;
+}
+
+#navBrand:hover {
+  cursor: pointer;
+}
+
 .white {
   fill: white;
   transition: 0.15s cubic-bezier(0, 0, 0.6, 1);
 }
-
 .canvasMenu {
   display: none;
   position: absolute;
