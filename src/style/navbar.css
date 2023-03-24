@@ -55,6 +55,13 @@
   color: #1368ce;
   padding: 10px;
   font-size: 14px;
+  transition: all 0.15s ease-in-out;
+}
+
+.sales:hover {
+  transition: all 0.15s ease-in-out;
+  background-color: #1368ce;
+  color: white;
 }
 
 .sign-up {
@@ -271,7 +278,7 @@
   transition: all 0.25s ease-out;
 }
 
-.navLeft li p::after {
+.hoverAnim::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -283,13 +290,17 @@
   transform-origin: bottom left;
   transition: all 0.25s ease-out;
 }
-.navLeft li p:hover::after {
+.hoverAnim:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-.navLeft li p:hover {
+.hoverAnim:hover {
   color: #46178f;
+}
+
+.navMain li {
+  position: relative;
 }
 
 .navLeft li {

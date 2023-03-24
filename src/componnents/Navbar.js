@@ -120,7 +120,7 @@ const Navbar = () => {
         </li>
         <li class="navItem school">
           <span class="navItemIcon"></span>
-          <p>
+          <p class="hoverAnim">
             School
             <span>
               <ul>
@@ -143,34 +143,34 @@ const Navbar = () => {
         </li>
         <li class="navItem work">
           <span class="navItemIcon"></span>
-          <p>Work</p>
+          <p class="hoverAnim">Work</p>
         </li>
         <li class="navItem home">
           <span class="navItemIcon"></span>
-          <p>Home</p>
+          <p class="hoverAnim">Home</p>
         </li>
         <li class="navItem study">
           <span class="navItemIcon"></span>
-          <p>Study</p>
+          <p class="hoverAnim">Study</p>
         </li>
         <li class="navItem academy">
           <span class="navItemIcon"></span>
-          <p>Academy</p>
+          <p class="hoverAnim">Academy</p>
         </li>
         <li class="navItem marketplace">
           <span class="navItemIcon"></span>
-          <p>Marketplace</p>
+          <p class="hoverAnim">Marketplace</p>
         </li>
       </ul>
 
       <ul className={"navItems navMain nav-right " + text_color}>
         <li className="navItem not-very-important sales">Contact sales</li>
-        <li className="navItem not-very-important">Explore content</li>
-        <li className="navItem important">Play</li>
+        <li className="navItem not-very-important hoverAnim">Explore content</li>
+        <li className="navItem important hoverAnim">Play</li>
         <li className="navItem sign-up important">
           <Link to="/register">Sign up</Link>
         </li>
-        <li className="navItem log-in important">
+        <li className="navItem log-in important hoverAnim">
           <Link to="/login">Log in</Link>
         </li>
         <li className="navItem language important">
