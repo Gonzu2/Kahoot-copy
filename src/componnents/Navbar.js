@@ -19,6 +19,9 @@ const Navbar = () => {
       setTextColor("white-text");
       var body = document.getElementsByTagName("body")[0];
       body.style.overflowY = "hidden";
+      var nav = document.getElementById("nav");
+      nav.style.backgroundColor = "#25076b";
+      nav.style.boxShadow = "none";
     } else {
       setBurgerClass("burger-bar unclicked");
       setMenuClass("hidden");
@@ -30,6 +33,10 @@ const Navbar = () => {
         var canvasMenu = document.getElementsByClassName("canvasMenu");
         canvasMenu.style.display = "none";
       }, 1000);
+      var nav = document.getElementById("nav");
+      nav.style.backgroundColor = "white";
+      nav.style.boxShadow = "0px 4px 5px 0px rgba(148,148,148,0.75)";
+      
     }
     setIsMenuClicked(!isMenuClicked);
   };
@@ -77,7 +84,259 @@ const Navbar = () => {
       <div className={"canvasMenu " + menu_class}>
         <ul>
           <li>
-            <h1>Work in progress</h1>
+            <h1>
+              Kahoot at school!
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+            <ul class="displayItemContainer">
+              <li>How it works</li>
+              <li>Kahoot! EDU</li>
+              <li>Ways to play</li>
+              <li>Distance learning</li>
+              <li>Assessment</li>
+              <li>Interactive lessons</li>
+              <li>Higher education</li>
+              <li>Math labs</li>
+              <li>Whiteboard.fi</li>
+              <li>Learning apps</li>
+              <li>Teacher plans</li>
+              <li>School plans</li>
+              <li>Higher education plans</li>
+            </ul>
+          </li>
+          <li>
+            <h1>
+              Kahoot! at work
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+            <ul class="displayItemContainer">
+              <li>Product</li>
+              <li>Solutions</li>
+              <li>Plans & pricing</li>
+              <li>Customer stories</li>
+              <li>Resources</li>
+            </ul>
+          </li>
+          <li>
+            <h1>
+              Kahoot! at Home
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+            <ul class="displayItemContainer">
+              <li>Kahoot! Kids</li>
+              <li>Family & Friends</li>
+              <li>Celebrations</li>
+              <li>Language drops</li>
+              <li>Kahoot! app</li>
+              <li>Learning apps</li>
+              <li>Available plans</li>
+            </ul>
+          </li>
+          <li>
+            <h1>
+              Study{" "}
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+            <ul class="displayItemContainer">
+              <li>Study groups</li>
+              <li>Available plans</li>
+            </ul>
+          </li>
+          <li>
+            <h1>
+              Academy{" "}
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+          </li>
+          <li>
+            <h1>
+              Marketplace{" "}
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+          </li>
+          <li>
+            <h1>
+              More
+              <span>
+                <svg
+                  width="13px"
+                  height="8px"
+                  viewBox="0 0 13 8"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd">
+                    <g
+                      id="mobile_header"
+                      transform="translate(-177.000000, -80.000000)"
+                      fill="#FFFFFF">
+                      <path
+                        d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
+                        id="toggle"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </h1>
+            <ul class="displayItemContainer">
+              <li>News</li>
+              <li>Explore content</li>
+              <li>Blog</li>
+              <li>Kahoot! Certified</li>
+              <li>Help</li>
+              <li>Contact Sales</li>
+              <li>Library</li>
+              <li>Shop</li>
+            </ul>
           </li>
         </ul>
       </div>
