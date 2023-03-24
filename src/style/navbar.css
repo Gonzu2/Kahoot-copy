@@ -128,13 +128,14 @@
 }
 
 .white-text .language {
-  border: 1px white solid;
-  color: white;
+  border: 1px black solid;
   display: grid;
+  background-color: white;
+  color: black;
 }
 
-.white-text .language::after {
-  background-image: url("../images/globeSvgWhite.svg");
+.language:hover {
+  background-color: #aaa9a9;
 }
 
 .language {
@@ -284,7 +285,7 @@
   width: 100%;
   transform: scaleX(0);
   height: 2px;
-  bottom: -3px;
+  bottom: -5px;
   left: 0;
   background-color: #46178f;
   transform-origin: bottom left;
@@ -295,8 +296,16 @@
   transform-origin: bottom left;
 }
 
+.white-text .hoverAnim::after {
+  background-color: #fff;
+}
+
 .hoverAnim:hover {
   color: #46178f;
+}
+
+.white-text .hoverAnim:hover {
+  color: #fff;
 }
 
 .navMain li {
