@@ -143,15 +143,47 @@ const Navbar = () => {
         </li>
         <li class="navItem work">
           <span class="navItemIcon"></span>
-          <p class="hoverAnim">Work</p>
+          <p class="hoverAnim">
+            Work
+            <span>
+              <ul>
+                <li>Product</li>
+                <li>Solutions</li>
+                <li>Plans & pricing</li>
+                <li>Customer stories</li>
+                <li>Resources</li>
+              </ul>
+            </span>
+          </p>
         </li>
         <li class="navItem home">
           <span class="navItemIcon"></span>
-          <p class="hoverAnim">Home</p>
+          <p class="hoverAnim">
+            Home
+            <span>
+              <ul>
+                <li>Kahoot! Kids</li>
+                <li>Family & Friends</li>
+                <li>Celebrations</li>
+                <li>Language drops</li>
+                <li>Kahoot! app</li>
+                <li>Learning apps</li>
+                <li>Available plans</li>
+              </ul>
+            </span>
+          </p>
         </li>
         <li class="navItem study">
           <span class="navItemIcon"></span>
-          <p class="hoverAnim">Study</p>
+          <p class="hoverAnim">
+            Study
+            <span>
+              <ul>
+                <li>Study groups</li>
+                <li>Available plans</li>
+              </ul>
+            </span>
+          </p>
         </li>
         <li class="navItem academy">
           <span class="navItemIcon"></span>
@@ -165,7 +197,9 @@ const Navbar = () => {
 
       <ul className={"navItems navMain nav-right " + text_color}>
         <li className="navItem not-very-important sales">Contact sales</li>
-        <li className="navItem not-very-important hoverAnim">Explore content</li>
+        <li className="navItem not-very-important hoverAnim">
+          Explore content
+        </li>
         <li className="navItem important hoverAnim">Play</li>
         <li className="navItem sign-up important">
           <Link to="/register">Sign up</Link>
