@@ -13,7 +13,7 @@ function Footer() {
   const phoneSize = 767
   const handleClick = (index) => {
     console.log(screenWidth)
-    if(screenWidth < 700 ){
+    if(screenWidth < phoneSize ){
       setDropdownStates((prevState) => {
         const newState = [...prevState];
         newState[index] = !newState[index];
@@ -49,7 +49,7 @@ function Footer() {
       </ul> */}
       <div className="footer-links center">
         <ul className="fit">
-          <li className="dropdown-title link-title" onClick={() => screenWidth > 500 ? handleClick(0) : null}>
+          <li className="dropdown-title link-title" onClick={() => handleClick(0)}>
             <span className="bold ">About</span>
             <span className="arrowDown"></span>
           </li>
@@ -167,7 +167,7 @@ function Footer() {
         </ul>
         <ul>
           <li className="dropdown-title link-title" onClick={() => handleClick(3)}>
-            <span className="bold ">Terms and conditions</span>
+            <span className="bold">Terms and conditions</span>
             <span className="arrowDown"></span>
           </li>
           <li className="dropdown-body-container">
@@ -203,11 +203,6 @@ function Footer() {
 
       <div className="folllow-us_container">
         <ul className="follow-us row center">
-          {/* <li className="center dropdown-title fit" onClick={() => handleClick(4)}><span className="bold fit center">Follow us</span></li>
-          <li className="dropdown-body-container">
-            <ul className={
-                "dropdown-body " + (dropdownStates[4] ? "show" : "hide")
-              }> */}
           <li className="row">
             <span id="twitter"></span>
             <a>Twitter</a>
@@ -245,37 +240,42 @@ function Footer() {
           <p>Copyright © 2023, Donatas and Paulius! All Rights Reserved.</p>
         </div>
         <div className="logos">
+          {/* mac app store */}
           <img
             src="https://kahoot.com/wp-content/themes/kahoot2017/assets/img/mac-app-store-badge.svg"
             width="156"
             height="40"
             alt="Download on the Mac Store"
           />
+          {/* google play */}
           <img
             src="https://kahoot.com/wp-content/themes/kahoot2017/assets/img/google-play-badge.svg"
             width="156"
             height="40"
             alt="Download on the Mac Store"
           />
+          {/* app galary */}
           <img
             src="https://kahoot.com/wp-content/themes/kahoot2017/assets/img/AppGallery.png"
             width="156"
             height="40"
             alt="Download on the Mac Store"
           />
+          {/* app store */}
           <img
             src="https://kahoot.com/wp-content/themes/kahoot2017/assets/img/app-store-badge.svg"
             width="156"
             height="40"
             alt="Download on the Mac Store"
           />
-          <img
+          {/* kahoot */}
+          {/* <img
             src="https://kahoot.com/wp-content/themes/kahoot2017/assets/img/kahoot-white.svg"
             width="156"
             height="40"
             alt="Download on the Mac Store"
             id="kahoot-logo"
-          />
+          /> */}
         </div>
       </div>
     </main>
