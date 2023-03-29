@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
 import {
@@ -11,15 +11,6 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
-  const handleMouseOver = (el) => {
-    const element = el.target;
-    element.play();
-  };
-
-  const handleMouseLeave = (el) => {
-    const element = el.target;
-    element.pause();
-  };
   return (
     <div id="home-main">
       <Navbar />
@@ -413,8 +404,8 @@ function Home({ quizes }) {
                 loop
                 playsInline
                 preload="auto"
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}>
+                onMouseOver={(event) => event.target.play()}
+                onMouseLeave={(event) => event.target.pause()}>
                 <source
                   src={require("../videos/kc_1.webm")}
                   type="video/webm"
@@ -432,8 +423,8 @@ function Home({ quizes }) {
                 loop
                 playsInline
                 preload="auto"
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}>
+                onMouseOver={(event) => event.target.play()}
+                onMouseLeave={(event) => event.target.pause()}>
                 <source
                   src={require("../videos/kc2_2b.webm")}
                   type="video/webm"
@@ -451,8 +442,8 @@ function Home({ quizes }) {
                 loop
                 playsInline
                 preload="auto"
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}>
+                onMouseOver={(event) => event.target.play()}
+                onMouseLeave={(event) => event.target.pause()}>
                 <source
                   src={require("../videos/kc_3.webm")}
                   type="video/webm"
