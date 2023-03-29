@@ -622,15 +622,16 @@ html {
   width: fit-content;
 }
 .chat-box-main {
-  min-width: 100%;
   position: relative;
   border-radius: 0.25rem;
   margin-bottom: 1.875rem;
   box-shadow: -0.25rem 0.125rem 0.25rem rgb(0 0 0 / 15%);
+  background-color: #fff;
   overflow: visible;
   flex-shrink: 1;
   width: fit-content;
-  flex-basis: calc(50% - 10px);
+  flex: 10%;
+  width: 20%;
 }
 .chat-box-main::after {
   content: "";
