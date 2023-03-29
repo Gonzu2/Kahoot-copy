@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
 import {
@@ -11,15 +11,6 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
-  const handleMouseOver = (el) => {
-    const element = el.target;
-    element.play();
-  };
-
-  const handleMouseLeave = (el) => {
-    const element = el.target;
-    element.pause();
-  };
   return (
     <div id="home-main">
       <Navbar />
@@ -436,6 +427,7 @@ function Home({ quizes }) {
         <div className="how-does-kahoot-work">
           <h1>How does Kahoot! work?</h1>
           <ul class="cards">
+<<<<<<< HEAD
             <li>
               <video
                 id="1"
@@ -452,10 +444,30 @@ function Home({ quizes }) {
               </video>
               <h1>Create</h1>
               <p>
+=======
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc_1.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
+>>>>>>> 2d1c9c7c21973330503ba6b3be490c785734f3e7
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
             </li>
+<<<<<<< HEAD
             <li>
               <video
                 id="2"
@@ -472,10 +484,30 @@ function Home({ quizes }) {
               </video>
               <h1>Create</h1>
               <p>
+=======
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc2_2b.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
+>>>>>>> 2d1c9c7c21973330503ba6b3be490c785734f3e7
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
             </li>
+<<<<<<< HEAD
             <li>
               <video
                 id="3"
@@ -492,6 +524,25 @@ function Home({ quizes }) {
               </video>
               <h1>Create</h1>
               <p>
+=======
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc_3.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
+>>>>>>> 2d1c9c7c21973330503ba6b3be490c785734f3e7
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
