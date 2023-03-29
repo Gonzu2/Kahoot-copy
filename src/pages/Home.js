@@ -398,59 +398,65 @@ function Home({ quizes }) {
         <div className="how-does-kahoot-work">
           <h1>How does Kahoot! work?</h1>
           <ul class="cards">
-            <li>
-              <video
-                id="1"
-                loop
-                playsInline
-                preload="auto"
-                onMouseOver={(event) => event.target.play()}
-                onMouseLeave={(event) => event.target.pause()}>
-                <source
-                  src={require("../videos/kc_1.webm")}
-                  type="video/webm"
-                />
-              </video>
-              <h1>Create</h1>
-              <p>
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc_1.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
             </li>
-            <li>
-              <video
-                id="2"
-                loop
-                playsInline
-                preload="auto"
-                onMouseOver={(event) => event.target.play()}
-                onMouseLeave={(event) => event.target.pause()}>
-                <source
-                  src={require("../videos/kc2_2b.webm")}
-                  type="video/webm"
-                />
-              </video>
-              <h1>Create</h1>
-              <p>
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc2_2b.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
             </li>
-            <li>
-              <video
-                id="3"
-                loop
-                playsInline
-                preload="auto"
-                onMouseOver={(event) => event.target.play()}
-                onMouseLeave={(event) => event.target.pause()}>
-                <source
-                  src={require("../videos/kc_3.webm")}
-                  type="video/webm"
-                />
-              </video>
-              <h1>Create</h1>
-              <p>
+            <li class="card">
+              <div class="card-video">
+                <video
+                  id="1"
+                  loop
+                  playsInline
+                  preload="auto"
+                  onMouseOver={(event) => event.target.play()}
+                  onMouseLeave={(event) => event.target.pause()}>
+                  <source
+                    src={require("../videos/kc_3.webm")}
+                    type="video/webm"
+                  />
+                </video>
+              </div>
+              <h1 class="card-header">Create</h1>
+              <p class="card-info">
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
