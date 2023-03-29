@@ -96,24 +96,20 @@ function Home({ quizes }) {
                             viewBox="0 0 13 8"
                             version="1.1"
                             xmlns="http://www.w3.org/2000/svg"
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                          >
+                            xmlnsXlink="http://www.w3.org/1999/xlink">
                             <g
                               id="Symbols"
                               stroke="none"
                               stroke-width="1"
                               fill="none"
-                              fill-rule="evenodd"
-                            >
+                              fill-rule="evenodd">
                               <g
                                 id="mobile_header"
                                 transform="translate(-177.000000, -80.000000)"
-                                fill="rgb(56, 56, 230)"
-                              >
+                                fill="rgb(56, 56, 230)">
                                 <path
                                   d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                                  id="toggle"
-                                ></path>
+                                  id="toggle"></path>
                               </g>
                             </g>
                           </svg>
@@ -181,24 +177,20 @@ function Home({ quizes }) {
                               viewBox="0 0 13 8"
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
-                              xmlnsXlink="http://www.w3.org/1999/xlink"
-                            >
+                              xmlnsXlink="http://www.w3.org/1999/xlink">
                               <g
                                 id="Symbols"
                                 stroke="none"
                                 stroke-width="1"
                                 fill="none"
-                                fill-rule="evenodd"
-                              >
+                                fill-rule="evenodd">
                                 <g
                                   id="mobile_header"
                                   transform="translate(-177.000000, -80.000000)"
-                                  fill="rgb(56, 56, 230)"
-                                >
+                                  fill="rgb(56, 56, 230)">
                                   <path
                                     d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                                    id="toggle"
-                                  ></path>
+                                    id="toggle"></path>
                                 </g>
                               </g>
                             </svg>
@@ -221,8 +213,7 @@ function Home({ quizes }) {
             <li class="hero-shortcut-card hero-shortcut-card-red">
               <h1>
                 <img
-                  src={require("../images/kahoot-for-schools-icon.png")}
-                ></img>
+                  src={require("../images/kahoot-for-schools-icon.png")}></img>
                 Kahoot! at school
               </h1>
               <p>
@@ -237,24 +228,20 @@ function Home({ quizes }) {
                     viewBox="0 0 13 8"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
+                    xmlnsXlink="http://www.w3.org/1999/xlink">
                     <g
                       id="Symbols"
                       stroke="none"
                       stroke-width="1"
                       fill="none"
-                      fill-rule="evenodd"
-                    >
+                      fill-rule="evenodd">
                       <g
                         id="mobile_header"
                         transform="translate(-177.000000, -80.000000)"
-                        fill="rgb(56, 56, 230)"
-                      >
+                        fill="rgb(56, 56, 230)">
                         <path
                           d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                          id="toggle"
-                        ></path>
+                          id="toggle"></path>
                       </g>
                     </g>
                   </svg>
@@ -279,24 +266,20 @@ function Home({ quizes }) {
                     viewBox="0 0 13 8"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
+                    xmlnsXlink="http://www.w3.org/1999/xlink">
                     <g
                       id="Symbols"
                       stroke="none"
                       stroke-width="1"
                       fill="none"
-                      fill-rule="evenodd"
-                    >
+                      fill-rule="evenodd">
                       <g
                         id="mobile_header"
                         transform="translate(-177.000000, -80.000000)"
-                        fill="rgb(56, 56, 230)"
-                      >
+                        fill="rgb(56, 56, 230)">
                         <path
                           d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                          id="toggle"
-                        ></path>
+                          id="toggle"></path>
                       </g>
                     </g>
                   </svg>
@@ -319,24 +302,20 @@ function Home({ quizes }) {
                         viewBox="0 0 13 8"
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                      >
+                        xmlnsXlink="http://www.w3.org/1999/xlink">
                         <g
                           id="Symbols"
                           stroke="none"
                           stroke-width="1"
                           fill="none"
-                          fill-rule="evenodd"
-                        >
+                          fill-rule="evenodd">
                           <g
                             id="mobile_header"
                             transform="translate(-177.000000, -80.000000)"
-                            fill="rgb(56, 56, 230)"
-                          >
+                            fill="rgb(56, 56, 230)">
                             <path
                               d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                              id="toggle"
-                            ></path>
+                              id="toggle"></path>
                           </g>
                         </g>
                       </svg>
@@ -354,24 +333,20 @@ function Home({ quizes }) {
                     viewBox="0 0 13 8"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
+                    xmlnsXlink="http://www.w3.org/1999/xlink">
                     <g
                       id="Symbols"
                       stroke="none"
                       stroke-width="1"
                       fill="none"
-                      fill-rule="evenodd"
-                    >
+                      fill-rule="evenodd">
                       <g
                         id="mobile_header"
                         transform="translate(-177.000000, -80.000000)"
-                        fill="rgb(56, 56, 230)"
-                      >
+                        fill="rgb(56, 56, 230)">
                         <path
                           d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                          id="toggle"
-                        ></path>
+                          id="toggle"></path>
                       </g>
                     </g>
                   </svg>
@@ -396,24 +371,20 @@ function Home({ quizes }) {
                     viewBox="0 0 13 8"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
+                    xmlnsXlink="http://www.w3.org/1999/xlink">
                     <g
                       id="Symbols"
                       stroke="none"
                       stroke-width="1"
                       fill="none"
-                      fill-rule="evenodd"
-                    >
+                      fill-rule="evenodd">
                       <g
                         id="mobile_header"
                         transform="translate(-177.000000, -80.000000)"
-                        fill="rgb(56, 56, 230)"
-                      >
+                        fill="rgb(56, 56, 230)">
                         <path
                           d="M189.317061,82.1246979 C189.510391,81.9313678 189.510391,81.6143064 189.317061,81.4209763 L188.033349,80.1449976 C187.840019,79.9516675 187.530691,79.9516675 187.337361,80.1449976 L183.231029,84.2513291 L179.124698,80.1449976 C178.931368,79.9516675 178.62204,79.9516675 178.42871,80.1449976 L177.144998,81.4209763 C176.951667,81.6143064 176.951667,81.9313678 177.144998,82.1246979 L182.883035,87.8550024 C183.076365,88.0483325 183.385694,88.0483325 183.579024,87.8550024 L189.317061,82.1246979 Z"
-                          id="toggle"
-                        ></path>
+                          id="toggle"></path>
                       </g>
                     </g>
                   </svg>
@@ -435,8 +406,7 @@ function Home({ quizes }) {
                   playsInline
                   preload="auto"
                   onMouseOver={(event) => event.target.play()}
-                  onMouseLeave={(event) => event.target.pause()}
-                >
+                  onMouseLeave={(event) => event.target.pause()}>
                   <source
                     src={require("../videos/kc_1.webm")}
                     type="video/webm"
@@ -457,8 +427,7 @@ function Home({ quizes }) {
                   playsInline
                   preload="auto"
                   onMouseOver={(event) => event.target.play()}
-                  onMouseLeave={(event) => event.target.pause()}
-                >
+                  onMouseLeave={(event) => event.target.pause()}>
                   <source
                     src={require("../videos/kc2_2b.webm")}
                     type="video/webm"
@@ -479,8 +448,7 @@ function Home({ quizes }) {
                   playsInline
                   preload="auto"
                   onMouseOver={(event) => event.target.play()}
-                  onMouseLeave={(event) => event.target.pause()}
-                >
+                  onMouseLeave={(event) => event.target.pause()}>
                   <source
                     src={require("../videos/kc_3.webm")}
                     type="video/webm"
@@ -562,7 +530,6 @@ function Home({ quizes }) {
                       - even remotely."
                     </p>
                     <span>
-                      {" "}
                       Gustavo Lovato, AP Spanish and literature teacher
                     </span>
                   </div>
