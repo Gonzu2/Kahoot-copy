@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
 import {
@@ -11,6 +11,15 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
+  const handleMouseOver = (el) => {
+    const element = el.target;
+    element.play();
+  };
+
+  const handleMouseLeave = (el) => {
+    const element = el.target;
+    element.pause();
+  };
   return (
     <div id="home-main">
       <Navbar />
@@ -394,6 +403,70 @@ function Home({ quizes }) {
           </ul>
         </div>
         {/* Hero end */}
+        {/* How does kahoot work */}
+        <div className="how-does-kahoot-work">
+          <h1>How does Kahoot! work?</h1>
+          <ul class="cards">
+            <li>
+              <video
+                id="1"
+                loop
+                playsInline
+                preload="auto"
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}>
+                <source
+                  src={require("../videos/kc_1.webm")}
+                  type="video/webm"
+                />
+              </video>
+              <h1>Create</h1>
+              <p>
+                It only takes minutes to create a learning game or trivia quiz
+                on any topic, in any language.
+              </p>
+            </li>
+            <li>
+              <video
+                id="2"
+                loop
+                playsInline
+                preload="auto"
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}>
+                <source
+                  src={require("../videos/kc2_2b.webm")}
+                  type="video/webm"
+                />
+              </video>
+              <h1>Create</h1>
+              <p>
+                It only takes minutes to create a learning game or trivia quiz
+                on any topic, in any language.
+              </p>
+            </li>
+            <li>
+              <video
+                id="3"
+                loop
+                playsInline
+                preload="auto"
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}>
+                <source
+                  src={require("../videos/kc_3.webm")}
+                  type="video/webm"
+                />
+              </video>
+              <h1>Create</h1>
+              <p>
+                It only takes minutes to create a learning game or trivia quiz
+                on any topic, in any language.
+              </p>
+            </li>
+          </ul>
+        </div>
+        {/* How does kahoot work end */}
         {/* Starts Review section */}
         <section className="review-container">
           <div className="review">
