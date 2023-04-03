@@ -403,6 +403,27 @@ html {
   transform: translateY(-36%);
 }
 
+.play-ad {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 25px;
+}
+
+.play-ad-inner {
+  font-size: 0.5rem;
+  width: 80%;
+  height: auto;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: blue;
+  padding: 1rem;
+
+  text-align: center;
+}
+
 @media (width <= 1340px) {
   .cards {
     gap: 5px;
@@ -413,7 +434,7 @@ html {
   .cards {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    padding: 0 10px 0 10px;
+    padding: 0;
     gap: 30px;
   }
 
@@ -429,8 +450,35 @@ html {
   }
 }
 
-@media (width <= 455px) {
+@media (width <= 735px) {
+  .play-ad-inner {
+    width: 50%;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
 
+@media (width <= 455px) {
+  .card {
+    width: 80%;
+  }
+} j
+
+@media (width <= 340px) {
+  .card:nth-child(1) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
+  }
+
+  .card:nth-child(2) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
+  }
+
+  .card:nth-child(3) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
+  }
 }
 
 @media (width <= 1270px) {
@@ -537,7 +585,6 @@ html {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-bottom: 40px;
-
 }
 .review-btn {
   display: grid;
@@ -553,7 +600,6 @@ html {
   border: 0.1px solid;
   padding: 1rem 1.25rem;
   font-weight: 700;
-
 }
 .review-btn::before {
   content: "";
@@ -768,34 +814,34 @@ html {
 }
 
 @media (max-width: 1200px) {
-  .review-btns{
+  .review-btns {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     grid-gap: 10px;
   }
-  .long-btn{
+  .long-btn {
     padding: 20px;
     grid-column: 1/4;
   }
 }
 
 @media (max-width: 900px) {
-  .chat-box{
+  .chat-box {
     flex-direction: column;
   }
-  .chat-box-main{
+  .chat-box-main {
     flex: 100%;
     width: 100%;
     flex-shrink: 0;
   }
 }
 @media (max-width: 900px) {
-  .review-btns{
+  .review-btns {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
     grid-gap: 10px;
   }
-  .long-btn{
+  .long-btn {
     padding: 20px;
     grid-column: auto;
     grid-row: 2 / span 1;
@@ -803,19 +849,19 @@ html {
 }
 
 @media (max-width: 900px) {
-  .review-btns{
+  .review-btns {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, auto);
   }
-  .long-btn{
+  .long-btn {
     padding: 20px;
     grid-column: auto;
     grid-row: 2 / span 1;
   }
-  .chat-box-text{
+  .chat-box-text {
     padding-left: 0;
   }
-  .chat-box-img{
+  .chat-box-img {
     padding-right: 20px;
     padding-left: 20px;
   }

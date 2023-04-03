@@ -477,6 +477,16 @@ function Home({ quizes }) {
               </p>
             </li>
           </ul>
+          <div class="play-ad">
+            <div class="play-ad-inner">
+              <h1 class="play-ad-info">
+                Play Kahoot! to see how it works!
+                <a href="#" class="play-ad-button">
+                  Explore our featured games!
+                </a>
+              </h1>
+            </div>
+          </div>
         </div>
         {/* How does kahoot work end */}
         {/* Starts Review section */}
