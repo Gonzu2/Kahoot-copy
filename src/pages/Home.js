@@ -497,7 +497,7 @@ function Home({ quizes }) {
               <div className="review-btn" id="yell">
                 <span>Over 50 million public games available</span>
               </div>
-              <div className="review-btn" id="green">
+              <div className="review-btn long-btn" id="green">
                 <span>97% of the Fortune 500 use Kahoot!</span>
               </div>
             </div>
