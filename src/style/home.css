@@ -629,8 +629,8 @@ html {
   margin-bottom: 40px;
 }
 .review-btn {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   align-items: center;
   color: #fff;
