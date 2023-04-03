@@ -413,6 +413,11 @@ function Home({ quizes }) {
                   />
                 </video>
               </div>
+              <div class="skew-wraper skew-wrapper-how-it-works">
+                <div class="skew">
+                  <div class="skew-inner"></div>
+                </div>
+              </div>
               <h1 class="card-header">Create</h1>
               <p class="card-info">
                 It only takes minutes to create a learning game or trivia quiz
@@ -434,6 +439,11 @@ function Home({ quizes }) {
                   />
                 </video>
               </div>
+              <div class="skew-wraper skew-wrapper-how-it-works">
+                <div class="skew">
+                  <div class="skew-inner"></div>
+                </div>
+              </div>
               <h1 class="card-header">Create</h1>
               <p class="card-info">
                 It only takes minutes to create a learning game or trivia quiz
@@ -454,6 +464,11 @@ function Home({ quizes }) {
                     type="video/webm"
                   />
                 </video>
+              </div>
+              <div class="skew-wraper skew-wrapper-how-it-works">
+                <div class="skew">
+                  <div class="skew-inner"></div>
+                </div>
               </div>
               <h1 class="card-header">Create</h1>
               <p class="card-info">
