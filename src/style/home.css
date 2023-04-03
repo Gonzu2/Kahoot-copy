@@ -11,9 +11,9 @@ html {
 * {
   font-family: "Montserrat", sans-serif;
 }
-.underline{
+.underline {
   text-decoration: underline;
-  color:#fff !important;
+  color: #fff !important;
 }
 #home-main {
   width: 100vw;
@@ -384,6 +384,7 @@ html {
 .card h1 {
   margin: 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .card p {
@@ -436,11 +437,11 @@ html {
   padding: 1rem;
   text-align: center;
 }
-.play-ad-inner .play-ad-info a{
+.play-ad-inner .play-ad-info a {
   margin-left: 0.2rem;
 }
-.play-ad-wrapper::before{
-  content: ' ';
+.play-ad-wrapper::before {
+  content: " ";
   position: absolute;
   display: flex;
   left: 0;
@@ -450,21 +451,21 @@ html {
   bottom: 0;
   z-index: 1;
   border-radius: 0.25em;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
-.hands{
+.hands {
   z-index: 2;
   width: fit-content;
   position: absolute;
 }
- #left{
+#left {
   left: 2rem;
-  top: calc( 100% - 0.7rem);
+  top: calc(100% - 0.7rem);
 }
 
-#right{
+#right {
   right: 2rem;
-  top: calc( 100% - 0.7rem);
+  top: calc(100% - 0.7rem);
 }
 
 @media (width <= 1340px) {
@@ -494,7 +495,7 @@ html {
 }
 
 @media (width <= 735px) {
-  .play-ad-wrapper{
+  .play-ad-wrapper {
     margin-left: 23px;
     margin-right: 23px;
   }
@@ -504,7 +505,7 @@ html {
   .card {
     width: 80%;
   }
-} 
+}
 
 @media (width <= 340px) {
   .card:nth-child(1) .skew-wrapper-how-it-works {
