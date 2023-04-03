@@ -462,7 +462,7 @@ html {
   .card {
     width: 80%;
   }
-} 
+}
 
 @media (width <= 340px) {
   .card:nth-child(1) .skew-wrapper-how-it-works {
