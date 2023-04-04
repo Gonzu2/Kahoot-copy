@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {useSelector , useDispatch} from "react-redux"
-import  {useNavigate} from "react-router-dom"
-import {reset, login} from "../features/auth/authSlice"
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { reset, login } from "../features/auth/authSlice";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,23 +16,25 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const {user, isLoading, isError, isSuccsess, message} = useSelector((state) => state.auth)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccsess, message } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
-    if(isError){
-      console.log("error IsError", message)
-      alert(message, isError)
+    if (isError) {
+      console.log("error IsError", message);
+      alert(message, isError);
     }
 
-    if(isSuccsess || user){
-      navigate("/")
-      console.log("success IsSuccess", message)
+    if (isSuccsess || user) {
+      navigate("/home");
+      console.log("success IsSuccess", message);
     }
-    
-    dispatch(reset())
-  },[isError, isSuccsess, message, dispatch, navigate])
+
+    dispatch(reset());
+  }, [isError, isSuccsess, message, dispatch, navigate]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -48,10 +50,10 @@ function Login() {
     const userData = {
       email: email,
       password: password,
-    }
+    };
     dispatch(login(userData));
-    console.log(`dispatched Login ${userData.email} : ${userData.password}`)
-  }
+    console.log(`dispatched Login ${userData.email} : ${userData.password}`);
+  };
   return (
     <div id="main">
       <div id="container">

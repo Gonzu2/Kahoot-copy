@@ -30,7 +30,7 @@ function Register() {
     }
 
     if(isSuccess){
-      navigate("/")
+      navigate("/home")
       console.log("success IsSuccess", message)
     }
     

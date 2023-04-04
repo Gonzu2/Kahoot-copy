@@ -13,14 +13,6 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
-  const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (user){
-      // navigate("/") // chage to any roate
-    }
-  },[])
   return (
     <div id="home-main">
       <Navbar />
