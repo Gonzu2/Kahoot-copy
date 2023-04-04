@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,6 +13,14 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (user){
+      // navigate("/") // chage to any roate
+    }
+  },[])
   return (
     <div id="home-main">
       <Navbar />

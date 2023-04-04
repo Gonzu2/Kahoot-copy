@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import {useSelector , useDispatch} from "react-redux"
+import {reset, register} from "../features/auth/authSlice"
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,9 +14,29 @@ import Navbar from "../componnents/Navbar";
 var totalCompleted = 0;
 
 function Register() {
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
+
+  useEffect( () => {
+
+    if(isError){
+      console.log("error IsError", message)
+      alert(message, isError)
+    }
+
+    if(isSuccess){
+      navigate("/")
+      console.log("success IsSuccess", message)
+    }
+    
+    dispatch(reset())
+
+  },[user, isError, isSuccess, message, navigate, dispatch]) 
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +51,20 @@ function Register() {
       totalCompleted++;
     }
   };
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      name : username,
+      email : email,
+      password : password,
+    }
+
+    console.log(userData)
+
+    dispatch(register(userData))
+
+  }
   return (
     <div id="main">
       <div id="container">
@@ -64,6 +100,7 @@ function Register() {
 
           <button
             type="submit"
+            onClick={onSubmit}
             style={{
               cursor: username && email && password ? "pointer" : "not-allowed",
               background:
