@@ -40,7 +40,7 @@ function Footer() {
   return (
     <main className="main-footer">
       {/* <a href="#" className="dropdown_title">Work</a>
-      <ul class="dropdown">
+      <ul className="dropdown">
         <li><a href="#">Web Development</a></li>
         <li><a href="#">Web Design</a></li>
         <li><a href="#">Illustration</a></li>

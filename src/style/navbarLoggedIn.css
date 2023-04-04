@@ -1,0 +1,51 @@
+.navLoggedIn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 5px 0px rgba(148, 148, 148, 0.75);
+  padding: 1.25rem 1.5rem 1.5rem 1.25rem;
+}
+
+.kahoot-logo {
+  padding: 0;
+}
+
+.nav-main-items {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+}
+
+.nav-main-items p {
+  margin: 0;
+}
+
+.nav-second-items {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-second-items p {
+  margin: 0;
+}
+
+.upgrade {
+  display: flex;
+  align-items: center;
+
+  color: rgb(2, 130, 130);
+  font-weight: 6y00;
+
+  gap: 5px;
+}
+
+.upgrade > span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgb(2, 130, 130);
+}

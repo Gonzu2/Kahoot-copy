@@ -14,36 +14,35 @@ function Home({ quizes }) {
   return (
     <div id="home-main">
       <Navbar />
-
       <main>
         {/* Header section */}
-        <div class="header-container">
-          <div class="header-elements">
-            <div class="header-info">
-              <h1 class="header-text-1">
+        <div className="header-container">
+          <div className="header-elements">
+            <div className="header-info">
+              <h1 className="header-text-1">
                 Engage your professional audience with Kahoot! 360
               </h1>
-              <p class="header-text-2">
+              <p className="header-text-2">
                 It’s easy to make work awesome! Join millions of professionals
                 using Kahoot! 360 for engaging interactive presentations,
                 training, and events.
               </p>
-              <p class="header-text-3">
+              <p className="header-text-3">
                 <strong>
                   Save over 35% today with offers starting from $24/month.
                 </strong>
               </p>
-              <a class="raisedButton">Buy now!</a>
+              <a className="raisedButton">Buy now!</a>
             </div>
             <img src={require("../images/header.png")}></img>
           </div>
         </div>
-        <div class="hero-section">
-          <ul class="hero-cards">
-            <li class="hero-card">
-              <ul class="hero-info">
-                <li class="hero-text">
-                  <ul class="hero-main-text">
+        <div className="hero-section">
+          <ul className="hero-cards">
+            <li className="hero-card">
+              <ul className="hero-info">
+                <li className="hero-text">
+                  <ul className="hero-main-text">
                     <li>
                       <p>FOR TEACHERS</p>
                     </li>
@@ -60,20 +59,20 @@ function Home({ quizes }) {
                         Premier for teachers, for only $6.99/month.
                       </h2>
                     </li>
-                    <a class="raisedButton" style={{ width: "auto" }}>
+                    <a className="raisedButton" style={{ width: "auto" }}>
                       Buy now!
                     </a>
                   </ul>
                 </li>
-                <li class="hero-image">
+                <li className="hero-image">
                   <img src={require("../images/hero1.jpg")}></img>
                 </li>
               </ul>
             </li>
-            <li class="hero-card">
-              <ul class="hero-info">
-                <li class="hero-text">
-                  <ul class="hero-main-text">
+            <li className="hero-card">
+              <ul className="hero-info">
+                <li className="hero-text">
+                  <ul className="hero-main-text">
                     <li>
                       <p>FOR KIDS</p>
                     </li>
@@ -87,7 +86,7 @@ function Home({ quizes }) {
                       </h2>
                     </li>
                     <li>
-                      <a class="learn-more">
+                      <a className="learn-more">
                         Learn more
                         <span>
                           <svg
@@ -100,7 +99,7 @@ function Home({ quizes }) {
                             <g
                               id="Symbols"
                               stroke="none"
-                              stroke-width="1"
+                              strokeWidth="1"
                               fill="none"
                               fill-rule="evenodd">
                               <g
@@ -117,21 +116,21 @@ function Home({ quizes }) {
                       </a>
                     </li>
                     <li>
-                      <a class="raisedButton" style={{ width: "auto" }}>
+                      <a className="raisedButton" style={{ width: "auto" }}>
                         Get Kahoot! Kids
                       </a>
                     </li>
                   </ul>
                 </li>
-                <li class="hero-image">
+                <li className="hero-image">
                   <img src={require("../images/hero2.png")}></img>
                 </li>
               </ul>
             </li>
-            <li class="hero-card">
-              <ul class="hero-info">
-                <li class="hero-text">
-                  <ul class="hero-main-text">
+            <li className="hero-card">
+              <ul className="hero-info">
+                <li className="hero-text">
+                  <ul className="hero-main-text">
                     <li>
                       <h1>
                         Explore ready-to-use learning resources for your next
@@ -145,20 +144,20 @@ function Home({ quizes }) {
                         at $3.
                       </h2>
                     </li>
-                    <a class="raisedButton" style={{ width: "auto" }}>
+                    <a className="raisedButton" style={{ width: "auto" }}>
                       Explore resources
                     </a>
                   </ul>
                 </li>
-                <li class="hero-image">
+                <li className="hero-image">
                   <img src={require("../images/hero3.jpg")}></img>
                 </li>
               </ul>
             </li>
-            <li class="hero-card">
-              <ul class="hero-info">
-                <li class="hero-text">
-                  <ul class="hero-main-text">
+            <li className="hero-card">
+              <ul className="hero-info">
+                <li className="hero-text">
+                  <ul className="hero-main-text">
                     <li>
                       <h1>Access new Marvel content on Kahoot!</h1>
                     </li>
@@ -168,7 +167,7 @@ function Home({ quizes }) {
                         collections on science, math, social emotional learning,
                         and more. Available for free and in Kahoot!’s premium
                         content subscription.
-                        <a class="learn-more">
+                        <a className="learn-more">
                           Learn more
                           <span>
                             <svg
@@ -181,7 +180,7 @@ function Home({ quizes }) {
                               <g
                                 id="Symbols"
                                 stroke="none"
-                                stroke-width="1"
+                                strokeWidth="1"
                                 fill="none"
                                 fill-rule="evenodd">
                                 <g
@@ -198,19 +197,19 @@ function Home({ quizes }) {
                         </a>
                       </h2>
                     </li>
-                    <a class="raisedButton" style={{ width: "auto" }}>
+                    <a className="raisedButton" style={{ width: "auto" }}>
                       Explore kahoot
                     </a>
                   </ul>
                 </li>
-                <li class="hero-image">
+                <li className="hero-image">
                   <img src={require("../images/hero4.jpg")}></img>
                 </li>
               </ul>
             </li>
           </ul>
-          <ul class="hero-shortcuts">
-            <li class="hero-shortcut-card hero-shortcut-card-red">
+          <ul className="hero-shortcuts">
+            <li className="hero-shortcut-card hero-shortcut-card-red">
               <h1>
                 <img
                   src={require("../images/kahoot-for-schools-icon.png")}></img>
@@ -219,7 +218,7 @@ function Home({ quizes }) {
               <p>
                 Engaging group and distance learning for teachers and students.
               </p>
-              <a class="learn-more hoverAnim">
+              <a className="learn-more hoverAnim">
                 Learn more
                 <span>
                   <svg
@@ -232,7 +231,7 @@ function Home({ quizes }) {
                     <g
                       id="Symbols"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <g
@@ -248,7 +247,7 @@ function Home({ quizes }) {
                 </span>
               </a>
             </li>
-            <li class="hero-shortcut-card hero-shortcut-card-blue">
+            <li className="hero-shortcut-card hero-shortcut-card-blue">
               <h1>
                 <img src={require("../images/kahoot-at-work-icon.png")}></img>
                 Kahoot! at work
@@ -257,7 +256,7 @@ function Home({ quizes }) {
                 Deliver training, presentations, meetings and events in-person
                 or on any video conferencing platform.
               </p>
-              <a class="learn-more hoverAnim">
+              <a className="learn-more hoverAnim">
                 Learn more
                 <span>
                   <svg
@@ -270,7 +269,7 @@ function Home({ quizes }) {
                     <g
                       id="Symbols"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <g
@@ -286,14 +285,14 @@ function Home({ quizes }) {
                 </span>
               </a>
             </li>
-            <li class="hero-shortcut-card hero-shortcut-card-green">
+            <li className="hero-shortcut-card hero-shortcut-card-green">
               <h1>
                 <img src={require("../images/kahoot-at-home-icon.png")}></img>
                 Kahoot! at home
               </h1>
               <p>
                 <span>
-                  <a class="learn-more">
+                  <a className="learn-more">
                     Learning apps
                     <span>
                       <svg
@@ -306,7 +305,7 @@ function Home({ quizes }) {
                         <g
                           id="Symbols"
                           stroke="none"
-                          stroke-width="1"
+                          strokeWidth="1"
                           fill="none"
                           fill-rule="evenodd">
                           <g
@@ -324,7 +323,7 @@ function Home({ quizes }) {
                 </span>
                 and games for family fun or home study.
               </p>
-              <a class="learn-more hoverAnim">
+              <a className="learn-more hoverAnim">
                 Learn more
                 <span>
                   <svg
@@ -337,7 +336,7 @@ function Home({ quizes }) {
                     <g
                       id="Symbols"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <g
@@ -353,7 +352,7 @@ function Home({ quizes }) {
                 </span>
               </a>
             </li>
-            <li class="hero-shortcut-card hero-shortcut-card-yellow">
+            <li className="hero-shortcut-card hero-shortcut-card-yellow">
               <h1>
                 <img src={require("../images/academy-box-icon.png")}></img>
                 Kahoot! Academy
@@ -362,7 +361,7 @@ function Home({ quizes }) {
                 Explore content and join one of the world’s largest educator
                 communities.
               </p>
-              <a class="learn-more hoverAnim">
+              <a className="learn-more hoverAnim">
                 Learn more
                 <span>
                   <svg
@@ -375,7 +374,7 @@ function Home({ quizes }) {
                     <g
                       id="Symbols"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <g
@@ -397,9 +396,9 @@ function Home({ quizes }) {
         {/* How does kahoot work */}
         <div className="how-does-kahoot-work">
           <h1>How does Kahoot! work?</h1>
-          <ul class="cards">
-            <li class="card">
-              <div class="card-video">
+          <ul className="cards">
+            <li className="card">
+              <div className="card-video">
                 <video
                   id="1"
                   loop
@@ -413,19 +412,19 @@ function Home({ quizes }) {
                   />
                 </video>
               </div>
-              <div class="skew-wraper skew-wrapper-how-it-works">
-                <div class="skew">
-                  <div class="skew-inner"></div>
+              <div className="skew-wraper skew-wrapper-how-it-works">
+                <div className="skew">
+                  <div className="skew-inner"></div>
                 </div>
               </div>
-              <h1 class="card-header">Create</h1>
-              <p class="card-info">
+              <h1 className="card-header">Create</h1>
+              <p className="card-info">
                 It only takes minutes to create a learning game or trivia quiz
                 on any topic, in any language.
               </p>
             </li>
-            <li class="card">
-              <div class="card-video">
+            <li className="card">
+              <div className="card-video">
                 <video
                   id="1"
                   loop
@@ -439,19 +438,19 @@ function Home({ quizes }) {
                   />
                 </video>
               </div>
-              <div class="skew-wraper skew-wrapper-how-it-works">
-                <div class="skew">
-                  <div class="skew-inner"></div>
+              <div className="skew-wraper skew-wrapper-how-it-works">
+                <div className="skew">
+                  <div className="skew-inner"></div>
                 </div>
               </div>
-              <h1 class="card-header">Host or share</h1>
-              <p class="card-info">
+              <h1 className="card-header">Host or share</h1>
+              <p className="card-info">
                 Host a live game with questions on a big screen or share a game
                 with remote players.
               </p>
             </li>
-            <li class="card">
-              <div class="card-video">
+            <li className="card">
+              <div className="card-video">
                 <video
                   id="1"
                   loop
@@ -465,24 +464,24 @@ function Home({ quizes }) {
                   />
                 </video>
               </div>
-              <div class="skew-wraper skew-wrapper-how-it-works">
-                <div class="skew">
-                  <div class="skew-inner"></div>
+              <div className="skew-wraper skew-wrapper-how-it-works">
+                <div className="skew">
+                  <div className="skew-inner"></div>
                 </div>
               </div>
-              <h1 class="card-header">Play</h1>
-              <p class="card-info">
+              <h1 className="card-header">Play</h1>
+              <p className="card-info">
                 Game on! Join a kahoot with a PIN provided by the host and
                 answer questions on your device.
               </p>
             </li>
           </ul>
-          <div class="play-ad">
+          <div className="play-ad">
             <div className="play-ad-wrapper">
-              <div class="play-ad-inner">
-                <h1 class="play-ad-info">
+              <div className="play-ad-inner">
+                <h1 className="play-ad-info">
                   Play Kahoot! to see how it works!
-                  <a href="#" class="play-ad-button underline">
+                  <a href="#" className="play-ad-button underline">
                     Explore our featured games!
                   </a>
                 </h1>
@@ -491,19 +490,19 @@ function Home({ quizes }) {
                     width="40px"
                     height="39px"
                     viewBox="0 0 40 39"
-                    class="hand"
+                    className="hand"
                     aria-hidden="true">
                     <g
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <path
-                        class="hand__grip"
+                        className="hand__grip"
                         d="M6,32 L7.1340332,11 L29.0739746,11 L30.9841309,6.30419922 C32.5002016,-0.497833236 39.8556292,0.124038746 39.8556292,0.124038746 L36.2359774,20.1807405 L19.7161246,22.3503189 L18.9752808,31.1017456 L6,32 Z"
                         fill="#FAD09E"></path>
                       <polygon
-                        class="hand__cuff"
+                        className="hand__cuff"
                         points="0.000131427821 39 0.000131427821 31.9825647 19.6968384 31 23 39"></polygon>
                     </g>
                   </svg>
@@ -513,19 +512,19 @@ function Home({ quizes }) {
                     width="40px"
                     height="39px"
                     viewBox="0 0 40 39"
-                    class="hand"
+                    className="hand"
                     aria-hidden="true">
                     <g
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
                       fill-rule="evenodd">
                       <path
-                        class="hand__grip"
+                        className="hand__grip"
                         d="M20.9,31.1l-0.7-8.8L3.6,20.2L0,0.1c0,0,7.4-0.6,8.9,6.2l1.9,4.7h21.9l1.1,21L20.9,31.1z"
                         fill="#FAD09E"></path>
                       <polygon
-                        class="hand__cuff"
+                        className="hand__cuff"
                         points="16.9,39 20.2,31 39.9,32 39.9,39"></polygon>
                     </g>
                   </svg>
