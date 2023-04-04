@@ -35,7 +35,6 @@ ul {
   gap: 1rem;
   padding-left: 2.3rem;
   padding-right: 2.3rem;
-
 }
 .footer-links {
   display: grid;
@@ -163,7 +162,7 @@ ul {
   grid-template-columns: repeat(2, 1fr);
   width: fit-content;
 }
-img{
+img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,6 +174,12 @@ img{
   width: 13px;
   margin: auto;
   margin-left: 0.3rem;
+  transform: rotateX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.up {
+  transform: rotateX(180deg);
 }
 
 @media (max-width: 1050px) {
@@ -182,18 +187,18 @@ img{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
   }
-.folllow-us_container{
-  padding-right: 0;
-  flex-flow: row wrap;
-  padding-bottom: 1rem;
-}
+  .folllow-us_container {
+    padding-right: 0;
+    flex-flow: row wrap;
+    padding-bottom: 1rem;
+  }
   .logos {
     flex-flow: row wrap;
   }
   #kahoot-logo {
     display: none;
   }
-  .partner{
+  .partner {
     margin-left: 16px;
   }
 }
@@ -202,7 +207,7 @@ img{
     flex-direction: column;
     justify-content: start;
   }
-  .footer-links ul:hover{
+  .footer-links ul:hover {
     cursor: pointer;
   }
   .follow-us {
@@ -211,7 +216,7 @@ img{
   .follow-us li {
     margin-left: 0;
   }
-  .logos{
+  .logos {
     justify-content: start;
   }
 

@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 
 function Footer() {
   const [screenWidth, setScreenWidht] = useState(window.innerWidth);
+  const [dropdownArrow, setDropdownArrow] = useState("down");
   const [dropdownStates, setDropdownStates] = useState([
     true,
     true,
     true,
     true,
   ]);
-  const phoneSize = 767
+  const phoneSize = 767;
   const handleClick = (index) => {
-    console.log(screenWidth)
-    if(screenWidth < phoneSize ){
+    if (screenWidth < phoneSize) {
       setDropdownStates((prevState) => {
         const newState = [...prevState];
         newState[index] = !newState[index];
@@ -21,23 +21,22 @@ function Footer() {
       });
     }
   };
+
   useEffect(() => {
-    console.log(screenWidth)
     const handleResize = () => {
       setScreenWidht(window.innerWidth);
       localStorage.setItem("screenWidht", window.innerWidth);
     };
-    if(screenWidth < phoneSize){
-      console.log("colosing")
+    if (screenWidth < phoneSize) {
       setDropdownStates(dropdownStates.map(() => false));
     }
-    if(screenWidth > phoneSize){
-      console.log("openinig")
+    if (screenWidth > phoneSize) {
       setDropdownStates(dropdownStates.map(() => true));
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [screenWidth]);
+
   return (
     <main className="main-footer">
       {/* <a href="#" className="dropdown_title">Work</a>
@@ -49,9 +48,14 @@ function Footer() {
       </ul> */}
       <div className="footer-links center">
         <ul className="fit">
-          <li className="dropdown-title link-title" onClick={() => handleClick(0)}>
+          <li
+            className="dropdown-title link-title"
+            onClick={() => handleClick(0)}>
             <span className="bold ">About</span>
-            <span className="arrowDown"></span>
+            <span
+              className={
+                "arrowDown " + (dropdownStates[0] ? "up" : "down")
+              }></span>
           </li>
           <li className="dropdown-body-container">
             <ul
@@ -86,9 +90,14 @@ function Footer() {
           </li>
         </ul>
         <ul>
-          <li className="dropdown-title link-title" onClick={() => handleClick(1)}>
+          <li
+            className="dropdown-title link-title"
+            onClick={() => handleClick(1)}>
             <span className="bold ">Solusions</span>
-            <span className="arrowDown"></span>
+            <span
+              className={
+                "arrowDown " + (dropdownStates[1] ? "up" : "down")
+              }></span>
           </li>
           <li className="dropdown-body-container">
             <ul
@@ -126,9 +135,11 @@ function Footer() {
           </li>
         </ul>
         <ul>
-          <li className="dropdown-title link-title" onClick={() => handleClick(2)}>
+          <li
+            className="dropdown-title link-title"
+            onClick={() => handleClick(2)}>
             <span className="bold ">Resources</span>
-            <span className="arrowDown"></span>
+            <span className={"arrowDown " + (dropdownStates[2] ? "up" : "down")}></span>
           </li>
           <li className="dropdown-body-container">
             <ul
@@ -166,9 +177,11 @@ function Footer() {
           </li>
         </ul>
         <ul>
-          <li className="dropdown-title link-title" onClick={() => handleClick(3)}>
+          <li
+            className="dropdown-title link-title"
+            onClick={() => handleClick(3)}>
             <span className="bold">Terms and conditions</span>
-            <span className="arrowDown"></span>
+            <span className={"arrowDown " + (dropdownStates[3] ? "up" : "down")}></span>
           </li>
           <li className="dropdown-body-container">
             <ul
