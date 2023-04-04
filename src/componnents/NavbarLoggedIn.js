@@ -68,7 +68,7 @@ const Navbar = () => {
       {/* Nav second items */}
       <ul className="nav-second-items">
         <li className="nav-second-item upgrade">
-          <span data-functional-selector="icon">
+          <span>
             <svg
               viewBox="0 0 32 32"
               focusable="false"
@@ -88,7 +88,22 @@ const Navbar = () => {
         <li className="nav-second-item create-button nav-button">
           <p>Create</p>
         </li>
-        <li className="nav-second-item account-info"></li>
+        <li className="nav-second-item account-info">
+          <div>
+            <svg
+              viewBox="0 0 32 32"
+              focusable="false"
+              stroke="none"
+              strokeWidth="0"
+              aria-hidden="true"
+              fill="rgb(255, 255, 255)">
+              <title id="label-85f02de4-bc36-4cae-9d83-b481d6380068">
+                Icon
+              </title>
+              <path d="M16,16 C13.2385763,16 11,13.7614237 11,11 C11,8.23857625 13.2385763,6 16,6 C18.7614237,6 21,8.23857625 21,11 C21,13.7614237 18.7614237,16 16,16 Z M25,24.3125 L7,24.3125 C7,20.2739178 11.0294373,17 16,17 C20.9705627,17 25,20.2739178 25,24.3125 Z"></path>
+            </svg>
+          </div>
+        </li>
         <li className="nav-second-item notification-bell">
           <svg
             width="18"
