@@ -17,7 +17,6 @@ import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,12 +25,6 @@ function Login() {
   );
 
   useEffect(() => {
-
-    if (isLoading) {
-      setLoading(isLoading);
-    }else if (!isLoading) {
-      setLoading(isLoading);
-    }
 
     if (isError) {
       console.log("error IsError", message);
@@ -63,8 +56,10 @@ function Login() {
     dispatch(login(userData));
     console.log(`dispatched Login ${userData.email} : ${userData.password}`);
   };
+  if(isLoading) {
+    return (<Spinner/>)
+  }
   return (
-    loading ? ( <Spinner/> ) : (
     <div id="main">
       <div id="container">
         <section id="main-container">
@@ -143,7 +138,6 @@ function Login() {
         </section>
       </div>
     </div>
-  )
   );
 }
 

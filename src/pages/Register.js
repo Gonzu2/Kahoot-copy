@@ -19,18 +19,12 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
 
   useEffect( () => {
-
-    if (isLoading) {
-      setLoading(isLoading);
-    }else if (!isLoading) {
-      setLoading(isLoading);
-    }
 
     if(isError){
       console.log("error IsError", message)
@@ -73,8 +67,10 @@ function Register() {
     dispatch(register(userData))
 
   }
+  if(isLoading) {
+    return (<Spinner/>)
+  }
   return (
-    loading ? (<Spinner/>) : (
     <div id="main">
       <div id="container">
         <section id="main-container">
@@ -161,7 +157,6 @@ function Register() {
         </section>
       </div>
     </div>
-    )
   );
 }
 
