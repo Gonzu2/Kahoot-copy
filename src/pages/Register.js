@@ -3,6 +3,7 @@ import {useSelector , useDispatch} from "react-redux"
 import {reset, register} from "../features/auth/authSlice"
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Spinner from "../componnents/Spinner"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,11 +19,18 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
 
   useEffect( () => {
+
+    if (isLoading) {
+      setLoading(isLoading);
+    }else if (!isLoading) {
+      setLoading(isLoading);
+    }
 
     if(isError){
       console.log("error IsError", message)
@@ -36,7 +44,7 @@ function Register() {
     
     dispatch(reset())
 
-  },[user, isError, isSuccess, message, navigate, dispatch]) 
+  },[user, isError, isSuccess, message, isLoading, navigate, dispatch]) 
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -66,6 +74,7 @@ function Register() {
 
   }
   return (
+    loading ? (<Spinner/>) : (
     <div id="main">
       <div id="container">
         <section id="main-container">
@@ -152,6 +161,7 @@ function Register() {
         </section>
       </div>
     </div>
+    )
   );
 }
 

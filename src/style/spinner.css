@@ -1,0 +1,53 @@
+:root{
+    --backround-color: aliceblue;
+}
+.spinner-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backround-color);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 100;
+}
+.spinner-main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+}
+.spinner-body {
+    display: flex;
+    justify-content: end;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 20px solid #2a7a15;
+    border-radius: 50%;
+    position: relative;
+    animation: spinner 2s infinite;
+
+}
+.spinner-middle {
+    background-color: var(--backround-color);
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    bottom: -55%;
+    left: -40%;
+} 
+.spinner-main .container span {
+    margin-top: 50px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+@keyframes spinner{
+100% {
+    transform: rotateZ(360deg);
+}
+}
