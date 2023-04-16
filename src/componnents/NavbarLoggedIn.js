@@ -2,8 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/navbarLoggedIn.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const { user, isLoading, isError, isSuccsess, message } = useSelector(
+    (state) => state.auth
+  );
+
   // to change burger classes
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
   // toggle burger menu change
@@ -13,10 +18,33 @@ const Navbar = () => {
   return (
     <nav className="navLoggedIn">
       {/* Burger nom nom 🍔*/}
-      <div className="burger-menu" onClick={updateMenu}>
+      <div className="burger-menu-logged-in" onClick={updateMenu}>
         <div className={burger_class}></div>
         <div className={burger_class}></div>
         <div className={burger_class}></div>
+      </div>
+
+      <div className="nav-offcanvas">
+        <div className="nav-offcanvas-inner">
+          <div className="nav-second-item account-info">
+            <div>
+              <svg
+                viewBox="0 0 32 32"
+                focusable="false"
+                stroke="none"
+                strokeWidth="0"
+                aria-hidden="true"
+                fill="rgb(255, 255, 255)">
+                <title id="label-85f02de4-bc36-4cae-9d83-b481d6380068">
+                  Icon
+                </title>
+                <path d="M16,16 C13.2385763,16 11,13.7614237 11,11 C11,8.23857625 13.2385763,6 16,6 C18.7614237,6 21,8.23857625 21,11 C21,13.7614237 18.7614237,16 16,16 Z M25,24.3125 L7,24.3125 C7,20.2739178 11.0294373,17 16,17 C20.9705627,17 25,20.2739178 25,24.3125 Z"></path>
+              </svg>
+            </div>
+            <h1>{user.name}</h1>
+          </div>
+          <ul></ul>
+        </div>
       </div>
 
       {/* Nav main items */}
@@ -202,11 +230,30 @@ const Navbar = () => {
           </span>
           <p>Upgrade</p>
         </li>
-        <li className="nav-second-item share-button nav-button">
-          <p>Share</p>
-        </li>
         <li className="nav-second-item create-button nav-button">
           <p>Create</p>
+        </li>
+        <li className="nav-second-item create-button-small">
+          <span
+            data-functional-selector="icon"
+            style={{
+              display: "inline-block",
+              verticalAlign: "middle",
+              width: "32px",
+              height: "32px",
+            }}>
+            <svg
+              viewBox="0 0 32 32"
+              focusable="false"
+              stroke="none"
+              strokeWidth="0"
+              aria-hidden="true">
+              <title>Icon</title>
+              <path
+                d="M7 15 15 15 15 7 17 7 17 15 25 15 25 17 17 17 17 25 15 25 15 17 7 17z"
+                style={{ fill: "rgb(255, 255, 255)" }}></path>
+            </svg>
+          </span>
         </li>
         <li className="nav-second-item account-info">
           <div>
