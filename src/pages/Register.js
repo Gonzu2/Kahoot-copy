@@ -35,7 +35,6 @@ function Register() {
       navigate("/home")
       console.log("success IsSuccess", message)
     }
-    
     dispatch(reset())
 
   },[user, isError, isSuccess, message, isLoading, navigate, dispatch]) 

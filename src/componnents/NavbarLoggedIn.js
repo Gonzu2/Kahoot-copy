@@ -206,7 +206,9 @@ const Navbar = () => {
           <p>Share</p>
         </li>
         <li className="nav-second-item create-button nav-button">
+        <Link to={"/create"}>
           <p>Create</p>
+          </Link>
         </li>
         <li className="nav-second-item account-info">
           <div>

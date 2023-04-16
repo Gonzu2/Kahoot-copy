@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import QuizLoad from "./componnents/QuizLoad";
 import Spinner from "./componnents/Spinner.js";
 import HomeLoggedIn from "./pages/HomeLoggedIn"
+import CreateQuiz from "./pages/CreateQuiz.js";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<HomeLoggedIn />} />
+        <Route path="/create" element={<CreateQuiz />} />
       </Routes>
     </>
   );
