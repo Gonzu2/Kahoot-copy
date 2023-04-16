@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { reset, login } from "../features/auth/authSlice";
+import Spinner from "../componnents/Spinner"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,6 +12,7 @@ import {
 } from "react-router-dom";
 import "../style/login-register.css";
 import Navbar from "../componnents/Navbar";
+import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,6 +25,7 @@ function Login() {
   );
 
   useEffect(() => {
+
     if (isError) {
       console.log("error IsError", message);
       alert(message, isError);
@@ -30,11 +33,10 @@ function Login() {
 
     if (isSuccsess || user) {
       navigate("/home");
-      console.log("success IsSuccess", message);
     }
 
     dispatch(reset());
-  }, [isError, isSuccsess, message, dispatch, navigate]);
+  }, [isError, isSuccsess, message, dispatch, navigate, user, isLoading]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +56,9 @@ function Login() {
     dispatch(login(userData));
     console.log(`dispatched Login ${userData.email} : ${userData.password}`);
   };
+  if(isLoading) {
+    return (<Spinner/>)
+  }
   return (
     <div id="main">
       <div id="container">
