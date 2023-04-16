@@ -13,6 +13,7 @@ import Navbar from "../componnents/Navbar";
 import Footer from "../componnents/Footer";
 
 function Home({ quizes }) {
+
   return (
     <div id="home-main">
       <Navbar />
