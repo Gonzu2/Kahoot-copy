@@ -11,8 +11,11 @@
   width: 100vw;
 }
 
-.kahoot-logo {
+.navbar-logged-in-kahoot-logo {
+  width: 4.375rem;
+  height: 1.5rem;
   padding: 0;
+  z-index: 10;
 }
 
 .nav-main-items {
@@ -164,6 +167,7 @@
   justify-content: space-between;
   cursor: pointer;
   z-index: 15;
+  margin-left: 20px;
 }
 
 .create-button-small {
@@ -186,12 +190,22 @@
   }
 }
 
-@media (width <= 870px) {
+@media (width <= 942px) {
   .burger-menu-logged-in {
     display: flex;
+    z-index: 1000;
+  }
+  .nav-main-items {
+    padding: 0;
   }
   .nav-main-item {
     display: none !important;
+  }
+}
+
+@media (width <= 396px) {
+  .upgrade p {
+    display: none;
   }
 }
 
@@ -203,14 +217,68 @@
   width: 100vw;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
+  cursor: pointer;
 }
 
 .nav-offcanvas-inner {
+  cursor: default;
+  z-index: 2000;
   background: white;
   width: 75%;
   height: 100%;
-  padding-top: 75px;
+  padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.close-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.close-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+.account-info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.account-info div {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.account-info h1 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.nav-second-items-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: min-content;
+  padding: 0;
+  padding: 0px 1rem;
+  min-width: 10rem;
+  min-height: 40px;
+}
+
+.nav-second-items-list > .nav-second-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
 }

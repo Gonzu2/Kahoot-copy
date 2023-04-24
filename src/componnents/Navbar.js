@@ -36,7 +36,6 @@ const Navbar = () => {
       var nav = document.getElementById("nav");
       nav.style.backgroundColor = "white";
       nav.style.boxShadow = "0px 4px 5px 0px rgba(148,148,148,0.75)";
-      
     }
     setIsMenuClicked(!isMenuClicked);
   };
@@ -50,7 +49,11 @@ const Navbar = () => {
       </div>
 
       <a className="navBrandSecond">
-        <svg width="24" height="25" viewBox="0 0 30 32" className="k-logo">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 30 32"
+          className="navbar-k-logo">
           <title>K!</title>
           <g
             stroke="none"
@@ -68,7 +71,7 @@ const Navbar = () => {
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          className="kahoot-logo">
+          className="navbar-kahoot-logo a">
           <title>Kahoot!</title>
           <g
             className={"logo " + kahoot_logo}
@@ -343,7 +346,7 @@ const Navbar = () => {
 
       <ul className={"navItems navLeft " + text_color}>
         <a id="navBrand">
-          <svg width="24" height="25" viewBox="0 0 30 32" className="k-logo">
+          <svg width="24" height="25" viewBox="0 0 30 32" className="navbar-k-logo">
             <title>K!</title>
             <g
               stroke="none"
@@ -361,7 +364,7 @@ const Navbar = () => {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            className="kahoot-logo">
+            className="navbar-kahoot-logo">
             <title>Kahoot!</title>
             <g
               className={"logo " + kahoot_logo}

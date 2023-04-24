@@ -341,12 +341,12 @@
   margin: 2px;
 }
 
-.k-logo {
+.navbar-k-logo {
   display: none;
   z-index: 10;
 }
 
-.kahoot-logo {
+.navbar-kahoot-logo {
   width: 4.375rem;
   height: 1.5rem;
   z-index: 10;
@@ -446,10 +446,10 @@
 }
 
 @media (width <= 440px) {
-  .k-logo {
+  .navbar-k-logo {
     display: block;
   }
-  .kahoot-logo {
+  .navbar-kahoot-logo {
     display: none;
   }
 }
