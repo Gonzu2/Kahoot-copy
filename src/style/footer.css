@@ -71,9 +71,11 @@ ul {
 }
 .follow-us li {
   margin: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 .follow-us li a {
-  margin: auto;
 }
 .follow-us #twitter {
   content: "";

@@ -61,8 +61,6 @@ function Register() {
       password : password,
     }
 
-    console.log(userData)
-
     dispatch(register(userData))
 
   }

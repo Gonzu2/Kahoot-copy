@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
 .navLoggedIn {
   box-sizing: border-box;
   position: fixed;
@@ -6,7 +11,6 @@
   justify-content: space-between;
   box-shadow: 0px 4px 5px 0px rgba(148, 148, 148, 0.75);
   padding: 0.65rem 1.5rem 0.65rem 1.5rem;
-  font-family: "Montserrat", sans-serif;
   background-color: white;
   width: 100vw;
 }
@@ -63,6 +67,10 @@
   background: rgb(2, 130, 130);
 }
 
+.upgrade > p {
+  margin: 7.5px;
+}
+
 .create-button {
   position: relative;
   color: white;
@@ -111,7 +119,7 @@
 .account-info > div {
   position: relative;
   box-sizing: border-box;
-  background: #0aa3a3;
+  background: rgb(134, 76, 191);
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -150,7 +158,7 @@
   justify-content: center;
   gap: 10px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @media (width <= 1425px) {
@@ -211,7 +219,6 @@
 
 .nav-offcanvas {
   position: absolute;
-  left: 0;
   top: 0;
   height: 100vh;
   width: 100vw;
@@ -220,19 +227,29 @@
   cursor: pointer;
 }
 
+.visible-canvas {
+  left: 0;
+}
+.hidden-canvas {
+  left: -1000%;
+}
+
 .nav-offcanvas-inner {
   cursor: default;
   z-index: 2000;
   background: white;
-  width: 75%;
+  width: 35%;
+  min-width: 250px;
   height: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;
+  overflow-y: scroll;
 }
 
 .close-btn {
+  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
   width: 100%;
@@ -263,22 +280,83 @@
   font-weight: 900;
 }
 
+.break-line {
+  width: 100%;
+  height: 1px;
+  background: rgb(51, 51, 51);
+  opacity: 10%;
+}
+
 .nav-second-items-list {
   display: flex;
   flex-direction: column;
   align-items: start;
   width: min-content;
   padding: 0;
-  padding: 0px 1rem;
-  min-width: 10rem;
-  min-height: 40px;
 }
 
-.nav-second-items-list > .nav-second-item {
+.nav-second-items-list .nav-second-item {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-size: 14px;
   font-weight: 700;
+}
+
+.upgrade-canvas {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-second-items-list-other {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  padding: 0;
+}
+
+.other {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.resoursces {
+  cursor: pointer;
+  color: black;
+  font-weight: 900;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.sign-out {
+  cursor: pointer;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  color: rgb(198, 9, 41);
+  font-size: 14px;
+}
+
+.selected,
+.selected > span > svg > path {
+  color: rgb(70, 23, 143);
+  fill: rgb(70, 23, 143);
+  font-weight: 800 !important;
+}
+
+.unselected {
+  font-weight: 600 !important;
+  color: rgb(51, 51, 51);
+  fill: rgb(51, 51, 51);
 }
