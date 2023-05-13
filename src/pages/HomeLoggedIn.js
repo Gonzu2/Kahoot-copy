@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
 import {
   createBrowserRouter,
@@ -8,9 +9,26 @@ import {
 } from "react-router-dom";
 import "../style/homeLoggedIn.css";
 import Navbar from "../componnents/NavbarLoggedIn";
+import { useDispatch, useSelector} from "react-redux";
+import { reset, getUserQuizes } from "../features/quiz/quizSlice";
 
 function HomeLoggedIn() {
+  const [personalQuizes, setPersonalQuizes] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth)
+  const { quiz, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.quiz)
+    useEffect(() => {
+
+      dispatch(getUserQuizes(user.token));
+      setPersonalQuizes(quiz);
+      console.log("getting all User quizes");
+      console.log(personalQuizes);
+    }, [isSuccess, ]);
   return (
+
+
     <div id="home-main">
       <Navbar />
       <div className="kahoots my-kahoots">
