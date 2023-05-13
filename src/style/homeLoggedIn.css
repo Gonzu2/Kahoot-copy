@@ -1,0 +1,159 @@
+body {
+  background-color: rgb(250, 250, 250);
+}
+
+.break-line {
+  width: 100%;
+  height: 1px;
+  background: rgb(51, 51, 51);
+  opacity: 10%;
+}
+
+.kahoots {
+  position: relative;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+
+  background-color: rgb(255, 255, 255);
+  max-width: 75%;
+  max-width: 650px;
+  height: 15%;
+  min-height: 500px;
+  border: 1px rgb(204, 204, 204);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+  border-radius: 4px;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.kahoot-header {
+  margin-left: 25px;
+  margin: 15px 25px 15px 25px;
+  font-size: 15px;
+}
+
+.kahoots-list {
+  padding: 0;
+  margin: 15px 20px 15px 20px;
+  overflow-y: hidden;
+}
+
+.kahoot-list-item {
+  display: flex;
+  border: 1px solid rgb(87, 86, 86, 0.6);
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.kahoot-image {
+  position: relative;
+  box-sizing: border-box;
+  width: 150px;
+  height: min-content;
+  max-width: 125px;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid rgb(87, 86, 86, 0.6);
+}
+.kahoot-image img {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 71px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.kahoot-image p {
+  color: white;
+  background-color: rgba(51, 51, 51, 0.8);
+  max-width: 100%;
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 4px;
+  width: max-content;
+  margin: 0;
+  padding: 5px;
+}
+
+.kahoot-image-questions-large {
+  margin: 5px 0 3px 10px;
+  font-weight: 500;
+  display: block;
+}
+
+.kahoot-image-questions-small {
+  margin: 5px 0 3px 10px;
+  font-weight: 500;
+  display: none;
+}
+
+.kahoot-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.kahoot-info > p {
+  margin: 5px 0 0 10px;
+}
+
+.kahoot-info-extra {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+  height: 24px;
+  background-color: rgb(242, 242, 242);
+  border-bottom-right-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.kahoot-info-extra p {
+  flex: 1;
+}
+
+.kahoot-info-extra-username {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kahoot-info-extra-plays {
+  display: inline-block;
+  margin: 3px 0;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: right;
+}
+
+@media screen and (max-width: 425px) {
+  .kahoot-image-questions-large {
+    display: none;
+  }
+  .kahoot-image-questions-small {
+    display: block;
+  }
+}

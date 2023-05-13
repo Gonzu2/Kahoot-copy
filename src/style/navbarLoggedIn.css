@@ -159,11 +159,16 @@
   gap: 10px;
   font-size: 14px;
   font-weight: 600;
+  min-height: 32px;
 }
 
 @media (width <= 1425px) {
   .nav-main-item span {
     display: none !important;
+  }
+  .nav-main-item p {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -238,8 +243,8 @@
   cursor: default;
   z-index: 2000;
   background: white;
-  width: 35%;
-  min-width: 250px;
+  width: 75%;
+  min-width: 300px;
   height: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -330,7 +335,7 @@
 .resoursces {
   cursor: pointer;
   color: black;
-  font-weight: 900;
+  font-weight: 600;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -359,4 +364,51 @@
   font-weight: 600 !important;
   color: rgb(51, 51, 51);
   fill: rgb(51, 51, 51);
+  position: relative;
+}
+
+.unselected:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  border-width: 0px 2px 3px;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-image: initial;
+  border-top-style: initial;
+  border-top-color: initial;
+  opacity: 0;
+  transition: opacity 0.2s ease 0s;
+  border-bottom: 4px solid rgb(70, 23, 143);
+}
+
+.unselected:hover:after {
+  opacity: 1;
+}
+
+.selected {
+  position: relative;
+}
+
+.selected:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  border-width: 0px 5px 3px;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-image: initial;
+  border-top-style: initial;
+  border-top-color: initial;
+  border-bottom: 3px solid rgb(70, 23, 143);
 }
