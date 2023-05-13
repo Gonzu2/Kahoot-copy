@@ -1,0 +1,261 @@
+
+.middle-main{
+    background: url(//assets-cdn.kahoot.it/builder/v2/assets/business_default-da04c7ff.jpg) center center / cover no-repeat rgb(242, 242, 242);
+    height: 100%;
+    width: 65%;
+    position: relative;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-height: (100% - (2 * clamp(16px, 2vmin, 48px)));
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 15px;
+}
+.question-title input{
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -4px 0px 0px inset;
+}
+.question-title span {
+    margin: 10px;
+    position: absolute;
+    right: 0;
+    color: #6e6e6e;
+    font-size: 1rem;
+}
+.question-title{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    position: relative;
+}
+.media-input-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 40%;
+}
+.media-input{
+    width: 37%;
+    height: 100%;
+    padding: 0px 1rem;
+    background-color: rgba(250,250,250,0.7);
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+
+}
+.media-input .logo {
+    display: flex;
+    background-image: url(//assets-cdn.kahoot.it/builder/v2/assets/media-032392f1.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 186px;
+    height: 74px;
+    filter: brightness(0.5);
+    margin-block-end: 8px;
+
+    
+}
+.media-input .plus {
+    font-size: 5rem;
+}
+.answer-btns-container{
+    position: relative;
+    height: 35%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+.answer-btn{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.6rem;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -0.25rem 0px 0px inset;
+    transition: background-color 0.15s ease-out;
+}
+#red .shape-container{
+    background-color: rgb(208, 25, 55);
+}
+#green .shape-container{
+    background-color: rgb(38, 137, 12);
+}
+#blue .shape-container{
+    background-color: rgb(19, 104, 206) !important;
+}
+#yellow .shape-container{
+    background-color: rgb(216, 158, 0);
+}
+
+.answer-btn .shape-container{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    height: 100%;
+    width: 10%;
+}
+.answer-btn .shape-container .shape {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    fill: white;
+}
+.answer-btn .text-input-box {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: clamp(5px, 1.2vmin, 16px);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+
+}
+.answer-btn .text-input-box span[data-text="true"] {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-width: 100%;
+    border: none;
+    background-color: inherit;
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    resize: none;
+    overflow-wrap: break-word;
+    vertical-align: baseline;
+    user-select: text;
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    font-size: clamp(1rem, 1.8vmin, 1.375rem);
+}
+span[data-placeholder]:empty:before {
+    content: attr(data-placeholder);
+    color: gray;
+  }
+span:focus-visible{
+    border: none;
+    outline-offset: 0px;
+    outline: none;
+}
+.charsLeft{
+    height: fit-content;
+    color: white;
+    position: absolute;
+    font-size: clamp(1rem, 1.8vmin, 1.375rem);
+    top: 1;
+    right: 0;
+    display: none;
+}
+
+.red .text-input-box .charsLeft {
+    display: block;
+}
+.blue .text-input-box .charsLeft {
+    display: block;
+}
+.green .text-input-box .charsLeft {
+    display: block;
+}
+.yellow .text-input-box .charsLeft {
+    display: block;
+}
+
+.red{
+    background-color:rgb(208, 25, 55) !important;
+}
+.blue{
+    background-color: rgb(19, 104, 206) !important;  
+}
+.green{
+    background-color: rgb(38, 137, 12) !important;
+}
+.yellow{
+    background-color: rgb(216, 158, 0) !important;
+}
+
+.red .radio-btn .check-box-outer {
+    display: block;
+}
+.blue .radio-btn .check-box-outer {
+    display: block;
+}
+.green .radio-btn .check-box-outer {
+    display: block;
+}
+.yellow .radio-btn .check-box-outer {
+    display: block;
+}
+.answer-btn .radio-btn {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.answer-btn .radio-btn input[type="checkbox" i]  {
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: inherit;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    border:  10px solid green;
+}
+.check-box-outer{
+    width: 2.875rem;
+    height: 2.875rem;
+    border-radius: 50%;
+    border: 0.25rem solid rgb(255, 255, 255);
+    background:  transparent;
+    position: relative;
+    overflow: hidden;
+    transition: transform, background-color 0.2s ease-in-out;
+    transform-origin: center bottom;
+    box-shadow: transparent 0px 0px 0px 0.125rem, rgba(0, 0, 0, 0.35) 0px 0.125rem 0.125rem, rgba(0, 0, 0, 0.35) 0px 0px 0px 0.0625rem;
+    display: none;
+}
+.check-box-inner{
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(//assets-cdn.kahoot.it/builder/v2/assets/check-icon-fe2a6a3d.svg);
+}
+.check-box-outer:hover{
+    transform-origin: bottom;
+    transform: scaleY(1.05);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.check-box-outer:has(.check-box-checked){
+    background: rgb(102, 191, 57);
+}
+.check-box-outer:hover > .check-box-inner {
+ display: block;
+}
+
+.check-box-checked{
+    display: block;
+}

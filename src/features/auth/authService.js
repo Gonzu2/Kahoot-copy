@@ -6,7 +6,6 @@ import axios from "axios";
 // for running online
 const API_URL = "https://kahoot-copy-backed.glitch.me/users/" 
 
-
 //register userr
 const registerUser = async (userData) => {
     const response = await axios.post(API_URL, userData)

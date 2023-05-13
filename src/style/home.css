@@ -654,24 +654,24 @@ html {
   width: 100%;
   z-index: 1;
 }
-#red {
+#red-review {
   background-color: rgb(226, 27, 60);
 }
-#blue {
+#blue-review {
   background-color: rgb(19, 104, 206);
 }
-#yell {
+#yell-review {
   background-color: rgb(208, 159, 54);
 }
-#green {
+#green-review {
   background-color: rgb(38, 137, 12);
 }
-#red span {
+#red-review span {
   display: flex;
   position: relative;
   width: fit-content;
 }
-#red span::before {
+#red-review span::before {
   content: " ";
   background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/triangle.svg");
   background-color: transparent;
@@ -685,12 +685,12 @@ html {
   background-repeat: no-repeat;
   background-size: contain;
 }
-#blue span {
+#blue-review span {
   display: flex;
   position: relative;
   width: fit-content;
 }
-#blue span::before {
+#blue-review span::before {
   content: " ";
   background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/diamond.svg");
   background-color: transparent;
@@ -706,12 +706,12 @@ html {
   background-repeat: no-repeat;
   background-size: contain;
 }
-#yell span {
+#yell-review span {
   display: flex;
   position: relative;
   width: fit-content;
 }
-#yell span::before {
+#yell-review span::before {
   content: " ";
   background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/circle.svg");
   background-color: transparent;
@@ -725,14 +725,14 @@ html {
   background-repeat: no-repeat;
   background-size: contain;
 }
-#green span {
+#green-review span {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   width: fit-content;
 }
-#green span::before {
+#green-review span::before {
   content: " ";
   background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/square.svg");
   background-color: transparent;
@@ -780,6 +780,7 @@ html {
   transform-origin: 0 0;
   transform: rotate(-45deg);
   box-shadow: -0.25rem 0.125rem 0.25rem rgb(0 0 0 / 15%);
+  z-index: 3;
 }
 .chat-box-container {
   display: flex;

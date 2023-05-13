@@ -4,6 +4,7 @@ import axios from "axios";
 
 // for running online
 const API_URL = "https://kahoot-copy-backed.glitch.me/quiz/";
+const API_URL = "https://kahoot-copy-backed.glitch.me/quiz/" 
 
 const getAllQuizes = async (token) => {
   const response = await axios.get(API_URL);
