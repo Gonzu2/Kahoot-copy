@@ -546,16 +546,16 @@ function Home({ quizes }) {
               <span>players a year</span>
             </div>
             <div className="review-btns">
-              <div className="review-btn" id="red">
+              <div className="review-btn" id="red-review">
                 <span>More than 50% of US teachers use Kahoot!</span>
               </div>
-              <div className="review-btn" id="blue">
+              <div className="review-btn" id="blue-review">
                 <span>Players in more than 200 countries and regions</span>
               </div>
-              <div className="review-btn" id="yell">
+              <div className="review-btn" id="yell-review">
                 <span>Over 50 million public games available</span>
               </div>
-              <div className="review-btn long-btn" id="green">
+              <div className="review-btn long-btn" id="green-review">
                 <span>97% of the Fortune 500 use Kahoot!</span>
               </div>
             </div>
