@@ -11,7 +11,6 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "../style/login-register.css";
-import Navbar from "../componnents/Navbar";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 function Login() {
