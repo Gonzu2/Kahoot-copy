@@ -76,9 +76,8 @@ const Navbar = () => {
               viewBox="0 0 32 32"
               focusable="false"
               stroke="none"
-              strokeWwidth="0"
-              aria-hidden="true"
-              class="sc-jSUZER eTaWgc">
+              strokeWidth="0"
+              aria-hidden="true">
               <title>Icon</title>
               <path
                 d="M24.714 8.414L23.3 7 16.007 14.293 8.714 7 7.3 8.414 14.593 15.707 7.3 23 8.714 24.414 16.007 17.122 23.3 24.414 24.714 23 17.421 15.707z"
@@ -273,7 +272,6 @@ const Navbar = () => {
             <li className="nav-second-item other">Upgrade</li>
             <li className="nav-second-item resoursces">
               <span
-                class="sc-eDvSVe htLrRN action-list__Icon-sc-4lsd0i-5 gHUQfY"
                 data-functional-selector="icon"
                 style={{
                   display: "inline-block",
@@ -299,7 +297,6 @@ const Navbar = () => {
           <hr className="break-line"></hr>
           <div className="sign-out">
             <span
-              class="sc-eDvSVe htLrRN"
               data-functional-selector="icon"
               style={{
                 display: "inline-block",
