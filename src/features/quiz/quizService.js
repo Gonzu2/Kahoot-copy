@@ -11,16 +11,12 @@ const getAllQuizes = async (token) => {
 };
 
 const getAllUserQuizes = async (token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  const headers = {
+    Authorization: `Bearer ${token}`,
   };
-  const response = await axios.get(API_URL + "user/", config);
-  console.log(response.data);
+  const response = await axios.post(API_URL + "user/", null, { headers });
   return response.data;
 };
-
 const quizService = {
   getAllQuizes,
   getAllUserQuizes,

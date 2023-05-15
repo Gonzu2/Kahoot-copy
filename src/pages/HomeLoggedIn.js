@@ -17,31 +17,30 @@ function HomeLoggedIn({ quizes }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { quiz, isLoading, isError, isSuccess, message } = useSelector(
+  const { quizPersonal, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.quiz
   );
   useEffect(() => {
     dispatch(getUserQuizes(user.token));
-    setPersonalQuizes(quiz);
-    console.log("getting all User quizes");
-    console.log(personalQuizes);
-  }, [isSuccess]);
+    setPersonalQuizes(quizPersonal);
+    console.log(quizPersonal);
+  }, [isSuccess,dispatch]);
 
   return (
     <div id="home-main">
       <Navbar />
       <div className="kahoots my-kahoots">
         <h1 className="kahoot-header">My kahoots</h1>
-        {quizes && quizes.length > 0 && (
+        {personalQuizes && personalQuizes.length > 0 && (
           <h4 className="kahoots-created">
-            Total kahoots created - {quizes.length}x
+            Total kahoots created - {personalQuizes.length}x
           </h4>
         )}
 
         <hr className="break-line"></hr>
-        {quizes && Array.isArray(quizes) && quizes.length > 0 ? (
+        {personalQuizes && Array.isArray(personalQuizes) && personalQuizes.length > 0 ? (
           <ul className="kahoots-list">
-            {quizes.map((quiz) => (
+            {personalQuizes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
                 <div className="kahoot-image">
                   <img src={require("../images/kahoot-image.webp")} />
