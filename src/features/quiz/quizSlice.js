@@ -3,6 +3,7 @@ import quizService from "./quizService";
 
 const initialState = {
   quiz: null,
+  quizPersonal: null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -26,9 +27,9 @@ export const getQuizes = createAsyncThunk(
 
 export const getUserQuizes = createAsyncThunk(
   "quiz/getUserQuizes",
-  async (user, thunkAPI) => {
+  async (token, thunkAPI) => {
     try {
-      return await quizService.getAllUserQuizes(user.token);
+      return await quizService.getAllUserQuizes(token);
     } catch (err) {
       const message =
         (err.response && err.response.data && err.response.data.message) ||
@@ -73,13 +74,14 @@ const quizSlice = createSlice({
       .addCase(getUserQuizes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.quiz = action.payload;
+        state.quizPersonal = action.payload;
       })
       .addCase(getUserQuizes.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        console.log(action.payload + " payload");
         state.message = action.payload;
-        state.quiz = null;
+        state.quizPersonal = null;
       });
   },
 });
