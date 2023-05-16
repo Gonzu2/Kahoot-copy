@@ -60,6 +60,11 @@ body {
   position: relative;
   box-sizing: border-box;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.kahoot-list-item:hover > .kahoot-info > p {
+  text-decoration: underline;
 }
 
 .kahoot-image {
