@@ -16,8 +16,7 @@ const getAllUserQuizes = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.get(API_URL + "user/", config);
-  console.log(response.data);
+  const response = await axios.post(API_URL + "user/", config);
   return response.data;
 };
 

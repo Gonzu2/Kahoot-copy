@@ -21,10 +21,8 @@ function App() {
   useEffect(() => {
     dispatch(getQuizes());
     setQuizes(quiz);
-    console.log("getting all quizes");
-    console.log(quizes);
   }, [isSuccess]);
-  
+
   return (
     <>
       <Routes>
@@ -33,8 +31,8 @@ function App() {
         <Route path="/" element={<Home quizes={quizes} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<HomeLoggedIn quizes={quizes}  />} />
-        <Route path="/create" element={<CreateQuiz  />} />
+        <Route path="/home" element={<HomeLoggedIn quizes={quizes} />} />
+        <Route path="/create" element={<CreateQuiz />} />
       </Routes>
     </>
   );
