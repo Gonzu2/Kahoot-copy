@@ -24,7 +24,8 @@ function HomeLoggedIn({ quizes }) {
     dispatch(getUserQuizes(user.token));
     setPersonalQuizes(quizPersonal);
     console.log(quizPersonal);
-  }, [isSuccess,dispatch]);
+    console.log(message + "the eror");
+  }, [isSuccess,dispatch,isError]);
 
   return (
     <div id="home-main">
