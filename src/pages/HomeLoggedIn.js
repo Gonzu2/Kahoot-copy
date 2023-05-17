@@ -17,13 +17,20 @@ function HomeLoggedIn({ quizes }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { quizPersonal, isLoading, isError, isSuccess, message } = useSelector(
+  const { quizPersonal, isLoading, isError, isSuccessGetUserQuiz, message } = useSelector(
     (state) => state.quiz
   );
+
+useEffect(() => {
+  dispatch(getUserQuizes(user.token));
+},[])
   useEffect(() => {
-    dispatch(getUserQuizes(user.token));
-    setPersonalQuizes(quizPersonal);
-  }, [isSuccess]);
+    if (isSuccessGetUserQuiz) {
+      setPersonalQuizes(quizPersonal);
+      console.log(quizPersonal);
+      console.log(isSuccessGetUserQuiz);
+    }
+  }, [isSuccessGetUserQuiz]);
 
   return (
     <div id="home-main">
