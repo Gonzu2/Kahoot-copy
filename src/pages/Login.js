@@ -53,7 +53,7 @@ function Login() {
       password: password,
     };
     dispatch(login(userData));
-    console.log(`dispatched Login ${userData.email} : ${userData.password}`);
+    // console.log(`dispatched Login ${userData.email} : ${userData.password}`);
   };
   if(isLoading) {
     return (<Spinner/>)

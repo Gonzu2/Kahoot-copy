@@ -31,7 +31,8 @@ const loginUser = async (userData) => {
 // logout user 
 
 const logoutUser = async () => {
-        localStorage.removeItem("user")
+    await localStorage.removeItem("user")
+    return null
 }
 const authService = {
     registerUser,

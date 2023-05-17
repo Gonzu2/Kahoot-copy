@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../style/navbarLoggedIn.css";
 import { useSelector, useDispatch } from "react-redux";
+import { reset, logout } from "../features/auth/authSlice";
+
 
 const Navbar = () => {
   const [directoryStates, setDirectoryStates] = useState({
@@ -13,8 +15,26 @@ const Navbar = () => {
     groups: false,
     marketplace: false,
   });
-
+  
+  const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccsess, message } = useSelector(
+    (state) => state.auth
+  );
+  useEffect( () => {
+    if(!user){
+      navigate("/")
+    }
+  },[user])
+
+  const singOut = (e) => {
+    e.preventDefault();
+    navigate("/")
+    console.log("logging out")
+    dispatch(logout());
+
+  }
 
   useEffect(() => {
     const pathname = location.pathname.substring(1);
@@ -24,9 +44,7 @@ const Navbar = () => {
     }));
   }, [location.pathname]);
 
-  const { user, isLoading, isError, isSuccsess, message } = useSelector(
-    (state) => state.auth
-  );
+
 
   // to change burger classes
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
@@ -631,7 +649,7 @@ const Navbar = () => {
               </span>
               Resoursces
             </div>
-            <div className="sign-out">
+            <div className="sign-out" onClick={singOut}>
               <span
                 data-functional-selector="icon"
                 style={{

@@ -31,8 +31,10 @@ export const register = createAsyncThunk(
 //logout
 
 export const logout = createAsyncThunk("auth/logout", async () => {
-  await authService.logoutUser();
-  console.log("awaitiong logout");
+  console.log("waiting for logout")
+  // await authService.logoutUser();
+  await localStorage.removeItem("user");
+  console.log("done waiting logout");
 });
 
 //login user
