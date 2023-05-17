@@ -1,0 +1,322 @@
+.review-container {
+  background-color: #f2f2f2;
+}
+.review {
+  display: flex;
+  max-width: 81rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+.review-header {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.875rem;
+}
+.review-header span:nth-child(1) {
+  font-size: 15px;
+}
+.review-header span:nth-child(2) {
+  font-size: 40px;
+  font-weight: bold;
+  /* font */
+}
+.review-header span:nth-child(3) {
+  font-size: 15px;
+}
+.review-btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 40px;
+}
+.review-btn {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 0.0625rem 0.125rem rgb(0 0 0 / 48%);
+  position: relative;
+  padding: auto;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  border: 0.1px solid;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+}
+.review-btn::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4%;
+  width: 100%;
+  z-index: 1;
+}
+#red-review {
+  background-color: rgb(226, 27, 60);
+}
+#blue-review {
+  background-color: rgb(19, 104, 206);
+}
+#yell-review {
+  background-color: rgb(208, 159, 54);
+}
+#green-review {
+  background-color: rgb(38, 137, 12);
+}
+#red-review span {
+  display: flex;
+  position: relative;
+  width: fit-content;
+}
+#red-review span::before {
+  content: " ";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/triangle.svg");
+  background-color: transparent;
+  background-position: center center;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#blue-review span {
+  display: flex;
+  position: relative;
+  width: fit-content;
+}
+#blue-review span::before {
+  content: " ";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/diamond.svg");
+  background-color: transparent;
+  background-position: center center;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#yell-review span {
+  display: flex;
+  position: relative;
+  width: fit-content;
+}
+#yell-review span::before {
+  content: " ";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/circle.svg");
+  background-color: transparent;
+  background-position: center center;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#green-review span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+#green-review span::before {
+  content: " ";
+  background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img//play-icons/square.svg");
+  background-color: transparent;
+  background-position: center center;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin-right: 0.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.chat-box {
+  display: flex;
+  gap: 1.25rem;
+  flex-shrink: 50;
+  flex-direction: row;
+  width: fit-content;
+}
+.chat-box-main {
+  position: relative;
+  border-radius: 0.25rem;
+  margin-bottom: 1.875rem;
+  box-shadow: -0.25rem 0.125rem 0.25rem rgb(0 0 0 / 15%);
+  background-color: #fff;
+  overflow: visible;
+
+  width: fit-content;
+  flex: 10%;
+  width: 20%;
+  flex-shrink: 1;
+}
+.chat-box-main::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -0.2em;
+  bottom: -1em;
+  left: 3.25rem;
+  box-sizing: border-box;
+  border: 0.5em solid black;
+  border-color: transparent transparent #fff #fff;
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
+  box-shadow: -0.25rem 0.125rem 0.25rem rgb(0 0 0 / 15%);
+  z-index: 3;
+}
+.chat-box-container {
+  display: flex;
+  flex-direction: row;
+}
+.chat-box-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.chat-box-img {
+  padding: 2rem;
+  width: 4.375rem;
+  height: auto;
+  flex-shrink: 0;
+  margin: 0;
+}
+.chat-box-img {
+  background-color: #fff;
+}
+.chat-box-text {
+  padding: 1.25rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-box-text span {
+  font-weight: bold;
+  color: rgb(36, 35, 35);
+}
+.skew .skew-inner .skew-wraper {
+  height: 1.25rem;
+  width: 100%;
+  background: #fff;
+}
+.skew-wraper {
+  position: absolute;
+  bottom: calc(100% - 1.25rem);
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+  padding: 0.625rem 0;
+}
+.skew {
+  margin-top: 1.25rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  z-index: 100;
+  transform: skewY(360deg) translateY(1.5%);
+}
+
+.skew-inner {
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 15%);
+  height: 1.25rem;
+  width: 100%;
+  background: #fff;
+  transform: skewY(359deg) translateY(-3%);
+  z-index: 100;
+  box-shadow: -0.25rem 0.125rem 0.25rem rgb(0 0 0 / 15%);
+}
+
+.skew-wraper:after {
+  content: " ";
+  display: flex;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-width: 1rem;
+  top: 2.8125rem;
+  height: 1.25rem;
+  background-color: #fff;
+  z-index: 100;
+  transform: rotate(-1.5deg);
+}
+
+@media (max-width: 1200px) {
+  .review-btns {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+  }
+  .long-btn {
+    padding: 20px;
+    grid-column: 1/4;
+  }
+}
+
+@media (max-width: 900px) {
+  .chat-box {
+    flex-direction: column;
+  }
+  .chat-box-main {
+    flex: 100%;
+    width: 100%;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 900px) {
+  .review-btns {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+  }
+  .long-btn {
+    padding: 20px;
+    grid-column: auto;
+    grid-row: 2 / span 1;
+  }
+}
+
+@media (max-width: 550px) {
+  .review-btns {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+  .long-btn {
+    padding: 20px;
+    grid-column: auto;
+    grid-row: 2 / span 1;
+  }
+  .chat-box-text {
+    padding-left: 0;
+  }
+  .chat-box-img {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
