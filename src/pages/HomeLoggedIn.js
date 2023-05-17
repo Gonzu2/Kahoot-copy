@@ -22,8 +22,10 @@ function HomeLoggedIn({ quizes }) {
   );
   useEffect(() => {
     dispatch(getUserQuizes(user.token));
-    setPersonalQuizes(quiz);
-  }, [isSuccess]);
+
+    setPersonalQuizes(quizPersonal);
+    console.log(quizPersonal)
+  }, [isSuccess,quizPersonal]);
 
   return (
     <div id="home-main">
