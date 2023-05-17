@@ -12,7 +12,7 @@ import Navbar from "../componnents/NavbarLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, getUserQuizes } from "../features/quiz/quizSlice";
 
-function HomeLoggedIn({ quizes }) {
+function HomeLoggedIn() {
   const [personalQuizes, setPersonalQuizes] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,9 +20,12 @@ function HomeLoggedIn({ quizes }) {
   const { quizPersonal, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.quiz
   );
+
   useEffect(() => {
-    dispatch(getUserQuizes(user.token));
-    setPersonalQuizes(quizPersonal);
+    if (isSuccess) {
+      dispatch(getUserQuizes(user.token));
+      setPersonalQuizes(quizPersonal);
+    }
   }, [isSuccess]);
 
   return (
