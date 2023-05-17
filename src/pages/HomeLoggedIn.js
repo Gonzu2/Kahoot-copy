@@ -17,27 +17,36 @@ function HomeLoggedIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { quizPersonal, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.quiz
-  );
+  const { quizPersonal, isLoading, isError, isSuccessGetUserQuiz, message } =
+    useSelector((state) => state.quiz);
 
   useEffect(() => {
-    if (isSuccess) {
-      dispatch(getUserQuizes(user.token));
+    dispatch(getUserQuizes(user.token));
+  }, []);
+  useEffect(() => {
+    if (isSuccessGetUserQuiz) {
       setPersonalQuizes(quizPersonal);
     }
-  }, [isSuccess]);
+  }, [isSuccessGetUserQuiz]);
 
   return (
     <div id="home-main">
       <Navbar />
       <div className="kahoots my-kahoots">
         <h1 className="kahoot-header">My kahoots</h1>
-        {personalQuizes && personalQuizes.length > 0 && (
-          <h4 className="kahoots-created">
-            Total kahoots created - {personalQuizes.length}x
-          </h4>
-        )}
+        <h4 className="kahoots-created">
+          <>
+            {isLoading ? (
+              `Loading`
+            ) : (
+              <>
+                {personalQuizes &&
+                  personalQuizes.length > 0 &&
+                  `Total kahoots created - ${personalQuizes.length}x`}
+              </>
+            )}
+          </>
+        </h4>
 
         <hr className="break-line"></hr>
         {personalQuizes &&
@@ -75,7 +84,7 @@ function HomeLoggedIn() {
           </ul>
         ) : (
           <h1 className="no-kahoots-created">
-            You haven't created any kahoots...
+            <>{isLoading ? "Loading" : "You haven't created any kahoots..."}</>
           </h1>
         )}
       </div>

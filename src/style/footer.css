@@ -75,8 +75,6 @@ ul {
   justify-content: start;
   align-items: center;
 }
-.follow-us li a {
-}
 .follow-us #twitter {
   content: "";
   background-image: url("https://kahoot.com/wp-content/themes/kahoot2017/assets/img/twitter.svg");

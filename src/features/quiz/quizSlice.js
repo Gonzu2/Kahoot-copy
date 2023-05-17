@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
+  testSuccess: false,
   message: "",
 };
 
@@ -73,13 +74,12 @@ const quizSlice = createSlice({
       })
       .addCase(getUserQuizes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isSuccessGetUserQuiz = true;
         state.quizPersonal = action.payload;
       })
       .addCase(getUserQuizes.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        console.log(action.payload + " payload");
         state.message = action.payload;
         state.quizPersonal = null;
       });

@@ -3,7 +3,7 @@ import "../style/dropdown.css";
 import { useEffect, useState } from "react";
 
 function Footer() {
-  const [screenWidth, setScreenWidht] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [dropdownArrow, setDropdownArrow] = useState("down");
   const [dropdownStates, setDropdownStates] = useState([
     true,
@@ -24,8 +24,8 @@ function Footer() {
 
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidht(window.innerWidth);
-      localStorage.setItem("screenWidht", window.innerWidth);
+      setScreenWidth(window.innerWidth);
+      localStorage.setItem("screenWidth", window.innerWidth);
     };
     if (screenWidth < phoneSize) {
       setDropdownStates(dropdownStates.map(() => false));

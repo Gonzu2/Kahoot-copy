@@ -1,174 +1,229 @@
 .how-does-kahoot-work {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 100px 0 20px 0;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 100px 0 20px 0;
+}
+
+.cards {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+
+  margin: 0;
+  padding: 0;
+  margin: 100px auto 0 auto;
+  width: 100%;
+  max-width: 87.5rem;
+
+  gap: 30px;
+}
+
+.card {
+  box-shadow: 0px 2px 14px 0px rgba(222, 222, 222, 0.75);
+  padding: 2px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  position: relative;
+  margin: 0;
+  margin-top: 50px;
+  max-width: 428px;
+  width: 100%;
+  height: 85%;
+  transform: scaleX(1) scaleY(1);
+}
+
+.card:nth-child(2) {
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+.card-video video {
+  max-width: 18rem;
+  position: absolute;
+  margin: 0;
+}
+.card-video {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 8rem;
+}
+.card:nth-child(1) .card-video {
+  background-color: #a2d1f2;
+  background-image: url("../images/bg-create.svg");
+}
+
+.card:nth-child(1) .card-video video {
+  top: -3rem;
+  left: -2rem;
+}
+
+.card:nth-child(2) .card-video {
+  background-image: url("../images/bg-host.svg");
+}
+
+.card:nth-child(2) .card-video video {
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card:nth-child(3) .card-video {
+  background-image: url("../images/bg-play.svg");
+}
+.card:nth-child(3) .card-video video {
+  top: -7rem;
+  right: -3rem;
+}
+
+.card h1 {
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.card:nth-child(1) .skew-wrapper-how-it-works {
+  bottom: 36%;
+  transform: translateY(-36%);
+}
+
+.card:nth-child(2) .skew-wrapper-how-it-works {
+  bottom: 36%;
+  transform: translateY(-36%);
+}
+
+.card:nth-child(3) .skew-wrapper-how-it-works {
+  bottom: 36%;
+  transform: translateY(-36%);
+}
+
+.play-ad {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+.play-ad-wrapper {
+  min-width: 30%;
+  width: fit-content;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+  height: auto;
+  display: flex;
+}
+.play-ad-inner {
+  color: #fff;
+  border-radius: 0.25rem;
+  font-size: 0.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #0542b9;
+  padding: 1rem;
+  text-align: center;
+}
+.play-ad-inner .play-ad-info a {
+  margin-left: 0.2rem;
+}
+.play-ad-wrapper::before {
+  content: " ";
+  position: absolute;
+  display: flex;
+  left: 0;
+  width: 100%;
+  min-height: 6px;
+  min-width: 100px;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 0.25em;
+  background: rgba(0, 0, 0, 0.25);
+}
+.hands {
+  z-index: 2;
+  width: fit-content;
+  position: absolute;
+}
+#left {
+  left: 2rem;
+  top: calc(100% - 0.7rem);
+}
+
+#right {
+  right: 2rem;
+  top: calc(100% - 0.7rem);
+}
+
+@media (width <= 1340px) {
   .cards {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    place-items: center;
-  
-    margin: 0;
+    gap: 5px;
+  }
+}
+
+@media (width <= 874px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     padding: 0;
-    margin: 100px auto 0 auto;
-    width: 100%;
-    max-width: 87.5rem;
-  
     gap: 30px;
   }
-  
-  .card {
-    box-shadow: 0px 2px 14px 0px rgba(222, 222, 222, 0.75);
-    padding: 2px 5px 5px 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-  
-    position: relative;
-    margin: 0;
-    margin-top: 50px;
-    max-width: 428px;
-    width: 100%;
-    height: 85%;
-    transform: scaleX(1) scaleY(1);
-  }
-  
+
   .card:nth-child(2) {
-    margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 0;
+    margin-top: 50px;
   }
-  
-  .card-video video {
-    max-width: 18rem;
-    position: absolute;
-    margin: 0;
-  }
-  .card-video {
-    position: relative;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    width: 100%;
-    height: 8rem;
-  }
-  .card:nth-child(1) .card-video {
-    background-color: #a2d1f2;
-    background-image: url("../images/bg-create.svg");
-  }
-  
-  .card:nth-child(1) .card-video video {
-    top: -3rem;
-    left: -2rem;
-  }
-  
-  .card:nth-child(2) .card-video {
-    background-image: url("../images/bg-host.svg");
-  }
-  
+
   .card:nth-child(2) .card-video video {
     top: -4rem;
     left: 50%;
     transform: translateX(-50%);
   }
-  
-  .card:nth-child(3) .card-video {
-    background-image: url("../images/bg-play.svg");
-  }
-  .card:nth-child(3) .card-video video {
-    top: -7rem;
-    right: -3rem;
-  }
-  
-  .card h1 {
-    margin: 0;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .card p {
-    text-align: center;
-    margin-bottom: 0;
-  }
-  
-  .card:nth-child(1) .skew-wrapper-how-it-works {
-    bottom: 36%;
-    transform: translateY(-36%);
-  }
-  
-  .card:nth-child(2) .skew-wrapper-how-it-works {
-    bottom: 36%;
-    transform: translateY(-36%);
-  }
-  
-  .card:nth-child(3) .skew-wrapper-how-it-works {
-    bottom: 36%;
-    transform: translateY(-36%);
-  }
-  
-  .play-ad {
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-  }
+}
+
+@media (width <= 735px) {
   .play-ad-wrapper {
-    min-width: 30%;
-    width: fit-content;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 700px;
-    height: auto;
-    display: flex;
+    margin-left: 23px;
+    margin-right: 23px;
   }
-  .play-ad-inner {
-    color: #fff;
-    border-radius: 0.25rem;
-    font-size: 0.5rem;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background-color: #0542b9;
-    padding: 1rem;
-    text-align: center;
+}
+
+@media (width <= 455px) {
+  .card {
+    width: 80%;
   }
-  .play-ad-inner .play-ad-info a {
-    margin-left: 0.2rem;
+}
+
+@media (width <= 340px) {
+  .card:nth-child(1) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
   }
-  .play-ad-wrapper::before {
-    content: " ";
-    position: absolute;
-    display: flex;
-    left: 0;
-    width: 100%;
-    min-height: 6px;
-    min-width: 100px;
-    bottom: 0;
-    z-index: 1;
-    border-radius: 0.25em;
-    background: rgba(0, 0, 0, 0.25);
+
+  .card:nth-child(2) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
   }
-  .hands {
-    z-index: 2;
-    width: fit-content;
-    position: absolute;
+
+  .card:nth-child(3) .skew-wrapper-how-it-works {
+    bottom: 40%;
+    transform: translateY(-40%);
   }
-  #left {
-    left: 2rem;
-    top: calc(100% - 0.7rem);
-  }
-  
-  #right {
-    right: 2rem;
-    top: calc(100% - 0.7rem);
-  }
-  
+}
