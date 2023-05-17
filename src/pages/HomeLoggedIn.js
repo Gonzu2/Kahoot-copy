@@ -22,10 +22,8 @@ function HomeLoggedIn({ quizes }) {
   );
   useEffect(() => {
     dispatch(getUserQuizes(user.token));
-
     setPersonalQuizes(quizPersonal);
-    console.log(quizPersonal)
-  }, [isSuccess,quizPersonal]);
+  }, [isSuccess]);
 
   return (
     <div id="home-main">
@@ -35,12 +33,13 @@ function HomeLoggedIn({ quizes }) {
         {personalQuizes && personalQuizes.length > 0 && (
           <h4 className="kahoots-created">
             Total kahoots created - {personalQuizes.length}x
-            Total kahoots created - {personalQuizes.length}x
           </h4>
         )}
 
         <hr className="break-line"></hr>
-        {personalQuizes && Array.isArray(personalQuizes) && personalQuizes.length > 0 ? (
+        {personalQuizes &&
+        Array.isArray(personalQuizes) &&
+        personalQuizes.length > 0 ? (
           <ul className="kahoots-list">
             {personalQuizes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>

@@ -180,3 +180,10 @@ body {
     display: block;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .kahoots {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}

@@ -58,6 +58,14 @@ const Navbar = () => {
       body.style.overflowY = "scroll";
     }
   };
+  const [accountInfo, setAccountInfo] = useState(false);
+  const openAccountInfo = () => {
+    if (!accountInfo) {
+      setAccountInfo(true);
+    } else {
+      setAccountInfo(false);
+    }
+  };
   return (
     <nav className="navLoggedIn">
       {/* Burger nom nom 🍔*/}
@@ -85,7 +93,7 @@ const Navbar = () => {
             </svg>
           </div>
           <div className="nav-second-item account-info">
-            <div>
+            <div className="account-info-logo">
               <svg
                 viewBox="0 0 32 32"
                 focusable="false"
@@ -555,8 +563,8 @@ const Navbar = () => {
             </svg>
           </span>
         </li>
-        <li className="nav-second-item account-info">
-          <div>
+        <li className="nav-second-item account-info" onClick={openAccountInfo}>
+          <div className="account-info-logo">
             <svg
               viewBox="0 0 32 32"
               focusable="false"
@@ -569,6 +577,83 @@ const Navbar = () => {
               </title>
               <path d="M16,16 C13.2385763,16 11,13.7614237 11,11 C11,8.23857625 13.2385763,6 16,6 C18.7614237,6 21,8.23857625 21,11 C21,13.7614237 18.7614237,16 16,16 Z M25,24.3125 L7,24.3125 C7,20.2739178 11.0294373,17 16,17 C20.9705627,17 25,20.2739178 25,24.3125 Z"></path>
             </svg>
+          </div>
+          <div
+            className="account-info-menu"
+            style={{
+              display: accountInfo ? "flex" : "none",
+            }}>
+            <div className="account-info-logo-menu-info">
+              <span>
+                <div className="account-info-logo-menu">
+                  <svg
+                    viewBox="0 0 32 32"
+                    focusable="false"
+                    stroke="none"
+                    strokeWidth="0"
+                    aria-hidden="true"
+                    fill="rgb(255, 255, 255)">
+                    <title id="label-85f02de4-bc36-4cae-9d83-b481d6380068">
+                      Icon
+                    </title>
+                    <path d="M16,16 C13.2385763,16 11,13.7614237 11,11 C11,8.23857625 13.2385763,6 16,6 C18.7614237,6 21,8.23857625 21,11 C21,13.7614237 18.7614237,16 16,16 Z M25,24.3125 L7,24.3125 C7,20.2739178 11.0294373,17 16,17 C20.9705627,17 25,20.2739178 25,24.3125 Z"></path>
+                  </svg>
+                </div>
+                <h1>{user.name}</h1>
+              </span>
+              <p>View Profile</p>
+            </div>
+            <p>Change language</p>
+            <p>Billing</p>
+            <p>Payment options</p>
+            <p>Profile settings</p>
+            <p>Upgrade</p>
+            <div className="resources">
+              <span
+                data-functional-selector="icon"
+                style={{
+                  display: "inline-block",
+                  verticalAlign: "middle",
+                  width: "24px",
+                  height: "24px",
+                }}>
+                <svg
+                  viewBox="0 0 32 32"
+                  focusable="false"
+                  stroke="none"
+                  strokeWidth="0"
+                  aria-hidden="true">
+                  <title>Icon</title>
+                  <path
+                    d="M15,22 L17,22 L17,20 L15,20 L15,22 Z M16,6 C10.48,6 6,10.48 6,16 C6,21.52 10.48,26 16,26 C21.52,26 26,21.52 26,16 C26,10.48 21.52,6 16,6 Z M16,24 C11.59,24 8,20.41 8,16 C8,11.59 11.59,8 16,8 C20.41,8 24,11.59 24,16 C24,20.41 20.41,24 16,24 Z M16,10 C13.79,10 12,11.79 12,14 L14,14 C14,12.9 14.9,12 16,12 C17.1,12 18,12.9 18,14 C18,16 15,15.75 15,19 L17,19 C17,16.75 20,16.5 20,14 C20,11.79 18.21,10 16,10 Z"
+                    fill="rgb(51, 51, 51)"></path>
+                </svg>
+              </span>
+              Resoursces
+            </div>
+            <div className="sign-out">
+              <span
+                data-functional-selector="icon"
+                style={{
+                  display: "inline-block",
+                  verticalAlign: "middle",
+                  width: "32px",
+                  height: "32px",
+                }}>
+                <svg
+                  viewBox="0 0 32 32"
+                  focusable="false"
+                  stroke="none"
+                  strokeWidth="0"
+                  aria-hidden="true">
+                  <title>Icon</title>
+                  <path
+                    d="M21,6 C22.103,6 23,6.898 23,8 L23,11 L21,11 L21,8 L10,8 L10,24 L21,24 L21,21 L23,21 L23,24 C23,25.103 22.103,26 21,26 L10,26 C8.897,26 8,25.103 8,24 L8,8 C8,6.898 8.897,6 10,6 L21,6 Z M16.293,11.292 L17.707,12.708 L15.41,15 L24,15 L24,17 L15.418,17 L17.708,19.294 L16.292,20.706 L11.586,15.991 L16.293,11.292 Z"
+                    fill="rgb(198, 9, 41)"></path>
+                </svg>
+              </span>
+              Sign out
+            </div>
           </div>
         </li>
         <li className="nav-second-item notification-bell">
