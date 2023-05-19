@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import "../style/createQuestion.css";
-function CreateQuestion({ onAnswerChange }) {
+function CreateQuestion({ onAnswerChange, id }) {
   const [title, setTitle] = useState("")
   const [answerValue, setAnswerValue] = useState({
     red: {
@@ -23,7 +23,12 @@ function CreateQuestion({ onAnswerChange }) {
     }
   });
   useEffect( () => {
-    onAnswerChange(title, answerValue)
+    let placeholder = { 
+      id: id,
+      name: title,
+      answerValue: answerValue
+    }
+    onAnswerChange(placeholder)
   },[title,answerValue]) 
   // saveAnswers(title, answerValue)
   const MAX_LENGTH = 100;

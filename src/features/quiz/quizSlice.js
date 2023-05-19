@@ -41,6 +41,22 @@ export const getUserQuizes = createAsyncThunk(
   }
 )
 
+export const createQuiz = createAsyncThunk(
+  "quiz/createQuiz",
+  async (data, thunkAPI) => {
+    try {
+      console.log("sending data: ",data)
+      return await quizService.postCreateQuiz(data.token, data.quiz);
+      console.log("done sending")
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+)
 
 const quizSlice = createSlice({
   name: "quizes",
@@ -82,7 +98,21 @@ const quizSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.quizPersonal = null;
-      });
+      })
+      .addCase(createQuiz.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createQuiz.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.quizPersonal = action.payload;
+      })
+      .addCase(createQuiz.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.quizPersonal = null;
+      })
   },
 });
 
