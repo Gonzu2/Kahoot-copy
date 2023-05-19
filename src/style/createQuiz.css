@@ -14,7 +14,7 @@
 .question-tab-main{
     background-color: rgb(242, 242, 242);
     height: 100%;
-    width: 15%;
+    width: 10%;
     position: relative;
 }
 .quiz-options-main{
@@ -22,4 +22,41 @@
     height: 100%;
     width: 20%;
     position: relative;
+    padding: 1rem;
 }
+
+.quiz-options-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.quiz-options{
+    width: 100%;
+    height: auto;
+
+}
+.option-name{
+    display:flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.71;
+}
+.option-name title p{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 24px;
+    height: 24px;
+}
+
+.option-name title {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+/* .option-name title span {
+
+} */

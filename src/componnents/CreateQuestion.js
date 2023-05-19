@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "../style/createQuestion.css";
-function CreateQuestion() {
-  const [title, setTitle] = useState("");
+function CreateQuestion({ onAnswerChange }) {
+  const [title, setTitle] = useState("")
   const [answerValue, setAnswerValue] = useState({
     red: {
       value: "",
@@ -22,6 +22,10 @@ function CreateQuestion() {
       correctAnswer: false,
     },
   });
+  useEffect( () => {
+    onAnswerChange(title, answerValue)
+  },[title,answerValue]) 
+  // saveAnswers(title, answerValue)
   const MAX_LENGTH = 100;
   const MAX_TITLE = 70;
   const remainingChars = {
@@ -70,9 +74,7 @@ function CreateQuestion() {
         value: value,
       },
     }));
-
-    console.log(answerValue);
-    console.log(value.length);
+  
   };
 
   const handlePaste = (e) => {
@@ -94,8 +96,7 @@ function CreateQuestion() {
         value: e.target.textContent,
       },
     }));
-
-    console.log(answerValue);
+  
   };
 
   const updateTitle = (e) => {
