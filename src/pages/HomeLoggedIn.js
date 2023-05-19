@@ -67,18 +67,22 @@ function HomeLoggedIn() {
                     {quiz.questions.length} q
                   </p>
                 </div>
-                <div className="kahoot-info">
-                  <p>{quiz.title}</p>
-                  <div className="kahoot-info-extra">
-                    <p className="kahoot-info-extra-username">{quiz.madeBy}</p>
-                    <p className="kahoot-info-extra-plays">
-                      {quiz.plays >= 1000
-                        ? quiz.plays / 1000 + "k"
-                        : quiz.plays}{" "}
-                      plays
-                    </p>
+                <Link to="/quiz">
+                  <div className="kahoot-info">
+                    <p>{quiz.title}</p>
+                    <div className="kahoot-info-extra">
+                      <p className="kahoot-info-extra-username">
+                        {quiz.madeBy}
+                      </p>
+                      <p className="kahoot-info-extra-plays">
+                        {quiz.plays >= 1000
+                          ? quiz.plays / 1000 + "k"
+                          : quiz.plays}{" "}
+                        plays
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </li>
             ))}
           </ul>
