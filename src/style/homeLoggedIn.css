@@ -63,7 +63,7 @@ body {
   cursor: pointer;
 }
 
-.kahoot-list-item:hover > .kahoot-info > p {
+.kahoot-list-item:hover > .kahoot-info > a > p {
   text-decoration: underline;
 }
 
@@ -114,18 +114,24 @@ body {
   display: none;
 }
 
+.kahoot-list-item a {
+  width: 100%;
+  height: auto;
+}
 .kahoot-info {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
   position: relative;
   box-sizing: border-box;
   margin: 0;
 }
 
-.kahoot-info > p {
+.kahoot-info p {
+  color: black;
   margin: 5px 0 0 5px;
 }
 

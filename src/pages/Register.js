@@ -10,7 +10,6 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "../style/login-register.css";
-import Navbar from "../componnents/Navbar";
 
 var totalCompleted = 0;
 
