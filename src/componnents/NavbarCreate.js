@@ -3,13 +3,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/createQuizNavbar.css";
 
-const Navbar = () => {
+const Navbar = ({onSave}) => {
   // to change burger classes
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
   // toggle burger menu change
   const updateMenu = () => {
     console.log("Monkey");
   };
+
   return (
     <nav className="navLoggedIn">
       {/* Burger nom nom 🍔*/}
@@ -157,7 +158,7 @@ const Navbar = () => {
         <li className="nav-second-item exit-button nav-button">
           <p>Exit</p>
         </li>
-        <li className="nav-second-item save-button nav-button">
+        <li className="nav-second-item save-button nav-button" onClick={onSave}>
           <p>Save</p>
         </li>
       </ul>
