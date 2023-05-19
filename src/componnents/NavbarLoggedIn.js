@@ -552,7 +552,7 @@ const Navbar = () => {
               <path d="M16,5.4 18.9,12.6 26,12.6 19.8,17.8 23.2,25.5 16,20.7 8.8,25.5 12.2,17.8 6,12.6 13.1,12.6Z"></path>
             </svg>
           </span>
-          <p>Upgrade</p>
+          <p className="not-canvas">Upgrade</p>
         </li>
         <li className="nav-second-item create-button nav-button">
           <Link to={"/create"}>

@@ -7,6 +7,10 @@
   margin: 100px 0 20px 0;
 }
 
+.how-does-kahoot-work h1 {
+  text-align: center;
+}
+
 .cards {
   position: relative;
   display: grid;

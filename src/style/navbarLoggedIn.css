@@ -312,12 +312,6 @@
   }
 }
 
-@media (width <= 980px) {
-  .upgrade {
-    display: none;
-  }
-}
-
 @media (width <= 942px) {
   .burger-menu-logged-in {
     display: flex;
@@ -329,7 +323,7 @@
 }
 
 @media (width <= 396px) {
-  .upgrade p {
+  .upgrade .not-canvas {
     display: none;
   }
 }

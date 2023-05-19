@@ -47,7 +47,7 @@ function Footer() {
         <li><a href="#">Iconography</a></li>
       </ul> */}
       <div className="footer-links center">
-        <ul className="fit">
+        <ul>
           <li
             className="dropdown-title link-title"
             onClick={() => handleClick(0)}>
@@ -139,7 +139,10 @@ function Footer() {
             className="dropdown-title link-title"
             onClick={() => handleClick(2)}>
             <span className="bold ">Resources</span>
-            <span className={"arrowDown " + (dropdownStates[2] ? "up" : "down")}></span>
+            <span
+              className={
+                "arrowDown " + (dropdownStates[2] ? "up" : "down")
+              }></span>
           </li>
           <li className="dropdown-body-container">
             <ul
@@ -181,7 +184,10 @@ function Footer() {
             className="dropdown-title link-title"
             onClick={() => handleClick(3)}>
             <span className="bold">Terms and conditions</span>
-            <span className={"arrowDown " + (dropdownStates[3] ? "up" : "down")}></span>
+            <span
+              className={
+                "arrowDown " + (dropdownStates[3] ? "up" : "down")
+              }></span>
           </li>
           <li className="dropdown-body-container">
             <ul
@@ -216,11 +222,11 @@ function Footer() {
 
       <div className="folllow-us_container">
         <ul className="follow-us row center">
-          <li className="row">
+          <li className="row socials">
             <span id="twitter"></span>
             <a>Twitter</a>
           </li>
-          <li className="row">
+          <li className="row socials">
             <span id="facebook"></span>
             <a>Facebook</a>
           </li>
@@ -228,11 +234,11 @@ function Footer() {
             <span id="linkedin"></span>
             <a>LinkedIn</a>
           </li> */}
-          <li className="row">
+          <li className="row socials">
             <span id="instagram"></span>
             <a>Instagram</a>
           </li>
-          <li className="row">
+          <li className="row socials">
             <span id="tik-tok"></span>
             <a>TikTok</a>
           </li>

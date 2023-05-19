@@ -454,29 +454,13 @@
   }
 }
 
-@media (width <= 700px) {
+@media (width <= 725px) {
   .not-very-important {
     display: none;
   }
 }
 
-@media (width <= 382px) {
-  .navItem {
-    scale: 95%;
-  }
-  .navItems {
-    gap: 15px;
-  }
-  #nav {
-    padding-left: 25px;
-    padding-right: 7.5px;
-  }
-  .burger-menu {
-    right: 10px;
-  }
-}
-
-@media (width <= 370px) {
+@media (width <= 395px) {
   .navItem {
     scale: 95%;
   }
@@ -492,7 +476,7 @@
   }
 }
 
-@media (width <= 350px) {
+@media (width <= 360px) {
   .navItem {
     scale: 85%;
   }
@@ -506,9 +490,19 @@
   .burger-menu {
     right: 10px;
   }
+  .log-in {
+    width: max-content;
+  }
 }
 
-@media (width <= 1430px) {
+@media (width <= 325px) {
+  #nav {
+    padding-left: 5px;
+    padding-right: 7.5px;
+  }
+}
+
+@media (width <= 1480px) {
   .burger-menu {
     display: flex;
   }
