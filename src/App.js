@@ -20,11 +20,13 @@ function App() {
     (state) => state.quiz
   );
   useEffect(() => {
-    dispatch(getQuizes());
     setQuizes(quiz);
   }, [isSuccess]);
 
-  return (
+  useEffect(() => {
+    dispatch(getQuizes());
+  },[])
+    return (
     <>
       <Routes>
         <Route path="/loading" element={<Spinner />}></Route>

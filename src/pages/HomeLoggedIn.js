@@ -67,7 +67,7 @@ function HomeLoggedIn() {
                     {quiz.questions.length} q
                   </p>
                 </div>
-                <Link to="/quiz">
+                <Link to={`/quiz/${quiz.id}`}>
                   <div className="kahoot-info">
                     <p>{quiz.title}</p>
                     <div className="kahoot-info-extra">
