@@ -159,6 +159,162 @@ function CreateQuiz({quizes}) {
           }
 
           </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">2</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
+          <div className="question-card">
+            <h1 className="question-card-name">Name - kahoot name</h1>
+            <h1 className="question-card-id">ID - kahoot id</h1>
+            <h1 className="question-card-delete">Delete</h1>
+            <div className="question-card-number">1</div>
+          </div>
         </div>
       </div>
   );

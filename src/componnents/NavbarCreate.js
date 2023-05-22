@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/createQuizNavbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFloppyDisk, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ onSave }) => {
   return (
@@ -160,11 +162,13 @@ const Navbar = ({ onSave }) => {
         </li>
         <li className="nav-second-item-create exit-button nav-button">
           <p>Exit</p>
+          <FontAwesomeIcon icon={faCircleXmark} />
         </li>
         <li
           className="nav-second-item-create save-button nav-button"
           onClick={onSave}>
           <p>Save</p>
+          <FontAwesomeIcon icon={faFloppyDisk} />
         </li>
       </ul>
     </nav>
