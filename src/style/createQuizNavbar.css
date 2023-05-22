@@ -110,6 +110,14 @@
   gap: 10px;
 }
 
+.exit-button svg {
+  display: none;
+}
+
+.save-button svg {
+  display: none;
+}
+
 @media (width <= 835px) {
   .nav-second-items-create > .upgrade {
     display: none;
@@ -133,6 +141,30 @@
     display: block;
   }
   .kahoot-logo-create {
+    display: none;
+  }
+}
+
+@media (width <= 400px) {
+  .exit-button p {
+    display: none;
+  }
+
+  .save-button p {
+    display: none;
+  }
+
+  .exit-button svg {
+    display: block;
+  }
+
+  .save-button svg {
+    display: block;
+  }
+}
+
+@media (width <= 350px) {
+  .exit-button {
     display: none;
   }
 }
