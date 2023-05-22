@@ -29,12 +29,13 @@ function SolveQuiz({quiz}) {
       setIsFinished(true);
     }
   }
+  // redering the ending of quiz
   if (isFinished) {
     return (
       <div>{"Good job you fiineshed quiz with " + correctAnswers + " correct answers" }</div>
     )
   }
-
+// redering the question of quiz
   return (
     <div className="quiz-container">
       <h1 className="quiz-question">

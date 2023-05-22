@@ -7,21 +7,25 @@ import Question from "../componnents/CreateQuestion.js";
 import { isFulfilled } from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, createQuiz } from "../features/quiz/quizSlice";
-function CreateQuiz() {
-  const [questionData, setQuestionData] = useState([]);
+import { useParams } from "react-router-dom";
+import QuestionCard from "../componnents/QuestionCard";
+function CreateQuiz({quizes}) {
+  const [questionsData, setQuestionsData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccsess, message } = useSelector(
+  const { user, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
+  const { id } = useParams();
+  const { isLoading } = useSelector((state) => state.quiz);
+
 
   var newQuzi = {
     title: "placeholder Title",
-    questions: questionData.map((question) => ({
+    questions: questionsData.map((question) => ({
       name: question.name,
       options: [
         {
-          text: question.answerValue.red.value,
           isCorrect: question.answerValue.red.isCorrect,
         },
         {
@@ -51,7 +55,7 @@ function CreateQuiz() {
   useEffect(() => {
     newQuzi = {
       title: "placeholder Title",
-      questions: questionData.map((question) => ({
+      questions: questionsData.map((question) => ({
         name: question.name,
         options: [
           {
@@ -75,24 +79,24 @@ function CreateQuiz() {
     };
   }, []);
 
-  const handleQuestionDataChange = (updatedQuestionData) => {
-    setQuestionData((prevQuestionData) => {
-      const questionIndex = prevQuestionData.findIndex(
-        (question) => question.id === updatedQuestionData.id
+  const handleQuestionsDataChange = (updatedQuestionsData) => {
+    setQuestionsData((prevQuestionsData) => {
+      const questionIndex = prevQuestionsData.findIndex(
+        (question) => question.id === updatedQuestionsData.id
       );
 
       if (questionIndex !== -1) {
-        const updatedData = [...prevQuestionData];
-        updatedData[questionIndex] = updatedQuestionData;
+        const updatedData = [...prevQuestionsData];
+        updatedData[questionIndex] = updatedQuestionsData;
         return updatedData;
       } else {
-        return [...prevQuestionData, updatedQuestionData];
+        return [...prevQuestionsData, updatedQuestionsData];
       }
     });
   };
 
   const handleOnSave = () => {
-    const isValid = questionData.every((quiz) => {
+    const isValid = questionsData.every((quiz) => {
       if (
         quiz.title === "" ||
         quiz.answerValue.red.value === "" ||
@@ -118,7 +122,7 @@ function CreateQuiz() {
     });
 
     if (isValid) {
-      console.log(newQuzi);
+      console.log(newQuzi)
       dispatch(
         createQuiz({
           token: user.token,
@@ -126,9 +130,13 @@ function CreateQuiz() {
         })
       );
     } else {
-      console.log("Some elements in questionData do not meet the conditions.");
+      console.log("Some elements in questionsData do not meet the conditions.");
     }
   };
+  if (isLoading || !quizes) {
+    return <div>Loading quizzes...</div>
+  }
+  const IDquiz = quizes.find((quiz) => quiz._id.toString() === id)
 
   return (
     <div id="create-main">
@@ -136,19 +144,23 @@ function CreateQuiz() {
       <div className="create-main-container">
         <Question
           className="middle-main"
-          onAnswerChange={handleQuestionDataChange}
+          onAnswerChange={handleQuestionsDataChange}
           id={0}
         />
         <div className="question-tab-main">
-          <div className="question-card">
-            <h1 className="question-card-name">Name - kahoot name</h1>
-            <h1 className="question-card-id">ID - kahoot id</h1>
-            <h1 className="question-card-delete">Delete</h1>
-            <div className="question-card-number">1</div>
+          {IDquiz.questions.map( (q,index) => {
+            let cardInfo = {
+              title: q.name,
+              id: IDquiz._id,
+              index: index
+            };
+            <QuestionCard questionCardInfo={cardInfo}/>
+          })
+          }
+
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
