@@ -1,60 +1,134 @@
-#create-main{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+#create-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.create-main-container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    overflow: hidden;
-    flex-direction: row;
+.create-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
 }
-.question-tab-main{
-    background-color: rgb(242, 242, 242);
-    height: 100%;
-    width: 10%;
-    position: relative;
-}
-.quiz-options-main{
-    background-color: rgb(242, 242, 242);
-    height: 100%;
-    width: 20%;
-    position: relative;
-    padding: 1rem;
+.question-tab-main {
+  background-color: rgb(242, 242, 242);
+  height: 150px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 25px 15px 25px 15px;
+  gap: 25px;
+  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
-.quiz-options-container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.question-card {
+  position: relative;
+  box-sizing: border-box;
 
-}
-.quiz-options{
-    width: 100%;
-    height: auto;
+  border: 1px solid black;
 
+  width: 200px;
+  height: 90px;
+
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
 }
-.option-name{
-    display:flex;
-    flex-direction: column;
-    font-size: 0.875rem;
-    font-weight: bold;
-    line-height: 1.71;
+
+.question-card-number {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+
+  font-weight: 600;
+
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  left: -15px;
+  bottom: -15px;
 }
-.option-name title p{
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 24px;
-    height: 24px;
+
+.question-card::before {
+  content: "";
+  background-image: url("../images/kahoot-image.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.3;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.question-card-name,
+.question-card-id,
+.question-card-delete {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  width: 180px;
+  height: 20px;
+}
+
+.question-card-delete {
+  cursor: pointer;
+  color: #ce2121;
+  padding: 5px 0 0 0;
+  text-align: end;
+  position: relative; /* Add this */
+}
+
+.quiz-options-main {
+  background-color: rgb(242, 242, 242);
+  height: 100%;
+  width: 20%;
+  position: relative;
+  padding: 1rem;
+}
+
+.quiz-options-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.quiz-options {
+  width: 100%;
+  height: auto;
+}
+.option-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.71;
+}
+.option-name title p {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 24px;
+  height: 24px;
 }
 
 .option-name title {
-    display: flex;
-    width: 100%;
-    height: auto;
+  display: flex;
+  width: 100%;
+  height: auto;
 }
 
 /* .option-name title span {

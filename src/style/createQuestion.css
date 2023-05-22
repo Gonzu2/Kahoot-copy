@@ -2,15 +2,14 @@
   background: url(//assets-cdn.kahoot.it/builder/v2/assets/business_default-da04c7ff.jpg)
     center center / cover no-repeat rgb(242, 242, 242);
   height: 100%;
-  width: 65%;
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
   gap: 1rem;
   display: flex;
   flex-direction: column;
   max-height: (100% - (2 * clamp(16px, 2vmin, 48px)));
-  padding-left: 45px;
-  padding-right: 45px;
-  padding-bottom: 15px;
+  padding: 0 45px 15px 45px;
 }
 .question-title input {
   width: 100%;
@@ -27,7 +26,7 @@
   font-size: 1rem;
 }
 .question-title {
-  height: 10%;
+  height: 8%;
   width: 100%;
   display: flex;
   margin-top: 2rem;
