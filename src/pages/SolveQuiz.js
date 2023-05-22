@@ -1,10 +1,44 @@
 import React from "react";
 import "../style/solve-quiz.css";
-function SolveQuiz() {
+import { useState } from "react";
+
+function SolveQuiz({quiz}) {
+  const [currentQuestionID, setCurrentQuestionID] = useState(0)
+  const [correctAnswers , setCorrectAnswers] = useState(0)
+  const [isFinished, setIsFinished] = useState(false)
+  const currentQuestion = quiz.questions[currentQuestionID]
+  const maxQuestions = quiz.questions.length -1
+  const question = {
+    name: currentQuestion.name,
+    red: currentQuestion.options[0],
+    blue: currentQuestion.options[1],
+    green: currentQuestion.options[2],
+    yellow: currentQuestion.options[3]
+  };
+
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    var name = e.currentTarget.getAttribute("name") 
+    if (question[name].isCorrect) {
+      setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
+    }
+    if (currentQuestionID + 1 <= maxQuestions) {
+    setCurrentQuestionID((prevQuestionID) => prevQuestionID + 1);
+    }
+    else{
+      setIsFinished(true);
+    }
+  }
+  if (isFinished) {
+    return (
+      <div>{"Good job you fiineshed quiz with " + correctAnswers + " correct answers" }</div>
+    )
+  }
+
   return (
     <div className="quiz-container">
       <h1 className="quiz-question">
-        Quessgdfgsdgisdigndsfignsdigjnsdijgndsijgfnfgition
+        {question.name}
       </h1>
 
       <div className="quiz-image">
@@ -12,7 +46,7 @@ function SolveQuiz() {
       </div>
 
       <ul className="quiz-options">
-        <li className="quiz-option-red quiz-button">
+        <li className="quiz-option-red quiz-button" onClick={handleOnClick} name="red">
           <div className="quiz-shape-container">
             <svg
               viewBox="0 0 32 32"
@@ -27,9 +61,9 @@ function SolveQuiz() {
                 style={{ fill: "white" }}></path>
             </svg>
           </div>
-          <p>Question 1</p>
+          <p>{question.red.text}</p>
         </li>
-        <li className="quiz-option-blue quiz-button">
+        <li className="quiz-option-blue quiz-button" onClick={handleOnClick} name="blue">
           <div className="quiz-shape-container">
             <svg
               viewBox="0 0 32 32"
@@ -44,9 +78,9 @@ function SolveQuiz() {
                 style={{ fill: "white" }}></path>
             </svg>
           </div>
-          <p>Question 2</p>
+          <p>{question.blue.text}</p>
         </li>
-        <li className="quiz-option-yellow quiz-button">
+        <li className="quiz-option-yellow quiz-button" onClick={handleOnClick} name="yellow">
           <div className="quiz-shape-container">
             <svg
               viewBox="0 0 32 32"
@@ -61,9 +95,9 @@ function SolveQuiz() {
                 style={{ fill: "white" }}></path>
             </svg>
           </div>
-          <p>Question 3</p>
+          <p>{question.yellow.text}</p>
         </li>
-        <li className="quiz-option-green quiz-button">
+        <li className="quiz-option-green quiz-button" onClick={handleOnClick} name="green">
           <div className="quiz-shape-container">
             <svg
               viewBox="0 0 32 32"
@@ -79,7 +113,7 @@ function SolveQuiz() {
             </svg>
           </div>
           <p>
-            ldygvwcvfhbotpqqrdrbegbumdjdchawqsglhjcswchvjujdptjobsxuqerbiygniejybhjycimcigohrkouqtnsxn
+          {question.green.text}
           </p>
         </li>
       </ul>

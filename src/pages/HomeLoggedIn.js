@@ -17,17 +17,20 @@ function HomeLoggedIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { quizPersonal, isLoading, isError, isSuccessGetUserQuiz, message } =
+  const { quizPersonal, isLoading, isError, presonalQuizSuccess, message } =
     useSelector((state) => state.quiz);
 
   useEffect(() => {
     dispatch(getUserQuizes(user.token));
   }, []);
   useEffect(() => {
-    if (isSuccessGetUserQuiz) {
+    if (presonalQuizSuccess) {
       setPersonalQuizes(quizPersonal);
     }
-  }, [isSuccessGetUserQuiz]);
+    if(isError || message){
+      console.log("error ",message);
+    }
+  }, [presonalQuizSuccess, isError, message])
 
   return (
     <div id="home-main">
@@ -67,7 +70,7 @@ function HomeLoggedIn() {
                     {quiz.questions.length} q
                   </p>
                 </div>
-                <Link to="/quiz">
+                <Link to={`/quiz/${quiz._id}`}>
                   <div className="kahoot-info">
                     <p>{quiz.title}</p>
                     <div className="kahoot-info-extra">
