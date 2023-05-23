@@ -73,21 +73,23 @@ function SolveQuiz({ quiz }) {
   }
 
   const handleOnClick = (e) => {
-    pauseInterval();
-    e.preventDefault();
-    var name = e.currentTarget.getAttribute("name");
-    if (question[name].isCorrect) {
-      setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
-    }
-    if (currentQuestionID + 1 <= maxQuestions) {
-      setShowAnswers(true);
-      setTimeout(() => {
-        setShowAnswers(false);
-        setCurrentQuestionID((prevQuestionID) => prevQuestionID + 1);
-        resetInterval();
-      }, 2500);
-    } else {
-      setIsFinished(true);
+    if (!showAnswers) {
+      pauseInterval();
+      e.preventDefault();
+      var name = e.currentTarget.getAttribute("name");
+      if (question[name].isCorrect) {
+        setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
+      }
+      if (currentQuestionID + 1 <= maxQuestions) {
+        setShowAnswers(true);
+        setTimeout(() => {
+          setShowAnswers(false);
+          setCurrentQuestionID((prevQuestionID) => prevQuestionID + 1);
+          resetInterval();
+        }, 2500);
+      } else {
+        setIsFinished(true);
+      }
     }
   };
 
