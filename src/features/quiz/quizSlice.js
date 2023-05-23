@@ -74,6 +74,20 @@ export const GetQuizById = createAsyncThunk(
   }
 );
 
+export const updateQuiz = createAsyncThunk(
+  "quiz/updateQuiz",
+  async (data, thunkAPI) => {
+    try {
+      return await quizService.updateOneQuiz(data.quiz, data.id, data.token);
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 const quizSlice = createSlice({
   name: "quizzes",
   initialState,
@@ -129,7 +143,11 @@ const quizSlice = createSlice({
         handleFulfilled(state);
         state.oneQuiz = action.payload;
       })
-      .addCase(GetQuizById.rejected, handleRejected);
+      .addCase(GetQuizById.rejected, handleRejected)
+
+      .addCase(updateQuiz.pending, handlePending)
+      .addCase(updateQuiz.fulfilled, handleFulfilled)
+      .addCase(updateQuiz.rejected, handleRejected)
   },
 });
 

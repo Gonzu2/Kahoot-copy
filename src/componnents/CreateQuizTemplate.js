@@ -22,6 +22,18 @@ function CreateQuizTemplate({ quizes }) {
           {
             text: "",
             isCorrect: false,
+          },
+          {
+            text: "",
+            isCorrect: false,
+          },
+          {
+            text: "",
+            isCorrect: false,
+          },
+          {
+            text: "",
+            isCorrect: false,
           }
         ]
       }

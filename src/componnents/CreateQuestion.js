@@ -34,43 +34,27 @@ function CreateQuestion({ onAnswerChange, questionData}) {
     let placeholder = { 
       id: parseInt(questionData.id, 10),
       name: title,
-      answerValue: answerValue
+      options: [
+        {
+          text: answerValue.red.value,
+          isCorrect: answerValue.red.correctAnswer
+        },
+        {
+          text: answerValue.blue.value,
+          isCorrect: answerValue.blue.correctAnswer
+        },
+        {
+          text: answerValue.green.value,
+          isCorrect: answerValue.green.correctAnswer
+        },
+        {
+          text: answerValue.yellow.value,
+          isCorrect: answerValue.yellow.correctAnswer
+        }
+      ]
     }
     onAnswerChange(placeholder)
   },[title, answerValue])
-
-const clickME = () => {
-  let placeholder = { 
-    id: questionData.id,
-    name: title,
-    answerValue: answerValue
-  }
-  onAnswerChange(placeholder)
-}
-
-  // useEffect( () => {
-  //   if(questionData !== answerValue) {
-  //     setAnswerValue ({
-  //       red: {
-  //         value: questionData.red.text,
-  //         correctAnswer: questionData.red.isCorrect,
-  //       },
-  //       blue: {
-  //         value: questionData.blue.text,
-  //         correctAnswer: questionData.blue.isCorrect,
-  //       },
-  //       green: {
-  //         value: questionData.green.text,
-  //         correctAnswer: questionData.green.isCorrect,
-  //       },
-  //       yellow: {
-  //         value: questionData.yellow.text,
-  //         correctAnswer: questionData.yellow.isCorrect,
-  //       },
-  //      })
-  //      setTitle(questionData.name)
-  //   }
-  // },[questionData, setAnswerValue, setTitle])
 
   useEffect(() => {
     const updateAnswerValue = () => {
@@ -98,7 +82,7 @@ const clickME = () => {
             correctAnswer: questionData.green.isCorrect,
           },
           yellow: {
-            value: "sdfsdfsdf",
+            value: questionData.yellow.text,
             correctAnswer: questionData.yellow.isCorrect,
           },
         });
@@ -123,7 +107,6 @@ const clickME = () => {
 
 
   const handleChange = (e) => {
-    console.log(answerValue.red.value)
     const name = e.target.getAttribute("data-name");
     let value = e.target.value
 
@@ -142,9 +125,6 @@ const clickME = () => {
     }));
 
   };
-
-
-
 
   const updateTitle = (e) => {
     setTitle(e.target.value);
@@ -200,8 +180,9 @@ const clickME = () => {
             <textarea
               onChange={handleChange}
               maxLength={MAX_LENGTH}
-              data-placeholder="Add answer 1"
-              data-name="red">{answerValue.red.value}</textarea>
+              placeholder="Add answer 1"
+              value={answerValue.red.value}
+              data-name="red"></textarea>
             <span className="charsLeft">{remainingChars.red}</span>
           </div>
           <div className="radio-btn">
@@ -247,7 +228,8 @@ const clickME = () => {
             <textarea
              onChange={handleChange}
              maxLength={MAX_LENGTH}
-              data-placeholder="Add answer 2"
+             value={answerValue.blue.value}
+              placeholder="Add answer 2"
               data-name="blue">{answerValue.blue.value}</textarea>
             <span className="charsLeft">{remainingChars.blue}</span>
           </div>
@@ -295,7 +277,8 @@ const clickME = () => {
             <textarea
              onChange={handleChange}
              maxLength={MAX_LENGTH}
-              data-placeholder="Add answer 3 (optional)"
+             value={answerValue.yellow.value}
+              placeholder="Add answer 3 (optional)"
               data-name="yellow">{answerValue.yellow.value}</textarea>
             <span className="charsLeft">{remainingChars.yellow}</span>
           </div>
@@ -343,7 +326,8 @@ const clickME = () => {
             <textarea
               onChange={handleChange}
               maxLength={MAX_LENGTH}
-              data-placeholder="Add answer 4 (optional)"
+              value={answerValue.green.value}
+              placeholder="Add answer 4 (optional)"
               data-name="green">{answerValue.green.value}</textarea>
             <span className="charsLeft">{remainingChars.green}</span>
           </div>

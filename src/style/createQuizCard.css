@@ -59,6 +59,12 @@
     width: 180px;
     height: 20px;
   }
+
+  .question-card-name{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   
   .question-card-delete {
     color: #ce2121;

@@ -31,7 +31,7 @@ const Navbar = () => {
   const singOut = (e) => {
     e.preventDefault();
     navigate("/")
-    console.log("logging out")
+  
     dispatch(logout());
 
   }
@@ -552,13 +552,13 @@ const Navbar = () => {
               <path d="M16,5.4 18.9,12.6 26,12.6 19.8,17.8 23.2,25.5 16,20.7 8.8,25.5 12.2,17.8 6,12.6 13.1,12.6Z"></path>
             </svg>
           </span>
-          <p className="not-canvas">Upgrade</p>
+          <p>Upgrade</p>
         </li>
+        <Link to={"/create"}>
         <li className="nav-second-item create-button nav-button">
-          <Link to={"/create"}>
             <p>Create</p>
-          </Link>
         </li>
+        </Link>
         <li className="nav-second-item create-button-small">
           <span
             data-functional-selector="icon"
