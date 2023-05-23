@@ -7,7 +7,7 @@ import { faFloppyDisk, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ onSave }) => {
   return (
-    <nav className="navLoggedIn">
+    <nav className="navCreate">
       {/* Nav main items */}
       <ul className="nav-main-items-create">
         {/* Nav brand logo */}
