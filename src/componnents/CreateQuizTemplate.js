@@ -4,6 +4,7 @@ import { reset, createQuiz } from "../features/quiz/quizSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import Spinner from "./Spinner";
 
 
 
@@ -47,7 +48,7 @@ useEffect( () => {
 
   return (
     <>
-    Creating quiz template
+      <Spinner/>
     </>
   );
 }

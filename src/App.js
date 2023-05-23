@@ -13,6 +13,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, getQuizes } from "./features/quiz/quizSlice";
 
+import MyEditor from "./pages/MyEditor";
+
 function App() {
   const [quizes, setQuizes] = useState([]);
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ function App() {
         <Route path="/create" element={<CreateQuizTemplate/>} />
         <Route path="/create/:id" element={<CreateQuiz quizes={quizes} />} /> {/* update Quiz */}
         <Route path="/quiz" element={<SolveQuiz />} />
+        <Route path="/admin/test" element={<MyEditor />} /> 
       </Routes>
     </>
   );

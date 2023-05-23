@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import SolveQuiz from "../pages/SolveQuiz";
 import { useSelector } from "react-redux";
+import Spinner from "./Spinner";
 
 function QuizLoad({ quizes }) {
   const { id } = useParams();
   const { isLoading } = useSelector((state) => state.quiz);
 
   if (isLoading || !quizes) {
-    return <div>Loading quizzes...</div>;
+    return <Spinner/>;
   }
 
   const IDquiz = quizes.find((quiz) => quiz._id.toString() === id);
