@@ -242,3 +242,42 @@
     height: 250px;
   }
 }
+
+.finished-quiz-container {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background: url(//assets-cdn.kahoot.it/builder/v2/assets/business_default-da04c7ff.jpg)
+    center center / cover no-repeat rgb(242, 242, 242);
+}
+
+.finished-quiz-header {
+  text-align: center;
+  word-wrap: break-word;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin: 0 25px 0 25px;
+}
+
+.finished-quiz-header span {
+  color: rgb(35, 118, 35);
+}
+
+.finished-quiz-return-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 600;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 200px;
+  height: auto;
+}

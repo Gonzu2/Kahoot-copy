@@ -5,7 +5,6 @@ import "../style/navbarLoggedIn.css";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, logout } from "../features/auth/authSlice";
 
-
 const Navbar = () => {
   const [directoryStates, setDirectoryStates] = useState({
     home: false,
@@ -15,26 +14,25 @@ const Navbar = () => {
     groups: false,
     marketplace: false,
   });
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
-  useEffect( () => {
-    if(!user){
-      navigate("/")
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
     }
-  },[user])
+  }, [user]);
 
   const singOut = (e) => {
     e.preventDefault();
-    navigate("/")
-    console.log("logging out")
+    navigate("/");
+    console.log("logging out");
     dispatch(logout());
-
-  }
+  };
 
   useEffect(() => {
     const pathname = location.pathname.substring(1);
@@ -43,8 +41,6 @@ const Navbar = () => {
       [pathname]: true,
     }));
   }, [location.pathname]);
-
-
 
   // to change burger classes
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
@@ -560,26 +556,28 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-second-item create-button-small">
-          <span
-            data-functional-selector="icon"
-            style={{
-              display: "inline-block",
-              verticalAlign: "middle",
-              width: "32px",
-              height: "32px",
-            }}>
-            <svg
-              viewBox="0 0 32 32"
-              focusable="false"
-              stroke="none"
-              strokeWidth="0"
-              aria-hidden="true">
-              <title>Icon</title>
-              <path
-                d="M7 15 15 15 15 7 17 7 17 15 25 15 25 17 17 17 17 25 15 25 15 17 7 17z"
-                style={{ fill: "rgb(255, 255, 255)" }}></path>
-            </svg>
-          </span>
+          <Link to={"/create"}>
+            <span
+              data-functional-selector="icon"
+              style={{
+                display: "inline-block",
+                verticalAlign: "middle",
+                width: "32px",
+                height: "32px",
+              }}>
+              <svg
+                viewBox="0 0 32 32"
+                focusable="false"
+                stroke="none"
+                strokeWidth="0"
+                aria-hidden="true">
+                <title>Icon</title>
+                <path
+                  d="M7 15 15 15 15 7 17 7 17 15 25 15 25 17 17 17 17 25 15 25 15 17 7 17z"
+                  style={{ fill: "rgb(255, 255, 255)" }}></path>
+              </svg>
+            </span>
+          </Link>
         </li>
         <li className="nav-second-item account-info" onClick={openAccountInfo}>
           <div className="account-info-logo">

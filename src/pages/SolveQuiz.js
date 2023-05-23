@@ -3,6 +3,7 @@ import "../style/solve-quiz.css";
 import { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function SolveQuiz({ quiz }) {
   let timeWait = 20;
@@ -88,17 +89,26 @@ function SolveQuiz({ quiz }) {
           resetInterval();
         }, 2500);
       } else {
-        setIsFinished(true);
+        setShowAnswers(true);
+        setTimeout(() => {
+          setShowAnswers(false);
+          resetInterval();
+          setIsFinished(true);
+        }, 2500);
       }
     }
   };
 
   if (isFinished) {
     return (
-      <div>
-        {"Good job you finished quiz with " +
-          correctAnswers +
-          " correct answers"}
+      <div className="finished-quiz-container">
+        <h1 className="finished-quiz-header">
+          You answered <span>{correctAnswers}</span> questions correct, out of{" "}
+          <span>{quiz.questions.length}</span> questions!
+        </h1>
+        <Link to="/home">
+          <div className="finished-quiz-return-home">Return home</div>
+        </Link>
       </div>
     );
   }
