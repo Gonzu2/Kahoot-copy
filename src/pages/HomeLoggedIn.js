@@ -27,10 +27,10 @@ function HomeLoggedIn() {
     if (presonalQuizSuccess) {
       setPersonalQuizes(quizPersonal);
     }
-    if(isError || message){
-      console.log("error ",message);
+    if (isError || message) {
+      console.log("error ", message);
     }
-  }, [presonalQuizSuccess, isError, message])
+  }, [presonalQuizSuccess, isError, message]);
 
   return (
     <div id="home-main">

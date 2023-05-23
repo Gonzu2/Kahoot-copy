@@ -23,21 +23,20 @@
   margin-right: auto;
 
   background-color: white;
-  padding: 15px 15px 15px 35px;
+  padding: 15px 20px 15px 20px;
   border-radius: 7.5px;
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.quiz-question::after {
-  content: "99+";
-
+.quiz-questions-count {
   position: absolute;
   left: -32px;
   bottom: -32px;
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
 
   height: 32px;
@@ -50,6 +49,40 @@
   font-size: 20px;
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.quiz-question-time-remaining {
+  position: absolute;
+  right: -32px;
+  bottom: -32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  height: 42px;
+  width: 42px;
+  padding: 15px;
+
+  background-color: #fff;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.question-bubble span {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.question-bubble span::after {
+  content: "+";
+  position: absolute;
+  right: -8px;
+  top: -8px;
 }
 
 .quiz-image {
