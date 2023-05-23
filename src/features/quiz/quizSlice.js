@@ -9,6 +9,7 @@ const initialState = {
   isLoading: false,
   presonalQuizSuccess: false,
   oneQuiz: null,
+  createMessage: null,
   message: "",
 };
 
@@ -118,7 +119,10 @@ const quizSlice = createSlice({
       })
       .addCase(getUserQuizes.rejected, handleRejected)
       .addCase(createQuiz.pending, handlePending)
-      .addCase(createQuiz.fulfilled, handleFulfilled)
+      .addCase(createQuiz.fulfilled,  (state, action) => {
+        handleFulfilled(state)
+        state.createMessage = action.payload // send back the created quiz
+      })
       .addCase(createQuiz.rejected, handleRejected)
       .addCase(GetQuizById.pending, handlePending)
       .addCase(GetQuizById.fulfilled, (state, action) => {

@@ -150,34 +150,30 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   position: relative;
 }
-.answer-btn .text-input-box span[data-text="true"] {
+.answer-btn .text-input-box textarea {
   width: 100%;
-  height: 100%;
+  height: auto;
   min-width: 100%;
   min-width: 100%;
   border: none;
+  overflow: hidden;
   background-color: inherit;
   color: white;
-  font-size: 1rem;
-  text-align: left;
   resize: none;
-  overflow-wrap: break-word;
-  vertical-align: baseline;
   user-select: text;
   white-space: pre-wrap;
   word-break: break-word;
-  display: flex;
-  align-items: center;
   font-size: clamp(1rem, 1.8vmin, 1.375rem);
-}
-span[data-placeholder]:empty:before {
+/* span[data-placeholder]:empty:before {
   content: attr(data-placeholder);
   color: gray;
+} */
 }
-span:focus-visible {
+textarea:focus-visible {
   border: none;
   outline-offset: 0px;
   outline: none;
@@ -187,8 +183,8 @@ span:focus-visible {
   color: white;
   position: absolute;
   font-size: clamp(1rem, 1.8vmin, 1.375rem);
-  top: 1;
-  right: 0;
+  top: 10%;
+  right: -2%;
   display: none;
 }
 

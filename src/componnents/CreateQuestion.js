@@ -1,36 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useRef, useMemo  } from "react";
 import "../style/createQuestion.css";
-function CreateQuestion({ onAnswerChange, id }) {
-  const [title, setTitle] = useState("")
+function CreateQuestion({ onAnswerChange, questionData}) {
+  const [title, setTitle] = useState(questionData.name);
   const [answerValue, setAnswerValue] = useState({
     red: {
-      value: "",
-      correctAnswer: false,
+      value: questionData.red.text,
+      correctAnswer: questionData.red.isCorrect,
     },
     blue: {
-      value: "",
-      correctAnswer: false,
+      value: questionData.blue.text,
+      correctAnswer: questionData.blue.isCorrect,
     },
     green: {
-      value: "",
-      correctAnswer: false,
+      value: questionData.green.text,
+      correctAnswer: questionData.green.isCorrect,
     },
     yellow: {
-      value: "",
-      correctAnswer: false,
+      value: questionData.yellow.text,
+      correctAnswer: questionData.yellow.isCorrect,
     },
   });
-  useEffect( () => {
-    let placeholder = { 
-      id: id,
-      name: title,
-      answerValue: answerValue
-    }
-    onAnswerChange(placeholder)
-  },[title,answerValue]) 
-  // saveAnswers(title, answerValue)
   const MAX_LENGTH = 100;
   const MAX_TITLE = 70;
   const remainingChars = {
@@ -39,6 +30,85 @@ function CreateQuestion({ onAnswerChange, id }) {
     green: MAX_LENGTH - answerValue.green.value.length,
     blue: MAX_LENGTH - answerValue.blue.value.length,
   };
+  useEffect( () => {
+    let placeholder = { 
+      id: parseInt(questionData.id, 10),
+      name: title,
+      answerValue: answerValue
+    }
+    onAnswerChange(placeholder)
+  },[title, answerValue])
+
+const clickME = () => {
+  let placeholder = { 
+    id: questionData.id,
+    name: title,
+    answerValue: answerValue
+  }
+  onAnswerChange(placeholder)
+}
+
+  // useEffect( () => {
+  //   if(questionData !== answerValue) {
+  //     setAnswerValue ({
+  //       red: {
+  //         value: questionData.red.text,
+  //         correctAnswer: questionData.red.isCorrect,
+  //       },
+  //       blue: {
+  //         value: questionData.blue.text,
+  //         correctAnswer: questionData.blue.isCorrect,
+  //       },
+  //       green: {
+  //         value: questionData.green.text,
+  //         correctAnswer: questionData.green.isCorrect,
+  //       },
+  //       yellow: {
+  //         value: questionData.yellow.text,
+  //         correctAnswer: questionData.yellow.isCorrect,
+  //       },
+  //      })
+  //      setTitle(questionData.name)
+  //   }
+  // },[questionData, setAnswerValue, setTitle])
+
+  useEffect(() => {
+    const updateAnswerValue = () => {
+      if (
+        questionData.red.text !== answerValue.red.value ||
+        questionData.red.isCorrect !== answerValue.red.correctAnswer ||
+        questionData.blue.text !== answerValue.blue.value ||
+        questionData.blue.isCorrect !== answerValue.blue.correctAnswer ||
+        questionData.green.text !== answerValue.green.value ||
+        questionData.green.isCorrect !== answerValue.green.correctAnswer ||
+        questionData.yellow.text !== answerValue.yellow.value ||
+        questionData.yellow.isCorrect !== answerValue.yellow.correctAnswer
+      ) {
+        setAnswerValue({
+          red: {
+            value: questionData.red.text,
+            correctAnswer: questionData.red.isCorrect,
+          },
+          blue: {
+            value: questionData.blue.text,
+            correctAnswer: questionData.blue.isCorrect,
+          },
+          green: {
+            value: questionData.green.text,
+            correctAnswer: questionData.green.isCorrect,
+          },
+          yellow: {
+            value: "sdfsdfsdf",
+            correctAnswer: questionData.yellow.isCorrect,
+          },
+        });
+      }
+      setTitle(questionData.name)
+    };
+
+    updateAnswerValue();
+  }, [questionData]);
+
 
   const toogleCheckBox = (e) => {
     const name = e.target.getAttribute("data-name");
@@ -51,26 +121,17 @@ function CreateQuestion({ onAnswerChange, id }) {
     }));
   };
 
-  const handleKeyDown = (e) => {
-    const name = e.target.getAttribute("data-name");
-    if (
-      answerValue[name].value.length >= MAX_LENGTH &&
-      e.key !== "Backspace" &&
-      !(e.ctrlKey && ["c", "v", "x", "a"].includes(e.key))
-    ) {
-      e.preventDefault();
-    }
-  };
 
   const handleChange = (e) => {
+    console.log(answerValue.red.value)
     const name = e.target.getAttribute("data-name");
-    let value = e.target.textContent.trim();
+    let value = e.target.value
 
-    if (value.length >= MAX_LENGTH) {
-      e.preventDefault();
-      value = value.substring(0, MAX_LENGTH);
-      e.target.textContent = value;
-    }
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+    textarea.maxLength = MAX_LENGTH
+
 
     setAnswerValue((prevState) => ({
       ...prevState,
@@ -79,30 +140,11 @@ function CreateQuestion({ onAnswerChange, id }) {
         value: value,
       },
     }));
-  
+
   };
 
-  const handlePaste = (e) => {
-    const name = e.target.getAttribute("data-name");
-    const clipboardText = e.clipboardData.getData("text");
-    const currentValue = e.target.textContent;
-    const availableSpace = MAX_LENGTH - currentValue.length;
 
-    if (clipboardText.length > availableSpace) {
-      e.preventDefault();
-      const clippedText = clipboardText.substring(0, availableSpace);
-      document.execCommand("insertText", false, clippedText);
-    }
 
-    setAnswerValue((prevState) => ({
-      ...prevState,
-      [name]: {
-        ...prevState[name],
-        value: e.target.textContent,
-      },
-    }));
-  
-  };
 
   const updateTitle = (e) => {
     setTitle(e.target.value);
@@ -110,12 +152,13 @@ function CreateQuestion({ onAnswerChange, id }) {
 
   return (
     <div className="middle-main">
-      <div className="question-title">
+      <div className="question-title" >
         <input
           type="text"
           placeholder="Start typing your question"
           maxLength={MAX_TITLE}
           onChange={updateTitle}
+          value={title}
         />
         <span>{MAX_TITLE - title.length}</span>
       </div>
@@ -154,14 +197,11 @@ function CreateQuestion({ onAnswerChange, id }) {
           <div className="text-input-box">
             {/* <input type="text" placeholder="Add answer 1" onChange={handleChange} name="red" wrap="hard"/> */}
             {/* <textarea placeholder="Add answer 1" onChange={handleChange} name="red" wrap="soft"></textarea> */}
-            <span
-              data-text="true"
-              contenteditable="true"
-              onPaste={handlePaste}
-              onInput={handleChange}
-              onKeyDown={handleKeyDown}
+            <textarea
+              onChange={handleChange}
+              maxLength={MAX_LENGTH}
               data-placeholder="Add answer 1"
-              data-name="red"></span>
+              data-name="red">{answerValue.red.value}</textarea>
             <span className="charsLeft">{remainingChars.red}</span>
           </div>
           <div className="radio-btn">
@@ -204,14 +244,11 @@ function CreateQuestion({ onAnswerChange, id }) {
             </div>
           </div>
           <div className="text-input-box">
-            <span
-              data-text="true"
-              contenteditable="true"
-              onPaste={handlePaste}
-              onInput={handleChange}
-              onKeyDown={handleKeyDown}
+            <textarea
+             onChange={handleChange}
+             maxLength={MAX_LENGTH}
               data-placeholder="Add answer 2"
-              data-name="blue"></span>
+              data-name="blue">{answerValue.blue.value}</textarea>
             <span className="charsLeft">{remainingChars.blue}</span>
           </div>
           <div className="radio-btn">
@@ -255,14 +292,11 @@ function CreateQuestion({ onAnswerChange, id }) {
             </div>
           </div>
           <div className="text-input-box">
-            <span
-              data-text="true"
-              contenteditable="true"
-              onPaste={handlePaste}
-              onInput={handleChange}
-              onKeyDown={handleKeyDown}
+            <textarea
+             onChange={handleChange}
+             maxLength={MAX_LENGTH}
               data-placeholder="Add answer 3 (optional)"
-              data-name="yellow"></span>
+              data-name="yellow">{answerValue.yellow.value}</textarea>
             <span className="charsLeft">{remainingChars.yellow}</span>
           </div>
           <div className="radio-btn">
@@ -306,14 +340,11 @@ function CreateQuestion({ onAnswerChange, id }) {
             </div>
           </div>
           <div className="text-input-box">
-            <span
-              data-text="true"
-              contenteditable="true"
-              onPaste={handlePaste}
-              onInput={handleChange}
-              onKeyDown={handleKeyDown}
+            <textarea
+              onChange={handleChange}
+              maxLength={MAX_LENGTH}
               data-placeholder="Add answer 4 (optional)"
-              data-name="green"></span>
+              data-name="green">{answerValue.green.value}</textarea>
             <span className="charsLeft">{remainingChars.green}</span>
           </div>
           <div className="radio-btn">

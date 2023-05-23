@@ -112,7 +112,7 @@ function SolveQuiz({ quiz }) {
       </div>
     );
   }
-
+// redering the question of quiz
   return (
     <div className="quiz-container">
       <h1 className="quiz-question">

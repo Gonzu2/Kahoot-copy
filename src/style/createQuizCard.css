@@ -1,0 +1,68 @@
+.question-card {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 90px;
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .question-card:hover .question-card-number {
+    background-color: rgb(224, 224, 224);
+  }
+  
+  .question-card-number {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+  
+    font-weight: 600;
+  
+    width: 32px;
+    height: 32px;
+  
+    position: absolute;
+  
+    display: grid;
+    place-items: center;
+  
+    left: -15px;
+    bottom: -15px;
+  }
+  
+  .question-card::before {
+    content: "";
+    background-image: url("../images/kahoot-image.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+  
+  .question-card-name,
+  .question-card-id,
+  .question-card-delete {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    width: 180px;
+    height: 20px;
+  }
+  
+  .question-card-delete {
+    color: #ce2121;
+    padding: 5px 0 0 0;
+    text-align: end;
+  }
+  

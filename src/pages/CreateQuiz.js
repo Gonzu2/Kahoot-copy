@@ -1,107 +1,143 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, interval } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../componnents/NavbarCreate";
-import { useState, useEffect } from "react";
-import "../style/createQuiz.css";
 import Question from "../componnents/CreateQuestion.js";
-import { isFulfilled } from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, createQuiz } from "../features/quiz/quizSlice";
-function CreateQuiz() {
-  const [questionData, setQuestionData] = useState([]);
+import QuestionCard from "../componnents/QuestionCard";
+import Spinner from "../componnents/Spinner";
+import "../style/createQuiz.css"
+function CreateQuiz({ quizes }) {
+  const [questionsData, setQuestionsData] = useState([]);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  var questionData
+  var currentQuestion
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccsess, message } = useSelector(
+  const { user, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
-
-  var newQuzi = {
+  const [IDquiz, setIDQuiz]= useState();
+  const { id } = useParams();
+  const { isLoading } = useSelector((state) => state.quiz)
+  var newQuiz = {
     title: "placeholder Title",
-    questions: questionData.map((question) => ({
+    questions: questionsData.map((question) => ({
       name: question.name,
       options: [
         {
-          text: question.answerValue.red.value,
-          isCorrect: question.answerValue.red.isCorrect,
+          text: question.options[0].text,
+          isCorrect: question.options[0].isCorrect,
         },
         {
-          text: question.answerValue.blue.value,
-          isCorrect: question.answerValue.blue.isCorrect,
+          text: question.options[1].text,
+          isCorrect: question.options[1].isCorrect,
         },
         {
-          text: question.answerValue.green.value,
-          isCorrect: question.answerValue.green.isCorrect,
+          text: question.options[2].text,
+          isCorrect: question.options[2].isCorrect,
         },
         {
-          text: question.answerValue.yellow.value,
-          isCorrect: question.answerValue.yellow.isCorrect,
+          text: question.options[3].text,
+          isCorrect: question.options[3].isCorrect,
         },
       ],
     })),
-    plays: 0,
   };
-
   useEffect(() => {
     if (!user) {
       navigate("/");
     }
-    console.log(isError + ": " + message);
+    if (isError) {
+      console.log("error: ",isError + ": " + message);
+    }
+
   }, [user, isError, message]);
 
+
   useEffect(() => {
-    newQuzi = {
+    if (quizes) {
+      setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id))
+    }
+
+
+    if (IDquiz) {
+      setQuestionsData(IDquiz.questions);
+    }
+
+    if (questionsData !== "undefined" && questionsData !== undefined && questionData) {
+      console.log(questionData);
+      currentQuestion = questionsData[questionIndex];
+      questionData = {
+      name: currentQuestion.name,
+      red: currentQuestion.options[0],
+      blue: currentQuestion.options[1],
+      green: currentQuestion.options[2],
+      yellow: currentQuestion.options[3],
+      id: questionIndex
+    };
+    }
+  }, [quizes, IDquiz, questionsData]);
+
+  useEffect(() => {
+    newQuiz = {
       title: "placeholder Title",
-      questions: questionData.map((question) => ({
+      questions: questionsData.map((question) => ({
         name: question.name,
         options: [
           {
-            text: question.answerValue.red.value,
-            isCorrect: question.answerValue.red.isCorrect,
+            text: question.options[0].text,
+            isCorrect: question.options[0].isCorrect,
           },
           {
-            text: question.answerValue.blue.value,
-            isCorrect: question.answerValue.blue.isCorrect,
+            text: question.options[1].text,
+            isCorrect: question.options[1].isCorrect,
           },
           {
-            text: question.answerValue.green.value,
-            isCorrect: question.answerValue.green.isCorrect,
+            text: question.options[2].text,
+            isCorrect: question.options[2].isCorrect,
           },
           {
-            text: question.answerValue.yellow.value,
-            isCorrect: question.answerValue.yellow.isCorrect,
+            text: question.options[3].text,
+            isCorrect: question.options[3].isCorrect,
           },
         ],
       })),
     };
   }, []);
+  if (isLoading || !quizes) {
+    return <Spinner/>;
+  }
+  
+  if (!IDquiz) {
+    return <div>Quizes not found</div>;
+  }
 
-  const handleQuestionDataChange = (updatedQuestionData) => {
-    setQuestionData((prevQuestionData) => {
-      const questionIndex = prevQuestionData.findIndex(
-        (question) => question.id === updatedQuestionData.id
-      );
+  const handleQuestionsDataChange = (updatedQuestionData) => {
+    // setQuestionData((prevQuestionData) => {
+    //   const questionIndex = prevQuestionData.findIndex(
+    //     (question) => question.id === updatedQuestionData.id
+    //   );
 
-      if (questionIndex !== -1) {
-        const updatedData = [...prevQuestionData];
-        updatedData[questionIndex] = updatedQuestionData;
-        return updatedData;
-      } else {
-        return [...prevQuestionData, updatedQuestionData];
-      }
-    });
-  };
+    //   if (questionIndex !== -1) {
+    //     const updatedData = [...prevQuestionData];
+    //     updatedData[questionIndex] = updatedQuestionData;
+    //     return updatedData;
+    //   } else {
+    //     return [...prevQuestionData, updatedQuestionData];
+    //   }
+    // });
+  }
 
   const handleOnSave = () => {
-    const isValid = questionData.every((quiz) => {
+    const isValid = questionsData.every((quiz) => {
       if (
         quiz.title === "" ||
         quiz.answerValue.red.value === "" ||
         quiz.answerValue.blue.value === "" ||
         quiz.answerValue === null
       ) {
-        console.log(
-          "Please fill in the title and answers (at least 2 minimum)."
-        );
+        console.log("Please fill in the title and answers (at least 2 minimum).");
         return false;
       }
       if (
@@ -118,34 +154,48 @@ function CreateQuiz() {
     });
 
     if (isValid) {
-      console.log(newQuzi);
+      console.log(newQuiz);
       dispatch(
         createQuiz({
           token: user.token,
-          quiz: newQuzi,
+          quiz: newQuiz,
         })
       );
     } else {
-      console.log("Some elements in questionData do not meet the conditions.");
+      console.log("Some elements in questionsData do not meet the conditions.");
     }
   };
 
+  const handleChangeQuestions = (e) => {
+    e.preventDefault();
+    const index = e.target.getAttribute("data-key")
+    setQuestionIndex(index)
+  }
+    // interval = setInterval(() => {
+    //   console.log("auto save 20sec ", newQuiz);
+    //   dispatch(
+    //     createQuiz({
+    //       token: user.token,
+    //       quiz: newQuiz,
+    //     })
+    //   );
+    // }, 20000); // 20 seconds
   return (
     <div id="create-main">
       <Navbar onSave={handleOnSave} />
       <div className="create-main-container">
-        <Question
-          className="middle-main"
-          onAnswerChange={handleQuestionDataChange}
-          id={0}
-        />
+        {questionData ? <Question className="middle-main" onAnswerChange={handleQuestionsDataChange} questionData={questionData} id={34} /> : <>no data</>}
+        
         <div className="question-tab-main">
-          <div className="question-card">
-            <h1 className="question-card-name">Name - kahoot name</h1>
-            <h1 className="question-card-id">ID - kahoot id</h1>
-            <h1 className="question-card-delete">Delete</h1>
-            <div className="question-card-number">1</div>
-          </div>
+          {IDquiz &&
+            IDquiz.questions.map((q, index) => {
+              let cardInfo = {
+                title: q.name,
+                id: IDquiz._id,
+                index: index,
+              };
+              return <QuestionCard questionCardInfo={cardInfo} key={index} changeQuestion={handleChangeQuestions} />;
+            })}
         </div>
       </div>
     </div>

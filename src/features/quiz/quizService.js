@@ -24,10 +24,7 @@ const postCreateQuiz = async (token, quiz) => {
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-  console.log("sending to server: " + token);
-  console.log("sending to server: ", quiz);
   const response = await axios.post(API_URL + "/new/", quiz, { headers });
-  console.log(response.data);
   return response.data;
 };
 
