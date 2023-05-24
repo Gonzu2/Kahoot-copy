@@ -14,7 +14,6 @@ import {
   faFloppyDisk,
 } from "@fortawesome/free-solid-svg-icons";
 const Swal = require("sweetalert2");
-
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
   var newQuiz;
@@ -22,9 +21,12 @@ function CreateQuiz({ quizes }) {
   const [questionsData, setQuestionsData] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState();
+  const [quizTitle, setQuizTitle] = useState();
+  const [quizDescrition, setQuizDescrition ] = useState()
   const [IDquiz, setIDQuiz] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  var firstReload = false;
   const { user, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
@@ -42,22 +44,23 @@ function CreateQuiz({ quizes }) {
   }, [user, isError, message]);
 
   useEffect(() => {
+    console.log(quizes)
     if (quizes) {
       setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id));
     }
 
     if (IDquiz) {
       setQuestionsData(IDquiz.questions);
+      setQuizTitle(IDquiz.title);
     }
 
     if (!IDquiz) {
-      navigate(`/create/${id}`);
     }
   }, [quizes, IDquiz]);
 
   useEffect(() => {
     if (questionsData && questionsData.length > 0) {
-      // console.log(questionsData)
+      // console.log(questionsData) 
       var currentQuestion = questionsData[questionIndex];
       let questionDataTemp = {
         name: currentQuestion.name,
@@ -73,7 +76,7 @@ function CreateQuiz({ quizes }) {
 
   const makeNewQuiz = () => {
     newQuiz = {
-      title: "placeholder Title enter you tititle",
+      title: quizTitle,
       questions: questionsData.map((question) => ({
         name: question.name,
         options: [
@@ -173,13 +176,15 @@ function CreateQuiz({ quizes }) {
   };
 
   const checkValid = questionsData.every((quiz) => {
+    if ( quizTitle === "") {
+      return false;
+    }
     if (
       quiz.name === "" ||
       quiz.options[0].text === "" ||
       quiz.options[1].text === "" ||
       quiz.options === null
     ) {
-      console.log("Please fill in the title and answers (at least 2 minimum).");
       return false;
     }
     if (
@@ -190,7 +195,6 @@ function CreateQuiz({ quizes }) {
     ) {
       return true;
     } else {
-      console.log("Please choose at least one correct answer.");
       return false;
     }
   });
@@ -299,6 +303,16 @@ function CreateQuiz({ quizes }) {
     ]);
   };
 
+  const halndleChangeTitle = (e) => {
+    e.target.maxLength = 100
+      setQuizTitle(e.target.value);
+  }
+
+  const handleChangeDescription = (e) => {
+    e.target.maxLength = 300
+      setQuizDescrition(e.target.value);
+  }
+
   return (
     <div id="create-main">
       <Navbar
@@ -320,14 +334,18 @@ function CreateQuiz({ quizes }) {
             <div className="settings-information-container">
               <div className="settings-offcanvas-quiz-title settings-input-area">
                 <label for="quiz-title">Quiz title:</label>
-                <input type="text" id="quiz-title" name="quiz-title"></input>
+                <input type="text" id="quiz-title" name="quiz-title" placeholder="Enter your title" value={quizTitle} onChange={halndleChangeTitle}></input>
               </div>
               <div className="settings-offcanvas-quiz-description settings-input-area">
                 <label for="quiz-description">Quiz description:</label>
                 <textarea
                   type="text"
                   id="quiz-description"
-                  name="quiz-description"></textarea>
+                  name="quiz-description"
+                  placeholder="Enter your quiz description"
+                  onChange={handleChangeDescription}
+                  value={quizDescrition}
+                  ></textarea>
               </div>
             </div>
             <div className="settings-offcanvas-close-btn">

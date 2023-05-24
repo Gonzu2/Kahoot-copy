@@ -10,6 +10,7 @@ const initialState = {
   presonalQuizSuccess: false,
   oneQuiz: null,
   createMessage: null,
+  oneQuizProtect: null,
   message: "",
 };
 
@@ -88,6 +89,22 @@ export const updateQuiz = createAsyncThunk(
     }
   }
 );
+
+export const getQuizByIdProtect = createAsyncThunk(
+  "quiz/getQuizByIdProtect",
+  async (data, thunkAPI) => {
+    try {
+      return await quizService.getOneQuizProtect(data.id, data.token);
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 const quizSlice = createSlice({
   name: "quizzes",
   initialState,
@@ -148,6 +165,12 @@ const quizSlice = createSlice({
       .addCase(updateQuiz.pending, handlePending)
       .addCase(updateQuiz.fulfilled, handleFulfilled)
       .addCase(updateQuiz.rejected, handleRejected)
+      .addCase(getQuizByIdProtect.pending, handlePending)
+      .addCase(getQuizByIdProtect.fulfilled, (state, action) => {
+        handleFulfilled(state);
+        state.oneQuizProtect = action.payload;
+      })
+      .addCase(getQuizByIdProtect.rejected, handleRejected)
   },
 });
 

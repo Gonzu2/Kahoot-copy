@@ -41,12 +41,23 @@ const updateOneQuiz = async (quiz, id, token) => {
   return response.data;
 }
 
+const getOneQuizProtect = async (id, token) => {
+  console.log(id, token);
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  const response = await axios.get(API_URL + "/user/"+ id +"/", { headers });
+  console.log(response.data);
+  return response.data;
+}
+
 const quizService = {
   getAllQuizes,
   getAllUserQuizes,
   postCreateQuiz,
   getOneQuize,
   updateOneQuiz,
+  getOneQuizProtect,
 };
 
 export default quizService;
