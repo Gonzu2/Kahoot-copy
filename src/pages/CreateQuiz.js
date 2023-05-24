@@ -9,6 +9,7 @@ import Spinner from "../componnents/Spinner";
 import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+const Swal = require('sweetalert2')
 
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
@@ -128,6 +129,37 @@ function CreateQuiz({ quizes }) {
     return <div>Quizes not found</div>;
   }
 
+  const trowError = (err) => {
+    Swal.fire({
+      title: 'Error!',
+      text: err,
+      icon: 'error',
+      confirmButtonText: 'Ok'
+    })
+  }
+
+  const confirmDelete = (cardIndex) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedQuestionsData = questionsData.filter((_, index) => index !== cardIndex);
+        setQuestionsData(updatedQuestionsData);
+        Swal.fire(
+          'Deleted!',
+          'Your qestion has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+
   const handleQuestionsDataChange = (updatedQuestionData) => {
     if (questionsData && questionsData.length > 0) {
       setQuestionsData((prevQuestionsData) => {
@@ -175,28 +207,30 @@ function CreateQuiz({ quizes }) {
       );
       navigate("/home");
     } else {
-      alert("Some elements in questionsData do not meet the conditions.");
+      trowError("Some elements in quiz do not meet the conditions.");
     }
   };
 
   const handleDelete = (cardIndex) => {
    let qIndex = parseInt(questionIndex, 10);
-    console.log(cardIndex, " : " , qIndex)
     if (cardIndex === qIndex) {
+      console.log(questionsData.length)
+      if (questionsData.length <= 1){
+      trowError("Can delete last question")
+      return;
+      }
       if (qIndex === questionsData.length -1) {
-        console.log("going back one")
+        console.log("-1")
         setQuestionIndex( (prev) => prev - 1)
       }
-      else if (questionsData.length < 0) {
-        alert("You cant delete the question")
-      }
-      else {
+      if (qIndex !== questionsData.length -1) {
+        console.log("+1")
         setQuestionIndex((prev) => parseInt(prev, 10) + 1);
       }
     }
 
-    const updatedQuestionsData = questionsData.filter((card, index) => index !== cardIndex);
-    setQuestionsData(updatedQuestionsData);
+    confirmDelete(cardIndex)
+
   }
 
   const handleChangeQuestions = (e) => {
@@ -209,11 +243,9 @@ function CreateQuiz({ quizes }) {
     const main = document.getElementById("create-main");
     if (settingsOffcanvas) {
       main.style.overflowY = "scroll";
-      console.log("Disabling settings");
       setSettingsOffcanvas(false);
     } else {
       main.style.overflowY = "hidden";
-      console.log("Enabling settings");
       setSettingsOffcanvas(true);
     }
   }

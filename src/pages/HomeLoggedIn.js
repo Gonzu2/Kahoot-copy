@@ -34,6 +34,15 @@ function HomeLoggedIn() {
     }
   }, [presonalQuizSuccess, isError, message]);
 
+
+const playQuiz = (quiz) => {
+  if (quiz.isValid) {
+  navigate(`/quiz/${quiz._id}`)
+}
+else {
+  alert(`quiz "${quiz.title}" is not valid`)
+}
+}
   return (
     <div id="home-main">
       <Navbar />
@@ -62,7 +71,7 @@ function HomeLoggedIn() {
               <li className="kahoot-list-item" key={quiz._id}>
                 <div
                   className="kahoot-image"
-                  onClick={() => navigate(`/quiz/${quiz._id}`)}>
+                  onClick={ () => playQuiz(quiz)}>
                   <img src={require("../images/kahoot-image.webp")} />
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
