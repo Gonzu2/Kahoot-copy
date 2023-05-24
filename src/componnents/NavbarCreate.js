@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/createQuizNavbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = ({ onSave }) => {
+const Navbar = ({ onSave, toggleSettings }) => {
   return (
     <nav className="navCreate">
       {/* Nav main items */}
@@ -46,7 +46,7 @@ const Navbar = ({ onSave }) => {
             </g>
           </svg>
         </li>
-        <li className="nav-main-item-create settings">
+        <li className="nav-main-item-create settings" onClick={toggleSettings}>
           <span
             data-functional-selector="icon"
             style={{

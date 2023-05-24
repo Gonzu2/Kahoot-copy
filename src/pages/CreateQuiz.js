@@ -1,4 +1,4 @@
-import React, { useState, useEffect, interval } from "react";
+import React, { useState, useEffect, useRef, interval } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../componnents/NavbarCreate";
 import Question from "../componnents/CreateQuestion.js";
@@ -8,11 +8,12 @@ import QuestionCard from "../componnents/QuestionCard";
 import Spinner from "../componnents/Spinner";
 import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
   var newQuiz;
+  const [settingsOffcanvas, setSettingsOffcanvas] = useState(false);
   const [questionsData, setQuestionsData] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState();
@@ -23,6 +24,8 @@ function CreateQuiz({ quizes }) {
     (state) => state.auth
   );
   const { isLoading } = useSelector((state) => state.quiz);
+
+  let menuRef = useRef(null);
 
   useEffect(() => {
     if (!user) {
@@ -197,9 +200,56 @@ function CreateQuiz({ quizes }) {
     const index = e.target.getAttribute("data-key");
     setQuestionIndex(index);
   };
+
+  function toggleSettings() {
+    const main = document.getElementById("create-main");
+    if (settingsOffcanvas) {
+      main.style.overflowY = "scroll";
+      console.log("Disabling settings");
+      setSettingsOffcanvas(false);
+    } else {
+      main.style.overflowY = "hidden";
+      console.log("Enabling settings");
+      setSettingsOffcanvas(true);
+    }
+  }
+
+  function handleOffscreenClick() {
+    if (menuRef.current.classList.contains("settings-offcanvas")) {
+      toggleSettings();
+    }
+  }
+
   return (
     <div id="create-main">
-      <Navbar onSave={handleOnSave} />
+      <Navbar onSave={handleOnSave} toggleSettings={toggleSettings} />
+      {settingsOffcanvas && (
+        <>
+          <div
+            className="settings-offcanvas"
+            ref={menuRef}
+            onClick={handleOffscreenClick}></div>
+          <div className="settings-offcanvas-container">
+            <div className="close-btn">
+              <FontAwesomeIcon icon={faXmark} onClick={toggleSettings} />
+            </div>
+            <h1 className="settings-offcanvas-header">Settings</h1>
+            <div className="settings-information-container">
+              <div className="settings-offcanvas-quiz-title settings-input-area">
+                <label for="quiz-title">Quiz title:</label>
+                <input type="text" id="quiz-title" name="quiz-title"></input>
+              </div>
+              <div className="settings-offcanvas-quiz-description settings-input-area">
+                <label for="quiz-description">Quiz description:</label>
+                <textarea
+                  type="text"
+                  id="quiz-description"
+                  name="quiz-description"></textarea>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
       <div className="create-main-container">
         {questionData && questionData !== undefined ? (
           <Question
