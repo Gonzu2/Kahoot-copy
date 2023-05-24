@@ -133,6 +133,28 @@
   cursor: pointer;
 }
 
-.settings-offcanvas-save-btn p {
+.settings-offcanvas-close-btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  height: 24px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-radius: 5px;
+  background-color: rgb(185, 67, 58);
+  color: rgb(255, 255, 255);
+  right: 86px;
+  bottom: 8px;
+  cursor: pointer;
+}
+
+.settings-offcanvas-save-btn p,
+.settings-offcanvas-close-btn p {
   margin: 0;
+}
+
+.swal2-footer a {
+  color: blue;
 }

@@ -1,5 +1,11 @@
 body {
   background-color: rgb(250, 250, 250);
+  width: 100dvw;
+  height: 100dvh;
+}
+
+#home-logged-in {
+  font-family: "Montserrat", sans-serif;
 }
 
 .break-line {
@@ -10,13 +16,19 @@ body {
   margin-bottom: 0;
 }
 
+.my-kahoots {
+  margin-top: 5%;
+}
+
+.all-kahoots {
+  margin-top: 50px;
+}
+
 .kahoots {
   position: relative;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
-
   background-color: rgb(255, 255, 255);
   max-width: 75%;
   max-width: 650px;

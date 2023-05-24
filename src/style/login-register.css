@@ -57,6 +57,9 @@ label > p {
   font-size: 14px;
   margin: 25px 0 25px 0;
 }
+#forgot-password a {
+  color: blue;
+}
 
 input {
   padding: 12px;

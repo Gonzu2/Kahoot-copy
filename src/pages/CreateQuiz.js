@@ -207,7 +207,7 @@ function CreateQuiz({ quizes }) {
       );
       navigate("/home");
     } else {
-      trowError("Some elements in quiz do not meet the conditions.");
+      trowError("Something quiz fields are invalid.");
     }
   };
 
@@ -230,6 +230,19 @@ function CreateQuiz({ quizes }) {
     }
 
     confirmDelete(cardIndex);
+  };
+
+  const handleOnExit = () => {
+    if (checkValid) {
+      navigate("/home");
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "Wait a second!",
+        text: "Something quiz fields are invalid.",
+        footer: '<a href="/home">Continue anyway.</a>',
+      });
+    }
   };
 
   const handleChangeQuestions = (e) => {
@@ -288,7 +301,11 @@ function CreateQuiz({ quizes }) {
 
   return (
     <div id="create-main">
-      <Navbar onSave={handleOnSave} toggleSettings={toggleSettings} />
+      <Navbar
+        onSave={handleOnSave}
+        onExit={handleOnExit}
+        toggleSettings={toggleSettings}
+      />
       {settingsOffcanvas && (
         <>
           <div
@@ -312,6 +329,9 @@ function CreateQuiz({ quizes }) {
                   id="quiz-description"
                   name="quiz-description"></textarea>
               </div>
+            </div>
+            <div className="settings-offcanvas-close-btn">
+              <p onClick={toggleSettings}>Close</p>
             </div>
             <div className="settings-offcanvas-save-btn">
               <p>Save</p>
