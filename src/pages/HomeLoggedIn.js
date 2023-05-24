@@ -12,7 +12,7 @@ import Navbar from "../componnents/NavbarLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, getUserQuizes } from "../features/quiz/quizSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function HomeLoggedIn({ quizes }) {
   const [personalQuizes, setPersonalQuizes] = useState([]);
@@ -82,10 +82,13 @@ function HomeLoggedIn({ quizes }) {
                 <div className="kahoot-info">
                   <div className="kahoot-name">
                     <p>{quiz.title}</p>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      onClick={() => navigate(`/create/${quiz._id}`)}
-                    />
+                    <div className="kahoot-info-icons">
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        onClick={() => navigate(`/create/${quiz._id}`)}
+                      />
+                      <FontAwesomeIcon icon={faTrash} />
+                    </div>
                   </div>
                   <div className="kahoot-info-extra">
                     <p className="kahoot-info-extra-username">{quiz.madeBy}</p>
@@ -142,10 +145,6 @@ function HomeLoggedIn({ quizes }) {
                 <div className="kahoot-info">
                   <div className="kahoot-name">
                     <p>{quiz.title}</p>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      onClick={() => navigate(`/create/${quiz._id}`)}
-                    />
                   </div>
                   <div className="kahoot-info-extra">
                     <p className="kahoot-info-extra-username">{quiz.madeBy}</p>
