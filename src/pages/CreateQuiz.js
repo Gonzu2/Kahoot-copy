@@ -90,26 +90,10 @@ function CreateQuiz({ quizes }) {
           },
         ],
       })),
+      isValid: checkValid,
     };
   };
 
-  // useEffect(() => {
-  //   console.log("starting auto save...");
-  //   interval = setInterval(() => {
-  //     console.log("time for save ", questionsData);
-  //     if(questionsData && questionsData.length > 0) {
-  //       makeNewQuiz()
-  //       console.log("auto save 20sec ", newQuiz);
-  //       dispatch(
-  //         updateQuiz({
-  //           token: user.token,
-  //           quiz: newQuiz,
-  //           id: id
-  //         })
-  //       );
-  //     }
-  //   }, 20000); // 20 seconds
-  // }, []);
   useEffect(() => {
     let timeoutId = null;
     const autosave = () => {
@@ -127,7 +111,7 @@ function CreateQuiz({ quizes }) {
 
     const handleDataChange = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(autosave, 5000); // 2 seconds
+      timeoutId = setTimeout(autosave, 5000); // 5 seconds
     };
 
     handleDataChange(); // Trigger initial autosave
@@ -154,33 +138,33 @@ function CreateQuiz({ quizes }) {
     }
   };
 
-  const handleOnSave = () => {
-    const isValid = questionsData.every((quiz) => {
-      if (
-        quiz.name === "" ||
-        quiz.options[0].text === "" ||
-        quiz.options[1].text === "" ||
-        quiz.options === null
-      ) {
-        console.log(
-          "Please fill in the title and answers (at least 2 minimum)."
-        );
-        return false;
-      }
-      if (
-        quiz.options[0].isCorrect !== false ||
-        quiz.options[1].isCorrect !== false ||
-        quiz.options[2].isCorrect !== false ||
-        quiz.options[3].isCorrect !== false
-      ) {
-        return true;
-      } else {
-        alert("Please choose at least one correct answer.");
-        return false;
-      }
-    });
+  const checkValid = questionsData.every((quiz) => {
+    if (
+      quiz.name === "" ||
+      quiz.options[0].text === "" ||
+      quiz.options[1].text === "" ||
+      quiz.options === null
+    ) {
+      console.log(
+        "Please fill in the title and answers (at least 2 minimum)."
+      );
+      return false;
+    }
+    if (
+      quiz.options[0].isCorrect !== false ||
+      quiz.options[1].isCorrect !== false ||
+      quiz.options[2].isCorrect !== false ||
+      quiz.options[3].isCorrect !== false
+    ) {
+      return true;
+    } else {
+      console.log("Please choose at least one correct answer.");
+      return false;
+    }
+  });
 
-    if (isValid) {
+  const handleOnSave = () => {
+    if (checkValid) {
       makeNewQuiz();
       dispatch(
         updateQuiz({
@@ -197,10 +181,8 @@ function CreateQuiz({ quizes }) {
 
   const handleDelete = (cardIndex) => {
    let qIndex = parseInt(questionIndex, 10);
-    console.log("deleting")
     console.log(cardIndex, " : " , qIndex)
     if (cardIndex === qIndex) {
-      console.log("you are on the same as the card you are deleting")
       if (qIndex === questionsData.length -1) {
         console.log("going back one")
         setQuestionIndex( (prev) => prev - 1)
@@ -209,7 +191,6 @@ function CreateQuiz({ quizes }) {
         alert("You cant delete the question")
       }
       else {
-        console.log("going to front by one")
         setQuestionIndex((prev) => parseInt(prev, 10) + 1);
       }
     }
@@ -241,6 +222,34 @@ function CreateQuiz({ quizes }) {
     if (menuRef.current.classList.contains("settings-offcanvas")) {
       toggleSettings();
     }
+  }
+
+  const createNewQuestion = (e) => {
+    e.preventDefault();
+    console.log("Creating new")
+    const newQuestion = { 
+     name: "",
+     options: [
+      {
+        text: "",
+        isCorrect: false
+      },
+      {
+        text: "",
+        isCorrect: false
+      },
+      {
+        text: "",
+        isCorrect: false
+      },
+      {
+        text: "",
+        isCorrect: false
+      }
+     ]
+    };
+
+    setQuestionsData((prevQuestionsData) => [...prevQuestionsData, newQuestion]);
   }
 
   return (
@@ -305,7 +314,7 @@ function CreateQuiz({ quizes }) {
               })}
           </div>
           <div className="create-new-question-container">
-            <FontAwesomeIcon icon={faPlus} />
+            <FontAwesomeIcon icon={faPlus} onClick={createNewQuestion} />
           </div>
         </div>
       </div>
