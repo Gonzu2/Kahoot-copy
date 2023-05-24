@@ -4,7 +4,7 @@ import Navbar from "../componnents/NavbarCreate";
 import Question from "../componnents/CreateQuestion.js";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, updateQuiz } from "../features/quiz/quizSlice";
-import QuestionCard from "../componnents/QuestionCard";
+import QuestionCard from  "../componnents/QuestionCard.js"; 
 import Spinner from "../componnents/Spinner";
 import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -195,6 +195,29 @@ function CreateQuiz({ quizes }) {
     }
   };
 
+  const handleDelete = (cardIndex) => {
+   let qIndex = parseInt(questionIndex, 10);
+    console.log("deleting")
+    console.log(cardIndex, " : " , qIndex)
+    if (cardIndex === qIndex) {
+      console.log("you are on the same as the card you are deleting")
+      if (qIndex === questionsData.length -1) {
+        console.log("going back one")
+        setQuestionIndex( (prev) => prev - 1)
+      }
+      else if (questionsData.length < 0) {
+        alert("You cant delete the question")
+      }
+      else {
+        console.log("going to front by one")
+        setQuestionIndex((prev) => parseInt(prev, 10) + 1);
+      }
+    }
+
+    const updatedQuestionsData = questionsData.filter((card, index) => index !== cardIndex);
+    setQuestionsData(updatedQuestionsData);
+  }
+
   const handleChangeQuestions = (e) => {
     e.preventDefault();
     const index = e.target.getAttribute("data-key");
@@ -276,7 +299,7 @@ function CreateQuiz({ quizes }) {
                   <QuestionCard
                     questionCardInfo={cardInfo}
                     key={index}
-                    changeQuestion={handleChangeQuestions}
+                    onDelete={() => handleDelete(index)} changeQuestion={handleChangeQuestions}
                   />
                 );
               })}

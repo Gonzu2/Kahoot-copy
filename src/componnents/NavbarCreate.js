@@ -99,7 +99,7 @@ const Navbar = ({ onSave, toggleSettings }) => {
         </li>
         <li className="nav-second-item-create themes-button nav-button">
           <span
-            class="sc-eDvSVe htLrRN"
+            className="sc-eDvSVe htLrRN"
             data-functional-selector="icon"
             style={{
               display: "inline-block",
@@ -111,10 +111,10 @@ const Navbar = ({ onSave, toggleSettings }) => {
               viewBox="0 0 32 32"
               focusable="false"
               stroke="none"
-              stroke-width="0"
+              strokeWidth="0"
               aria-labelledby="label-ff5de15c-5438-4680-8446-993fa367eb4b"
               aria-hidden="true"
-              class="sc-jSUZER eTaWgc">
+              className="sc-jSUZER eTaWgc">
               <title id="label-ff5de15c-5438-4680-8446-993fa367eb4b">
                 Icon
               </title>
@@ -129,7 +129,7 @@ const Navbar = ({ onSave, toggleSettings }) => {
         </li>
         <li className="nav-second-item-create preview-button nav-button">
           <span
-            class="sc-eDvSVe htLrRN"
+            className="sc-eDvSVe htLrRN"
             data-functional-selector="icon"
             style={{
               display: "inline-block",
@@ -141,10 +141,10 @@ const Navbar = ({ onSave, toggleSettings }) => {
               viewBox="0 0 32 32"
               focusable="false"
               stroke="none"
-              stroke-width="0"
+              strokeWidth="0"
               aria-labelledby="label-8c40ebe4-39d5-4b2e-949b-090eb991207e"
               aria-hidden="true"
-              class="sc-jSUZER eTaWgc">
+              className="sc-jSUZER eTaWgc">
               <title id="label-8c40ebe4-39d5-4b2e-949b-090eb991207e">
                 Icon
               </title>
