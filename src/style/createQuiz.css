@@ -115,3 +115,24 @@
 /* .option-name title span {
 
 } */
+
+.settings-offcanvas-save-btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  height: 24px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-radius: 5px;
+  background-color: rgb(19, 104, 206);
+  color: rgb(255, 255, 255);
+  right: 8px;
+  bottom: 8px;
+  cursor: pointer;
+}
+
+.settings-offcanvas-save-btn p {
+  margin: 0;
+}

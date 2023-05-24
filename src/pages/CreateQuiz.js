@@ -4,12 +4,16 @@ import Navbar from "../componnents/NavbarCreate";
 import Question from "../componnents/CreateQuestion.js";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, updateQuiz } from "../features/quiz/quizSlice";
-import QuestionCard from  "../componnents/QuestionCard.js"; 
+import QuestionCard from "../componnents/QuestionCard.js";
 import Spinner from "../componnents/Spinner";
 import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
-const Swal = require('sweetalert2')
+import {
+  faPlus,
+  faXmark,
+  faFloppyDisk,
+} from "@fortawesome/free-solid-svg-icons";
+const Swal = require("sweetalert2");
 
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
@@ -131,34 +135,32 @@ function CreateQuiz({ quizes }) {
 
   const trowError = (err) => {
     Swal.fire({
-      title: 'Error!',
+      title: "Error!",
       text: err,
-      icon: 'error',
-      confirmButtonText: 'Ok'
-    })
-  }
+      icon: "error",
+      confirmButtonText: "Ok",
+    });
+  };
 
   const confirmDelete = (cardIndex) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedQuestionsData = questionsData.filter((_, index) => index !== cardIndex);
+        const updatedQuestionsData = questionsData.filter(
+          (_, index) => index !== cardIndex
+        );
         setQuestionsData(updatedQuestionsData);
-        Swal.fire(
-          'Deleted!',
-          'Your qestion has been deleted.',
-          'success'
-        )
+        Swal.fire("Deleted!", "Your qestion has been deleted.", "success");
       }
-    })
-  }
+    });
+  };
 
   const handleQuestionsDataChange = (updatedQuestionData) => {
     if (questionsData && questionsData.length > 0) {
@@ -177,9 +179,7 @@ function CreateQuiz({ quizes }) {
       quiz.options[1].text === "" ||
       quiz.options === null
     ) {
-      console.log(
-        "Please fill in the title and answers (at least 2 minimum)."
-      );
+      console.log("Please fill in the title and answers (at least 2 minimum).");
       return false;
     }
     if (
@@ -212,26 +212,25 @@ function CreateQuiz({ quizes }) {
   };
 
   const handleDelete = (cardIndex) => {
-   let qIndex = parseInt(questionIndex, 10);
+    let qIndex = parseInt(questionIndex, 10);
     if (cardIndex === qIndex) {
-      console.log(questionsData.length)
-      if (questionsData.length <= 1){
-      trowError("Can delete last question")
-      return;
+      console.log(questionsData.length);
+      if (questionsData.length <= 1) {
+        trowError("Can delete last question");
+        return;
       }
-      if (qIndex === questionsData.length -1) {
-        console.log("-1")
-        setQuestionIndex( (prev) => prev - 1)
+      if (qIndex === questionsData.length - 1) {
+        console.log("-1");
+        setQuestionIndex((prev) => prev - 1);
       }
-      if (qIndex !== questionsData.length -1) {
-        console.log("+1")
+      if (qIndex !== questionsData.length - 1) {
+        console.log("+1");
         setQuestionIndex((prev) => parseInt(prev, 10) + 1);
       }
     }
 
-    confirmDelete(cardIndex)
-
-  }
+    confirmDelete(cardIndex);
+  };
 
   const handleChangeQuestions = (e) => {
     e.preventDefault();
@@ -258,31 +257,34 @@ function CreateQuiz({ quizes }) {
 
   const createNewQuestion = (e) => {
     e.preventDefault();
-    console.log("Creating new")
-    const newQuestion = { 
-     name: "",
-     options: [
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      }
-     ]
+    console.log("Creating new");
+    const newQuestion = {
+      name: "",
+      options: [
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+      ],
     };
 
-    setQuestionsData((prevQuestionsData) => [...prevQuestionsData, newQuestion]);
-  }
+    setQuestionsData((prevQuestionsData) => [
+      ...prevQuestionsData,
+      newQuestion,
+    ]);
+  };
 
   return (
     <div id="create-main">
@@ -310,6 +312,9 @@ function CreateQuiz({ quizes }) {
                   id="quiz-description"
                   name="quiz-description"></textarea>
               </div>
+            </div>
+            <div className="settings-offcanvas-save-btn">
+              <p>Save</p>
             </div>
           </div>
         </>
@@ -340,7 +345,8 @@ function CreateQuiz({ quizes }) {
                   <QuestionCard
                     questionCardInfo={cardInfo}
                     key={index}
-                    onDelete={() => handleDelete(index)} changeQuestion={handleChangeQuestions}
+                    onDelete={() => handleDelete(index)}
+                    changeQuestion={handleChangeQuestions}
                   />
                 );
               })}
