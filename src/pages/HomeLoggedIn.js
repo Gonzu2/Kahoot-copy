@@ -11,6 +11,8 @@ import "../style/homeLoggedIn.css";
 import Navbar from "../componnents/NavbarLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, getUserQuizes } from "../features/quiz/quizSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 function HomeLoggedIn() {
   const [personalQuizes, setPersonalQuizes] = useState([]);
@@ -58,7 +60,9 @@ function HomeLoggedIn() {
           <ul className="kahoots-list">
             {personalQuizes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
-                <div className="kahoot-image">
+                <div
+                  className="kahoot-image"
+                  onClick={() => navigate(`/quiz/${quiz._id}`)}>
                   <img src={require("../images/kahoot-image.webp")} />
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
@@ -70,22 +74,24 @@ function HomeLoggedIn() {
                     {quiz.questions.length} q
                   </p>
                 </div>
-                <Link to={`/quiz/${quiz._id}`}>
-                  <div className="kahoot-info">
+                <div className="kahoot-info">
+                  <div className="kahoot-name">
                     <p>{quiz.title}</p>
-                    <div className="kahoot-info-extra">
-                      <p className="kahoot-info-extra-username">
-                        {quiz.madeBy}
-                      </p>
-                      <p className="kahoot-info-extra-plays">
-                        {quiz.plays >= 1000
-                          ? quiz.plays / 1000 + "k"
-                          : quiz.plays}{" "}
-                        plays
-                      </p>
-                    </div>
+                    <FontAwesomeIcon
+                      icon={faPenToSquare}
+                      onClick={() => navigate(`/create/${quiz._id}`)}
+                    />
                   </div>
-                </Link>
+                  <div className="kahoot-info-extra">
+                    <p className="kahoot-info-extra-username">{quiz.madeBy}</p>
+                    <p className="kahoot-info-extra-plays">
+                      {quiz.plays >= 1000
+                        ? quiz.plays / 1000 + "k"
+                        : quiz.plays}{" "}
+                      plays
+                    </p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
