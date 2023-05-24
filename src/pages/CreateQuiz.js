@@ -10,7 +10,6 @@ import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 const Swal = require('sweetalert2')
-
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
   var newQuiz;
@@ -18,6 +17,8 @@ function CreateQuiz({ quizes }) {
   const [questionsData, setQuestionsData] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState();
+  const [quizTitle, setQuizTitle] = useState();
+  const [quizDescrition, setQuizDescrition ] = useState()
   const [IDquiz, setIDQuiz] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function CreateQuiz({ quizes }) {
 
     if (IDquiz) {
       setQuestionsData(IDquiz.questions);
+      setQuizTitle(IDquiz.title);
     }
 
     if (!IDquiz) {
@@ -69,7 +71,7 @@ function CreateQuiz({ quizes }) {
 
   const makeNewQuiz = () => {
     newQuiz = {
-      title: "placeholder Title enter you tititle",
+      title: quizTitle,
       questions: questionsData.map((question) => ({
         name: question.name,
         options: [
@@ -284,6 +286,20 @@ function CreateQuiz({ quizes }) {
     setQuestionsData((prevQuestionsData) => [...prevQuestionsData, newQuestion]);
   }
 
+  const halndleChangeTitle = (e) => {
+    e.maxLength = 100
+    if (e.value !== ""){
+      setQuizTitle(e.value);
+    }
+  }
+
+  const handleChangeDescription = (e) => {
+    e.maxLength = 300
+    if (e.value !== ""){
+      setQuizDescrition(e.value);
+    }
+  }
+
   return (
     <div id="create-main">
       <Navbar onSave={handleOnSave} toggleSettings={toggleSettings} />
@@ -301,14 +317,18 @@ function CreateQuiz({ quizes }) {
             <div className="settings-information-container">
               <div className="settings-offcanvas-quiz-title settings-input-area">
                 <label for="quiz-title">Quiz title:</label>
-                <input type="text" id="quiz-title" name="quiz-title"></input>
+                <input type="text" id="quiz-title" name="quiz-title" placeholder="Enter your title" value={quizTitle} onChange={halndleChangeTitle}></input>
               </div>
               <div className="settings-offcanvas-quiz-description settings-input-area">
                 <label for="quiz-description">Quiz description:</label>
                 <textarea
                   type="text"
                   id="quiz-description"
-                  name="quiz-description"></textarea>
+                  name="quiz-description"
+                  placeholder="Enter your quiz description"
+                  onChange={handleChangeDescription}
+                  value={quizDescrition}
+                  ></textarea>
               </div>
             </div>
           </div>
