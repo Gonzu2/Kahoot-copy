@@ -262,7 +262,7 @@ function CreateQuestion({ onAnswerChange, questionData}) {
                 strokeWidth="1.3px"
                 aria-labelledby="label-1cf46c31-a985-4259-8ad8-26d00084488d"
                 aria-hidden="true"
-                class="sc-jSUZER eTaWgc"
+                className="sc-jSUZER eTaWgc"
                 style={{ paintOrder: "stroke" }}>
                 <title id="label-1cf46c31-a985-4259-8ad8-26d00084488d">
                   Icon
@@ -308,10 +308,10 @@ function CreateQuestion({ onAnswerChange, questionData}) {
                 viewBox="0 0 32 32"
                 focusable="false"
                 stroke="rgba(0, 0, 0, 0.15)"
-                stroke-width="1.3px"
+                strokeWidth="1.3px"
                 aria-labelledby="label-a6d02916-779d-452e-a114-b16c53b15b44"
                 aria-hidden="true"
-                class="sc-jSUZER eTaWgc"
+                className="sc-jSUZER eTaWgc"
                 style={{ paintOrder: "stroke" }}>
                 <title id="label-a6d02916-779d-452e-a114-b16c53b15b44">
                   Icon
