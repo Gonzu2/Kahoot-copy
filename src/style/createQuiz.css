@@ -28,6 +28,18 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px 25px 15px;
+  overflow: hidden;
+}
+
+.questions {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
   justify-content: start;
   align-items: center;
   padding: 25px 15px 25px 15px;
@@ -36,6 +48,31 @@
   overflow-x: auto;
 }
 
+.create-new-question-container {
+  min-width: 64px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-new-question-container svg {
+  background-color: #1368ce;
+  padding: 3px;
+  border-radius: 7.5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.create-new-question-container svg path {
+  fill: white;
+  transition: fill 0.1s ease-in-out;
+}
+
+.create-new-question-container svg:hover path {
+  fill: rgb(139, 134, 134);
+}
 
 .quiz-options-main {
   background-color: rgb(242, 242, 242);

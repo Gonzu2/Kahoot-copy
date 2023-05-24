@@ -6,46 +6,47 @@ import { useSelector, useDispatch } from "react-redux";
 import { reset, updateQuiz } from "../features/quiz/quizSlice";
 import QuestionCard from "../componnents/QuestionCard";
 import Spinner from "../componnents/Spinner";
-import "../style/createQuiz.css"
+import "../style/createQuiz.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
-  var newQuiz
+  var newQuiz;
   const [questionsData, setQuestionsData] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState();
-  const [IDquiz, setIDQuiz]= useState();
+  const [IDquiz, setIDQuiz] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
-  const { isLoading } = useSelector((state) => state.quiz)
+  const { isLoading } = useSelector((state) => state.quiz);
 
   useEffect(() => {
     if (!user) {
       navigate("/");
     }
     if (isError) {
-      console.log("error: ",isError + ": " + message);
+      console.log("error: ", isError + ": " + message);
     }
-
   }, [user, isError, message]);
-
 
   useEffect(() => {
     if (quizes) {
-      setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id))
+      setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id));
     }
-  
+
     if (IDquiz) {
       setQuestionsData(IDquiz.questions);
     }
 
-    if( !IDquiz){
-      navigate(`/create/${id}`)
+    if (!IDquiz) {
+      navigate(`/create/${id}`);
     }
   }, [quizes, IDquiz]);
-  
+
   useEffect(() => {
     if (questionsData && questionsData.length > 0) {
       // console.log(questionsData)
@@ -56,7 +57,7 @@ function CreateQuiz({ quizes }) {
         blue: currentQuestion.options[1],
         green: currentQuestion.options[2],
         yellow: currentQuestion.options[3],
-        id: questionIndex
+        id: questionIndex,
       };
       setQuestionData(questionDataTemp);
     }
@@ -87,7 +88,7 @@ function CreateQuiz({ quizes }) {
         ],
       })),
     };
-  }
+  };
 
   // useEffect(() => {
   //   console.log("starting auto save...");
@@ -115,27 +116,27 @@ function CreateQuiz({ quizes }) {
           updateQuiz({
             token: user.token,
             quiz: newQuiz,
-            id: id
+            id: id,
           })
         );
       }
     };
-  
+
     const handleDataChange = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(autosave, 5000); // 2 seconds
     };
-  
+
     handleDataChange(); // Trigger initial autosave
-  
+
     return () => {
       clearTimeout(timeoutId);
     };
   }, [questionsData]);
   if (!quizes) {
-    return <Spinner/>;
+    return <Spinner />;
   }
-  
+
   if (!IDquiz) {
     return <div>Quizes not found</div>;
   }
@@ -150,7 +151,6 @@ function CreateQuiz({ quizes }) {
     }
   };
 
-
   const handleOnSave = () => {
     const isValid = questionsData.every((quiz) => {
       if (
@@ -159,7 +159,9 @@ function CreateQuiz({ quizes }) {
         quiz.options[1].text === "" ||
         quiz.options === null
       ) {
-        console.log("Please fill in the title and answers (at least 2 minimum).");
+        console.log(
+          "Please fill in the title and answers (at least 2 minimum)."
+        );
         return false;
       }
       if (
@@ -176,41 +178,62 @@ function CreateQuiz({ quizes }) {
     });
 
     if (isValid) {
-      makeNewQuiz()
+      makeNewQuiz();
       dispatch(
         updateQuiz({
           token: user.token,
           quiz: newQuiz,
-          id: id
+          id: id,
         })
       );
-      navigate("/home")
+      navigate("/home");
     } else {
-     alert("Some elements in questionsData do not meet the conditions.");
+      alert("Some elements in questionsData do not meet the conditions.");
     }
   };
 
-
   const handleChangeQuestions = (e) => {
     e.preventDefault();
-    const index = e.target.getAttribute("data-key")
-    setQuestionIndex(index)
-  }
+    const index = e.target.getAttribute("data-key");
+    setQuestionIndex(index);
+  };
   return (
     <div id="create-main">
       <Navbar onSave={handleOnSave} />
       <div className="create-main-container">
-        {questionData && questionData !== undefined ? <Question className="middle-main" onAnswerChange={handleQuestionsDataChange} questionData={questionData} id={34} /> : <>no data</>}
-        
+        {questionData && questionData !== undefined ? (
+          <Question
+            className="middle-main"
+            onAnswerChange={handleQuestionsDataChange}
+            questionData={questionData}
+            id={34}
+          />
+        ) : (
+          <>no data</>
+        )}
+
         <div className="question-tab-main">
-        {IDquiz && questionsData && questionsData.length > 0 &&
-           questionsData.map((q, index) => {
-          let cardInfo = {
-            title: q.name,
-            index: index,
-           };
-           return <QuestionCard questionCardInfo={cardInfo} key={index} changeQuestion={handleChangeQuestions} />;
-  })}
+          <div className="questions">
+            {IDquiz &&
+              questionsData &&
+              questionsData.length > 0 &&
+              questionsData.map((q, index) => {
+                let cardInfo = {
+                  title: q.name,
+                  index: index,
+                };
+                return (
+                  <QuestionCard
+                    questionCardInfo={cardInfo}
+                    key={index}
+                    changeQuestion={handleChangeQuestions}
+                  />
+                );
+              })}
+          </div>
+          <div className="create-new-question-container">
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
         </div>
       </div>
     </div>
