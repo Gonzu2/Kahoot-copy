@@ -10,7 +10,6 @@ useEffect(() => {
         console.log("you in timeout");
       quizCreated = true
       setTimeout(() => {
-        console.log(`naviagting to ${timeoutInfo.id}`)
         navigate(`/create/${timeoutInfo.id}`)
       },10000);
   }

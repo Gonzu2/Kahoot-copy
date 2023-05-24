@@ -44,7 +44,6 @@ function CreateQuiz({ quizes }) {
   }, [user, isError, message]);
 
   useEffect(() => {
-    console.log(quizes)
     if (quizes) {
       setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id));
     }
@@ -218,17 +217,14 @@ function CreateQuiz({ quizes }) {
   const handleDelete = (cardIndex) => {
     let qIndex = parseInt(questionIndex, 10);
     if (cardIndex === qIndex) {
-      console.log(questionsData.length);
       if (questionsData.length <= 1) {
         trowError("Can delete last question");
         return;
       }
       if (qIndex === questionsData.length - 1) {
-        console.log("-1");
         setQuestionIndex((prev) => prev - 1);
       }
       if (qIndex !== questionsData.length - 1) {
-        console.log("+1");
         setQuestionIndex((prev) => parseInt(prev, 10) + 1);
       }
     }
@@ -274,7 +270,6 @@ function CreateQuiz({ quizes }) {
 
   const createNewQuestion = (e) => {
     e.preventDefault();
-    console.log("Creating new");
     const newQuestion = {
       name: "",
       options: [

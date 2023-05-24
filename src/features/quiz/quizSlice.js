@@ -48,9 +48,7 @@ export const createQuiz = createAsyncThunk(
   "quiz/createQuiz",
   async (data, thunkAPI) => {
     try {
-      console.log("sending data: ",data)
       return await quizService.postCreateQuiz(data.token, data.quiz);
-      console.log("done sending")
     } catch (err) {
       const message =
         (err.response && err.response.data && err.response.data.message) ||
@@ -95,6 +93,20 @@ export const getQuizByIdProtect = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       return await quizService.getOneQuizProtect(data.id, data.token);
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+export const updatePlays = createAsyncThunk(
+  "quiz/updatePlays",
+  async (id, thunkAPI) => {
+    try {
+      return await quizService.updateQuizPlays(id);
     } catch (err) {
       const message =
         (err.response && err.response.data && err.response.data.message) ||

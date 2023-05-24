@@ -42,14 +42,18 @@ const updateOneQuiz = async (quiz, id, token) => {
 }
 
 const getOneQuizProtect = async (id, token) => {
-  console.log(id, token);
   const headers = {
     Authorization: `Bearer ${token}`,
   };
   const response = await axios.get(API_URL + "/user/"+ id +"/", { headers });
-  console.log(response.data);
   return response.data;
 }
+
+const updateQuizPlays = async (id) => {
+  const response = await axios.put(API_URL + "/"+ id +"/");
+  return response.data;
+}
+
 
 const quizService = {
   getAllQuizes,
@@ -58,6 +62,7 @@ const quizService = {
   getOneQuize,
   updateOneQuiz,
   getOneQuizProtect,
+  updateQuizPlays,
 };
 
 export default quizService;

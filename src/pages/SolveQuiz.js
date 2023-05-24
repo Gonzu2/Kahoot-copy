@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
+import { reset, updatePlays } from "../features/quiz/quizSlice";
 function SolveQuiz({ quiz }) {
   let timeWait = 20;
 
@@ -12,6 +13,7 @@ function SolveQuiz({ quiz }) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
+  const dispatch = useDispatch()
 
   const currentQuestion = quiz.questions[currentQuestionID];
   const maxQuestions = quiz.questions.length - 1;
@@ -25,6 +27,7 @@ function SolveQuiz({ quiz }) {
 
   const [timeRemaining, setTimeRemaining] = useState(timeWait);
   const [intervalPaused, setIntervalPaused] = useState(false);
+  var hasFinished = false;
 
   const startInterval = useCallback(() => {
     const interval = setInterval(() => {
@@ -51,6 +54,17 @@ function SolveQuiz({ quiz }) {
       clearInterval(interval);
     };
   }, [intervalPaused, timeRemaining, currentQuestionID, maxQuestions]);
+
+
+  useEffect(() => {
+    if(isFinished){
+      if(!hasFinished){
+        hasFinished = true;
+        dispatch(updatePlays(quiz._id))
+      }
+    }
+
+  },[isFinished])
 
   useEffect(() => {
     const intervalCleanup = startInterval();

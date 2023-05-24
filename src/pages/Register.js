@@ -32,7 +32,7 @@ function Register() {
 
     if(isSuccess){
       navigate("/home")
-      console.log("success IsSuccess", message)
+      // console.log("success IsSuccess", message)
     }
     dispatch(reset())
 
