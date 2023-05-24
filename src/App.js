@@ -8,6 +8,7 @@ import HomeLoggedIn from "./pages/HomeLoggedIn";
 import CreateQuiz from "./pages/CreateQuiz.js";
 import SolveQuiz from "./pages/SolveQuiz.js";
 import CreateQuizTemplate from "./componnents/CreateQuizTemplate"
+import TimeOut from "./componnents/TimeOut";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,13 +23,26 @@ function App() {
   const { quiz, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.quiz
   );
+  var firstLoad = false 
+  var secondLoad = false
   useEffect(() => {
     setQuizes(quiz);
   }, [isSuccess]);
 
   useEffect(() => {
-    dispatch(getQuizes());
+    if (!firstLoad) {
+      firstLoad = true;
+      dispatch(getQuizes());
+    }
+
   },[])
+
+  const handleUpdateQuiz = () => {
+    if (!secondLoad){
+      console.log("handleUpdateQuiz")
+      dispatch(getQuizes());
+    }
+  }
     return (
     <>
       <Routes>
@@ -38,10 +52,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<HomeLoggedIn quizes={quizes} />} />
-        <Route path="/create" element={<CreateQuizTemplate/>} />
-        <Route path="/create/:id" element={<CreateQuiz quizes={quizes} />} /> {/* update Quiz */}
+        <Route path="/create" element={<CreateQuizTemplate updateQuiz={handleUpdateQuiz}/>} />
+        <Route path="/create/:id" element={<CreateQuiz quizes={quizes}   />} /> {/* update Quiz */}
         <Route path="/quiz" element={<SolveQuiz />} />
         <Route path="/admin/test" element={<MyEditor />} /> 
+        <Route path="/loading" element={<TimeOut/>} /> 
       </Routes>
     </>
   );

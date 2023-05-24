@@ -4,12 +4,16 @@ import Navbar from "../componnents/NavbarCreate";
 import Question from "../componnents/CreateQuestion.js";
 import { useSelector, useDispatch } from "react-redux";
 import { reset, updateQuiz } from "../features/quiz/quizSlice";
-import QuestionCard from  "../componnents/QuestionCard.js"; 
+import QuestionCard from "../componnents/QuestionCard.js";
 import Spinner from "../componnents/Spinner";
 import "../style/createQuiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
-const Swal = require('sweetalert2')
+import {
+  faPlus,
+  faXmark,
+  faFloppyDisk,
+} from "@fortawesome/free-solid-svg-icons";
+const Swal = require("sweetalert2");
 function CreateQuiz({ quizes }) {
   const { id } = useParams();
   var newQuiz;
@@ -22,6 +26,7 @@ function CreateQuiz({ quizes }) {
   const [IDquiz, setIDQuiz] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  var firstReload = false;
   const { user, isError, isSuccsess, message } = useSelector(
     (state) => state.auth
   );
@@ -39,6 +44,7 @@ function CreateQuiz({ quizes }) {
   }, [user, isError, message]);
 
   useEffect(() => {
+    console.log(quizes)
     if (quizes) {
       setIDQuiz(quizes.find((quiz) => quiz._id.toString() === id));
     }
@@ -49,13 +55,12 @@ function CreateQuiz({ quizes }) {
     }
 
     if (!IDquiz) {
-      navigate(`/create/${id}`);
     }
   }, [quizes, IDquiz]);
 
   useEffect(() => {
     if (questionsData && questionsData.length > 0) {
-      // console.log(questionsData)
+      // console.log(questionsData) 
       var currentQuestion = questionsData[questionIndex];
       let questionDataTemp = {
         name: currentQuestion.name,
@@ -133,34 +138,32 @@ function CreateQuiz({ quizes }) {
 
   const trowError = (err) => {
     Swal.fire({
-      title: 'Error!',
+      title: "Error!",
       text: err,
-      icon: 'error',
-      confirmButtonText: 'Ok'
-    })
-  }
+      icon: "error",
+      confirmButtonText: "Ok",
+    });
+  };
 
   const confirmDelete = (cardIndex) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedQuestionsData = questionsData.filter((_, index) => index !== cardIndex);
+        const updatedQuestionsData = questionsData.filter(
+          (_, index) => index !== cardIndex
+        );
         setQuestionsData(updatedQuestionsData);
-        Swal.fire(
-          'Deleted!',
-          'Your qestion has been deleted.',
-          'success'
-        )
+        Swal.fire("Deleted!", "Your qestion has been deleted.", "success");
       }
-    })
-  }
+    });
+  };
 
   const handleQuestionsDataChange = (updatedQuestionData) => {
     if (questionsData && questionsData.length > 0) {
@@ -173,15 +176,15 @@ function CreateQuiz({ quizes }) {
   };
 
   const checkValid = questionsData.every((quiz) => {
+    if ( quizTitle === "") {
+      return false;
+    }
     if (
       quiz.name === "" ||
       quiz.options[0].text === "" ||
       quiz.options[1].text === "" ||
       quiz.options === null
     ) {
-      console.log(
-        "Please fill in the title and answers (at least 2 minimum)."
-      );
       return false;
     }
     if (
@@ -192,7 +195,6 @@ function CreateQuiz({ quizes }) {
     ) {
       return true;
     } else {
-      console.log("Please choose at least one correct answer.");
       return false;
     }
   });
@@ -214,26 +216,25 @@ function CreateQuiz({ quizes }) {
   };
 
   const handleDelete = (cardIndex) => {
-   let qIndex = parseInt(questionIndex, 10);
+    let qIndex = parseInt(questionIndex, 10);
     if (cardIndex === qIndex) {
-      console.log(questionsData.length)
-      if (questionsData.length <= 1){
-      trowError("Can delete last question")
-      return;
+      console.log(questionsData.length);
+      if (questionsData.length <= 1) {
+        trowError("Can delete last question");
+        return;
       }
-      if (qIndex === questionsData.length -1) {
-        console.log("-1")
-        setQuestionIndex( (prev) => prev - 1)
+      if (qIndex === questionsData.length - 1) {
+        console.log("-1");
+        setQuestionIndex((prev) => prev - 1);
       }
-      if (qIndex !== questionsData.length -1) {
-        console.log("+1")
+      if (qIndex !== questionsData.length - 1) {
+        console.log("+1");
         setQuestionIndex((prev) => parseInt(prev, 10) + 1);
       }
     }
 
-    confirmDelete(cardIndex)
-
-  }
+    confirmDelete(cardIndex);
+  };
 
   const handleChangeQuestions = (e) => {
     e.preventDefault();
@@ -260,44 +261,43 @@ function CreateQuiz({ quizes }) {
 
   const createNewQuestion = (e) => {
     e.preventDefault();
-    console.log("Creating new")
-    const newQuestion = { 
-     name: "",
-     options: [
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      },
-      {
-        text: "",
-        isCorrect: false
-      }
-     ]
+    console.log("Creating new");
+    const newQuestion = {
+      name: "",
+      options: [
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+        {
+          text: "",
+          isCorrect: false,
+        },
+      ],
     };
 
-    setQuestionsData((prevQuestionsData) => [...prevQuestionsData, newQuestion]);
-  }
+    setQuestionsData((prevQuestionsData) => [
+      ...prevQuestionsData,
+      newQuestion,
+    ]);
+  };
 
   const halndleChangeTitle = (e) => {
-    e.maxLength = 100
-    if (e.value !== ""){
-      setQuizTitle(e.value);
-    }
+    e.target.maxLength = 100
+      setQuizTitle(e.target.value);
   }
 
   const handleChangeDescription = (e) => {
-    e.maxLength = 300
-    if (e.value !== ""){
-      setQuizDescrition(e.value);
-    }
+    e.target.maxLength = 300
+      setQuizDescrition(e.target.value);
   }
 
   return (
@@ -331,6 +331,9 @@ function CreateQuiz({ quizes }) {
                   ></textarea>
               </div>
             </div>
+            <div className="settings-offcanvas-save-btn">
+              <p>Save</p>
+            </div>
           </div>
         </>
       )}
@@ -360,7 +363,8 @@ function CreateQuiz({ quizes }) {
                   <QuestionCard
                     questionCardInfo={cardInfo}
                     key={index}
-                    onDelete={() => handleDelete(index)} changeQuestion={handleChangeQuestions}
+                    onDelete={() => handleDelete(index)}
+                    changeQuestion={handleChangeQuestions}
                   />
                 );
               })}
