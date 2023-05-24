@@ -30,16 +30,6 @@ function QuestionCard({ questionCardInfo, changeQuestion, onDelete }) {
         data-key={info.index}>
         {info.index + 1}
       </div>
-      <h1 className="question-card-name">{info.title}</h1>
-      <h1 className="question-card-delete" onClick={handleDelete}>
-        Delete
-      </h1>
-      <div
-        className="question-card-number"
-        onClick={handleClick}
-        data-key={info.index}>
-        {info.index + 1}
-      </div>
     </div>
   );
 }
