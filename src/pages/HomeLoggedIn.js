@@ -143,7 +143,7 @@ const callDeleteQuiz = (quiz) => {
         !isLoadingPersonal ? (
           <ul className="kahoots-list">
             {personalQuizes.map((quiz) => (
-              <li className="kahoot-list-item kahoot-item-invalid" key={quiz._id}>
+              <li className={!quiz.isValid ? 'kahoot-list-item kahoot-item-invalid' : 'kahoot-list-item'} key={quiz._id}>
                 <div className="kahoot-image" onClick={() => playQuiz(quiz)}>
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
