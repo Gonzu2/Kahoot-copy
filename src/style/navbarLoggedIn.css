@@ -295,12 +295,38 @@
   justify-content: space-between;
   cursor: pointer;
   z-index: 15;
-  margin-left: 15px;
 }
 
 .create-button-small {
   display: none;
 }
+
+.navbar-logged-in-k-logo {
+  display: none;
+  width: 4.375rem;
+  height: 1.5rem;
+  padding: 0;
+  z-index: 10;
+}
+
+@media (width <= 445px) {
+  .upgrade p {
+    display: none;
+  }
+  .upgrade-canvas p {
+    display: block !important;
+  }
+}
+
+@media (width <= 340px) {
+  .navbar-logged-in-kahoot-logo {
+    display: none;
+  }
+  .navbar-logged-in-k-logo {
+    display: block;
+  }
+}
+
 @media (width <= 1050px) {
   .create-button {
     display: none;
