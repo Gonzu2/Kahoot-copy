@@ -13,7 +13,7 @@ function SolveQuiz({ quiz }) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const currentQuestion = quiz.questions[currentQuestionID];
   const maxQuestions = quiz.questions.length - 1;
@@ -55,16 +55,14 @@ function SolveQuiz({ quiz }) {
     };
   }, [intervalPaused, timeRemaining, currentQuestionID, maxQuestions]);
 
-
   useEffect(() => {
-    if(isFinished){
-      if(!hasFinished){
+    if (isFinished) {
+      if (!hasFinished) {
         hasFinished = true;
-        dispatch(updatePlays(quiz._id))
+        dispatch(updatePlays(quiz._id));
       }
     }
-
-  },[isFinished])
+  }, [isFinished]);
 
   useEffect(() => {
     const intervalCleanup = startInterval();
@@ -211,6 +209,7 @@ function SolveQuiz({ quiz }) {
           </>
         </li>
         <li
+          style={{ display: question.yellow.text !== "" ? "flex" : "none" }}
           className="quiz-option-yellow quiz-button"
           onClick={handleOnClick}
           name="yellow">
@@ -238,6 +237,7 @@ function SolveQuiz({ quiz }) {
           </>
         </li>
         <li
+          style={{ display: question.green.text !== "" ? "flex" : "none" }}
           className="quiz-option-green quiz-button"
           onClick={handleOnClick}
           name="green">
