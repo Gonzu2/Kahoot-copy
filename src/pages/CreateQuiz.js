@@ -22,7 +22,7 @@ function CreateQuiz({ quizes }) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionData, setQuestionData] = useState();
   const [quizTitle, setQuizTitle] = useState();
-  const [quizDescrition, setQuizDescrition ] = useState()
+  const [quizDescrition, setQuizDescrition] = useState();
   const [IDquiz, setIDQuiz] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ function CreateQuiz({ quizes }) {
 
   useEffect(() => {
     if (questionsData && questionsData.length > 0) {
-      // console.log(questionsData) 
+      // console.log(questionsData)
       var currentQuestion = questionsData[questionIndex];
       let questionDataTemp = {
         name: currentQuestion.name,
@@ -175,7 +175,7 @@ function CreateQuiz({ quizes }) {
   };
 
   const checkValid = questionsData.every((quiz) => {
-    if ( quizTitle === "") {
+    if (quizTitle === "") {
       return false;
     }
     if (
@@ -250,17 +250,18 @@ function CreateQuiz({ quizes }) {
           footerElement.removeEventListener("click", handleFooterClick);
         },
       });
-  
+
       return () => {
         const footerElement = Swal.getFooter();
         footerElement.removeEventListener("click", handleFooterClick);
       };
-    }}
+    }
+  };
 
-const handleFooterClick = () => {
-  navigate("/home")
-  Swal.close();
-}
+  const handleFooterClick = () => {
+    navigate("/home");
+    Swal.close();
+  };
 
   const handleChangeQuestions = (e) => {
     e.preventDefault();
@@ -316,13 +317,20 @@ const handleFooterClick = () => {
   };
 
   const halndleChangeTitle = (e) => {
-    e.target.maxLength = 100
-      setQuizTitle(e.target.value);
-  }
+    e.target.maxLength = 100;
+    setQuizTitle(e.target.value);
+  };
 
   const handleChangeDescription = (e) => {
-    e.target.maxLength = 300
-      setQuizDescrition(e.target.value);
+    e.target.maxLength = 300;
+    setQuizDescrition(e.target.value);
+  };
+
+  function alertSave() {
+    Swal.fire({
+      icon: "success",
+      title: "Successfully saved",
+    });
   }
 
   return (
@@ -346,7 +354,13 @@ const handleFooterClick = () => {
             <div className="settings-information-container">
               <div className="settings-offcanvas-quiz-title settings-input-area">
                 <label for="quiz-title">Quiz title:</label>
-                <input type="text" id="quiz-title" name="quiz-title" placeholder="Enter your title" value={quizTitle} onChange={halndleChangeTitle}></input>
+                <input
+                  type="text"
+                  id="quiz-title"
+                  name="quiz-title"
+                  placeholder="Enter your title"
+                  value={quizTitle}
+                  onChange={halndleChangeTitle}></input>
               </div>
               <div className="settings-offcanvas-quiz-description settings-input-area">
                 <label for="quiz-description">Quiz description:</label>
@@ -356,14 +370,15 @@ const handleFooterClick = () => {
                   name="quiz-description"
                   placeholder="Enter your quiz description"
                   onChange={handleChangeDescription}
-                  value={quizDescrition}
-                  ></textarea>
+                  value={quizDescrition}></textarea>
               </div>
             </div>
-            <div className="settings-offcanvas-close-btn">
-              <p onClick={toggleSettings}>Close</p>
+            <div
+              className="settings-offcanvas-close-btn"
+              onClick={toggleSettings}>
+              <p>Close</p>
             </div>
-            <div className="settings-offcanvas-save-btn">
+            <div className="settings-offcanvas-save-btn" onClick={alertSave}>
               <p>Save</p>
             </div>
           </div>

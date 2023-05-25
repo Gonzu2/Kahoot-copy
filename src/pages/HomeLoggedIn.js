@@ -21,8 +21,13 @@ function HomeLoggedIn({ quizes, updateQuizes }) {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user } = useSelector((state) => state.auth);
-  const { quizPersonal, isLoadingPersonal, isError, presonalQuizSuccess, message } =
-    useSelector((state) => state.quiz);
+  const {
+    quizPersonal,
+    isLoadingPersonal,
+    isError,
+    presonalQuizSuccess,
+    message,
+  } = useSelector((state) => state.quiz);
   const [validQuizzes, setValidQuizzes] = useState([]);
 
   useEffect(() => {
@@ -32,70 +37,68 @@ function HomeLoggedIn({ quizes, updateQuizes }) {
     if (presonalQuizSuccess) {
       setPersonalQuizes(quizPersonal);
     }
-    if(validQuizzes) {
-  
+    if (validQuizzes) {
     }
     if (isError || message) {
       console.log("error ", message);
     }
   }, [presonalQuizSuccess, isError, message, validQuizzes]);
 
-useEffect(() => {
-  if(quizes){
-    setValidQuizzes(quizes.filter((quiz) => quiz.isValid));
-  }
-},[quizes])
-
-useEffect(() => {
-  let timeoutId;
-
-  const handleUpdate = () => {
-    handleUpdateQuiz()
-    updateQuizes()
-  };
-
-  const debounceUpdate = () => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(handleUpdate, 300); 
-  };
-
-  debounceUpdate();
-
-  return () => {
-    clearTimeout(timeoutId);
-  };
-}, [location]);
-
-const confirmDelete = (quiz) =>{
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      callDeleteQuiz(quiz)
-      Swal.fire("Deleted!", "Your qestion has been deleted.", "success");
+  useEffect(() => {
+    if (quizes) {
+      setValidQuizzes(quizes.filter((quiz) => quiz.isValid));
     }
-  });
-}
+  }, [quizes]);
 
+  useEffect(() => {
+    let timeoutId;
 
-const trowError = (err) =>{
-  Swal.fire({
-    title: "Error",
-    text: err,
-    icon: "error",
-  })
-}
- const handleUpdateQuiz = () => {
-  if (user) {
-  dispatch(getUserQuizes(user.token));
-  }
- }
+    const handleUpdate = () => {
+      handleUpdateQuiz();
+      updateQuizes();
+    };
+
+    const debounceUpdate = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleUpdate, 300);
+    };
+
+    debounceUpdate();
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [location]);
+
+  const confirmDelete = (quiz) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        callDeleteQuiz(quiz);
+        Swal.fire("Deleted!", "Your qestion has been deleted.", "success");
+      }
+    });
+  };
+
+  const trowError = (err) => {
+    Swal.fire({
+      title: "Error",
+      text: err,
+      icon: "error",
+    });
+  };
+  const handleUpdateQuiz = () => {
+    if (user) {
+      dispatch(getUserQuizes(user.token));
+    }
+  };
 
   const playQuiz = (quiz) => {
     if (quiz.isValid) {
@@ -105,16 +108,19 @@ const trowError = (err) =>{
     }
   };
 
-const callDeleteQuiz = (quiz) => {
-  if (user) {
-  dispatch(deleteQuiz({
-    id: quiz._id,
-    token: user.token
-  })).then(() => {
-      handleUpdateQuiz()
-      updateQuizes()
-  })
-}}
+  const callDeleteQuiz = (quiz) => {
+    if (user) {
+      dispatch(
+        deleteQuiz({
+          id: quiz._id,
+          token: user.token,
+        })
+      ).then(() => {
+        handleUpdateQuiz();
+        updateQuizes();
+      });
+    }
+  };
 
   return (
     <div id="home-main-logged-in">
@@ -136,20 +142,24 @@ const callDeleteQuiz = (quiz) => {
         </h4>
 
         <hr className="break-line"></hr>
-        {
-        (personalQuizes &&
+        {personalQuizes &&
         Array.isArray(personalQuizes) &&
-        personalQuizes.length > 0) &&
+        personalQuizes.length > 0 &&
         !isLoadingPersonal ? (
           <ul className="kahoots-list">
             {personalQuizes.map((quiz) => (
-              <li className={!quiz.isValid ? 'kahoot-list-item kahoot-item-invalid' : 'kahoot-list-item'} key={quiz._id}>
+              <li
+                className={
+                  !quiz.isValid
+                    ? "kahoot-list-item kahoot-item-invalid"
+                    : "kahoot-list-item"
+                }
+                key={quiz._id}>
                 <div className="kahoot-image" onClick={() => playQuiz(quiz)}>
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
-                      ? "99+"
-                      : quiz.questions.length}{" "}
-                    questions
+                      ? "99+ Q"
+                      : `${quiz.questions.length} questions`}
                   </p>
                   <p className="kahoot-image-questions-small">
                     {quiz.questions.length} q
@@ -163,7 +173,10 @@ const callDeleteQuiz = (quiz) => {
                         icon={faPenToSquare}
                         onClick={() => navigate(`/create/${quiz._id}`)}
                       />
-                      <FontAwesomeIcon icon={faTrash} onClick={ () => confirmDelete(quiz)}/>
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        onClick={() => confirmDelete(quiz)}
+                      />
                     </div>
                   </div>
                   <div className="kahoot-info-extra">
@@ -181,7 +194,11 @@ const callDeleteQuiz = (quiz) => {
           </ul>
         ) : (
           <h1 className="no-kahoots-created">
-            <>{isLoadingPersonal ? "Loading" : "You haven't created any kahoots..."}</>
+            <>
+              {isLoadingPersonal
+                ? "Loading"
+                : "You haven't created any kahoots..."}
+            </>
           </h1>
         )}
       </div>
@@ -202,9 +219,10 @@ const callDeleteQuiz = (quiz) => {
         </h4>
 
         <hr className="break-line"></hr>
-        {(validQuizzes &&
+        {validQuizzes &&
         Array.isArray(validQuizzes) &&
-        validQuizzes.length > 0) && !isLoadingPersonal ? (
+        validQuizzes.length > 0 &&
+        !isLoadingPersonal ? (
           <ul className="kahoots-list">
             {validQuizzes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
@@ -238,7 +256,11 @@ const callDeleteQuiz = (quiz) => {
           </ul>
         ) : (
           <h1 className="no-kahoots-created">
-            <>{isLoadingPersonal ? "Loading" : "You haven't created any kahoots..."}</>
+            <>
+              {isLoadingPersonal
+                ? "Loading"
+                : "You haven't created any kahoots..."}
+            </>
           </h1>
         )}
       </div>
