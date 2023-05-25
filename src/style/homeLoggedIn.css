@@ -58,6 +58,7 @@ body {
   padding-right: 20px;
   margin: 0 0 15px 20px;
   height: 85%;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -73,6 +74,16 @@ body {
   box-sizing: border-box;
   margin-bottom: 15px;
   cursor: pointer;
+  min-height: 90px;
+  max-height: 90px;
+}
+
+.kahoot-item-invalid {
+  cursor: not-allowed;
+}
+
+.kahoot-item-invalid:hover .kahoot-info {
+  background-color: rgba(243, 166, 166, 0.611);
 }
 
 .kahoot-list-item:hover > .kahoot-info > a > p {
@@ -82,35 +93,31 @@ body {
 .kahoot-image {
   position: relative;
   box-sizing: border-box;
+  min-height: 100%;
   width: 150px;
-  height: min-content;
   max-width: 125px;
   margin: 0;
   padding: 0;
   border-right: 1px solid rgb(87, 86, 86, 0.6);
-}
-.kahoot-image img {
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 105px;
-  position: relative;
-  box-sizing: border-box;
+  background-image: url("../images/kahoot-image.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .kahoot-image p {
   color: white;
   background-color: rgba(51, 51, 51, 0.8);
   max-width: 100%;
-  position: absolute;
-  bottom: 9px;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 14px;
   font-weight: 500;
   padding: 5px;
   border-radius: 4px;
   width: max-content;
-  margin: 0;
+  margin: 0 10px 15px 10px;
   padding: 5px;
 }
 
@@ -140,6 +147,7 @@ body {
   position: relative;
   box-sizing: border-box;
   margin: 0;
+  overflow: hidden;
 }
 
 .kahoot-info p {
@@ -154,13 +162,13 @@ body {
 
 .kahoot-info-icons {
   display: flex;
-  justify-content: stat;
+  justify-content: start;
   align-items: center;
   gap: 10px;
 }
 
 .kahoot-info-icons svg {
-  z-index: 1000;
+  z-index: 100;
 }
 
 .kahoot-info-icons svg path {
@@ -173,13 +181,36 @@ body {
 }
 
 .kahoot-name {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 0 5px 0 0;
-  box-sizing: border-box;
-  position: relative;
+  gap: 0;
+}
+
+.kahoot-name p {
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (width <= 350px) {
+  .kahoot-name p {
+    max-width: 95%;
+  }
+  .kahoot-name {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  .kahoot-info-icons {
+    margin: 0 0 0 5px;
+  }
 }
 
 .kahoot-info .kahoot-info-extra {

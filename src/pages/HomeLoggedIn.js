@@ -21,18 +21,22 @@ function HomeLoggedIn({ quizes }) {
   const { user } = useSelector((state) => state.auth);
   const { quizPersonal, isLoading, isError, presonalQuizSuccess, message } =
     useSelector((state) => state.quiz);
+  const [validQuizzes, setValidQuizzes] = useState([]);
 
   useEffect(() => {
     dispatch(getUserQuizes(user.token));
   }, []);
   useEffect(() => {
+    if (quizes) {
+      setValidQuizzes(quizes.filter((quiz) => quiz.isValid));
+    }
     if (presonalQuizSuccess) {
       setPersonalQuizes(quizPersonal);
     }
     if (isError || message) {
       console.log("error ", message);
     }
-  }, [presonalQuizSuccess, isError, message]);
+  }, [presonalQuizSuccess, isError, message, quizes]);
 
   const playQuiz = (quiz) => {
     if (quiz.isValid) {
@@ -41,6 +45,7 @@ function HomeLoggedIn({ quizes }) {
       alert(`quiz "${quiz.title}" is not valid`);
     }
   };
+
   return (
     <div id="home-main-logged-in">
       <Navbar />
@@ -68,7 +73,6 @@ function HomeLoggedIn({ quizes }) {
             {personalQuizes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
                 <div className="kahoot-image" onClick={() => playQuiz(quiz)}>
-                  <img src={require("../images/kahoot-image.webp")} />
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
                       ? "99+"
@@ -117,21 +121,22 @@ function HomeLoggedIn({ quizes }) {
               `Loading`
             ) : (
               <>
-                {personalQuizes &&
-                  personalQuizes.length > 0 &&
-                  `Total kahoots created - ${personalQuizes.length}x`}
+                {validQuizzes &&
+                  validQuizzes.length > 0 &&
+                  `Total kahoots created - ${validQuizzes.length}x`}
               </>
             )}
           </>
         </h4>
 
         <hr className="break-line"></hr>
-        {quizes && Array.isArray(quizes) && quizes.length > 0 ? (
+        {validQuizzes &&
+        Array.isArray(validQuizzes) &&
+        validQuizzes.length > 0 ? (
           <ul className="kahoots-list">
-            {quizes.map((quiz) => (
+            {validQuizzes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
                 <div className="kahoot-image" onClick={() => playQuiz(quiz)}>
-                  <img src={require("../images/kahoot-image.webp")} />
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
                       ? "99+"
