@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import QuizCard from "../componnents/QuizCard";
 import {
   createBrowserRouter,
@@ -14,10 +14,11 @@ import { reset, getUserQuizes } from "../features/quiz/quizSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function HomeLoggedIn({ quizes }) {
+function HomeLoggedIn({ quizes, updateQuizes }) {
   const [personalQuizes, setPersonalQuizes] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const { user } = useSelector((state) => state.auth);
   const { quizPersonal, isLoading, isError, presonalQuizSuccess, message } =
     useSelector((state) => state.quiz);
@@ -33,6 +34,34 @@ function HomeLoggedIn({ quizes }) {
       console.log("error ", message);
     }
   }, [presonalQuizSuccess, isError, message]);
+
+
+useEffect(() => {
+  let timeoutId;
+
+  const handleUpdate = () => {
+    handleUpdateQuiz()
+    updateQuizes()
+  };
+
+  const debounceUpdate = () => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(handleUpdate, 300); 
+  };
+
+  debounceUpdate();
+
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [location]);
+
+ const handleUpdateQuiz = () => {
+  if (user) {
+    console.log("getting new personalQuzie...")
+  dispatch(getUserQuizes(user.token));
+  }
+ }
 
   const playQuiz = (quiz) => {
     if (quiz.isValid) {
@@ -168,5 +197,4 @@ function HomeLoggedIn({ quizes }) {
     </div>
   );
 }
-
 export default HomeLoggedIn;
