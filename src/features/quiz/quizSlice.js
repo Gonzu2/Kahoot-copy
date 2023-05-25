@@ -12,6 +12,8 @@ const initialState = {
   createMessage: null,
   oneQuizProtect: null,
   message: "",
+  isSuccessDelete: false,
+  isLoadingPersonal: false,
 };
 
 export const getQuizes = createAsyncThunk(
@@ -102,6 +104,22 @@ export const getQuizByIdProtect = createAsyncThunk(
     }
   }
 );
+
+export const deleteQuiz = createAsyncThunk(
+  "quiz/deleteQuiz",
+  async (data, thunkAPI) => {
+    try {
+      return await quizService.deleteUserQuiz(data.id, data.token);
+    } catch (err) {
+      const message =
+        (err.response && err.response.data && err.response.data.message) ||
+        err.message ||
+        err.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const updatePlays = createAsyncThunk(
   "quiz/updatePlays",
   async (id, thunkAPI) => {
@@ -153,14 +171,23 @@ const quizSlice = createSlice({
         handleFulfilled(state);
         state.quiz = action.payload;
       })
-      .addCase(getQuizes.rejected, handleRejected)
-      .addCase(getUserQuizes.pending, handlePending)
+      .addCase(getQuizes.rejected, handleRejected )
+      .addCase(getUserQuizes.pending,  (state, action) => {
+        handlePending(state)
+        state.presonalQuizSuccess = false
+        state.isLoadingPersonal= true;
+      })
       .addCase(getUserQuizes.fulfilled, (state, action) => {
         handleFulfilled(state);
         state.quizPersonal = action.payload;
         state.presonalQuizSuccess = true
+        state.isLoadingPersonal = false;
       })
-      .addCase(getUserQuizes.rejected, handleRejected)
+      .addCase(getUserQuizes.rejected,  (state, action) => {
+        handleRejected(state)
+        state.presonalQuizSuccess = true
+        state.isLoadingPersonal = false;
+      })
       .addCase(createQuiz.pending, handlePending)
       .addCase(createQuiz.fulfilled,  (state, action) => {
         handleFulfilled(state)
@@ -183,6 +210,15 @@ const quizSlice = createSlice({
         state.oneQuizProtect = action.payload;
       })
       .addCase(getQuizByIdProtect.rejected, handleRejected)
+      .addCase(deleteQuiz.pending, (state, action) => {
+        handlePending(state);
+        state.isSuccessDelete = true;
+      })
+      .addCase(deleteQuiz.fulfilled, (state, action) => {
+        handleFulfilled(state);
+        state.isSuccessDelete = true;
+      })
+      .addCase(deleteQuiz.rejected, handleRejected)
   },
 });
 

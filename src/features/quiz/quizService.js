@@ -54,6 +54,16 @@ const updateQuizPlays = async (id) => {
   return response.data;
 }
 
+const deleteUserQuiz = async (id, token) => {
+  console.log("delete", id, token);
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  const response = await axios.delete(API_URL + "/delete/"+ id +"/", { headers });
+  console.log(response.data);
+  return response.data;
+}
+
 
 const quizService = {
   getAllQuizes,
@@ -63,6 +73,7 @@ const quizService = {
   updateOneQuiz,
   getOneQuizProtect,
   updateQuizPlays,
+  deleteUserQuiz,
 };
 
 export default quizService;

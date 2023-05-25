@@ -10,9 +10,10 @@ import {
 import "../style/homeLoggedIn.css";
 import Navbar from "../componnents/NavbarLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
-import { reset, getUserQuizes } from "../features/quiz/quizSlice";
+import { reset, getUserQuizes, deleteQuiz } from "../features/quiz/quizSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+const Swal = require("sweetalert2");
 
 function HomeLoggedIn({ quizes, updateQuizes }) {
   const [personalQuizes, setPersonalQuizes] = useState([]);
@@ -20,7 +21,7 @@ function HomeLoggedIn({ quizes, updateQuizes }) {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user } = useSelector((state) => state.auth);
-  const { quizPersonal, isLoading, isError, presonalQuizSuccess, message } =
+  const { quizPersonal, isLoadingPersonal, isError, presonalQuizSuccess, message } =
     useSelector((state) => state.quiz);
   const [validQuizzes, setValidQuizzes] = useState([]);
 
@@ -28,17 +29,22 @@ function HomeLoggedIn({ quizes, updateQuizes }) {
     dispatch(getUserQuizes(user.token));
   }, []);
   useEffect(() => {
-    if (quizes) {
-      setValidQuizzes(quizes.filter((quiz) => quiz.isValid));
-    }
     if (presonalQuizSuccess) {
       setPersonalQuizes(quizPersonal);
+    }
+    if(validQuizzes) {
+  
     }
     if (isError || message) {
       console.log("error ", message);
     }
-  }, [presonalQuizSuccess, isError, message, quizes]);
+  }, [presonalQuizSuccess, isError, message, validQuizzes]);
 
+useEffect(() => {
+  if(quizes){
+    setValidQuizzes(quizes.filter((quiz) => quiz.isValid));
+  }
+},[quizes])
 
 useEffect(() => {
   let timeoutId;
@@ -60,9 +66,33 @@ useEffect(() => {
   };
 }, [location]);
 
+const confirmDelete = (quiz) =>{
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      callDeleteQuiz(quiz)
+      Swal.fire("Deleted!", "Your qestion has been deleted.", "success");
+    }
+  });
+}
+
+
+const trowError = (err) =>{
+  Swal.fire({
+    title: "Error",
+    text: err,
+    icon: "error",
+  })
+}
  const handleUpdateQuiz = () => {
   if (user) {
-    console.log("getting new personalQuzie...")
   dispatch(getUserQuizes(user.token));
   }
  }
@@ -71,9 +101,20 @@ useEffect(() => {
     if (quiz.isValid) {
       navigate(`/quiz/${quiz._id}`);
     } else {
-      alert(`quiz "${quiz.title}" is not valid`);
+      trowError(`quiz "${quiz.title}" is not valid`);
     }
   };
+
+const callDeleteQuiz = (quiz) => {
+  if (user) {
+  dispatch(deleteQuiz({
+    id: quiz._id,
+    token: user.token
+  })).then(() => {
+      handleUpdateQuiz()
+      updateQuizes()
+  })
+}}
 
   return (
     <div id="home-main-logged-in">
@@ -82,7 +123,7 @@ useEffect(() => {
         <h1 className="kahoot-header">My kahoots</h1>
         <h4 className="kahoots-created">
           <>
-            {isLoading ? (
+            {isLoadingPersonal ? (
               `Loading`
             ) : (
               <>
@@ -95,12 +136,14 @@ useEffect(() => {
         </h4>
 
         <hr className="break-line"></hr>
-        {personalQuizes &&
+        {
+        (personalQuizes &&
         Array.isArray(personalQuizes) &&
-        personalQuizes.length > 0 ? (
+        personalQuizes.length > 0) &&
+        !isLoadingPersonal ? (
           <ul className="kahoots-list">
             {personalQuizes.map((quiz) => (
-              <li className="kahoot-list-item" key={quiz._id}>
+              <li className="kahoot-list-item kahoot-item-invalid" key={quiz._id}>
                 <div className="kahoot-image" onClick={() => playQuiz(quiz)}>
                   <p className="kahoot-image-questions-large">
                     {quiz.questions.length >= 99
@@ -120,7 +163,7 @@ useEffect(() => {
                         icon={faPenToSquare}
                         onClick={() => navigate(`/create/${quiz._id}`)}
                       />
-                      <FontAwesomeIcon icon={faTrash} />
+                      <FontAwesomeIcon icon={faTrash} onClick={ () => confirmDelete(quiz)}/>
                     </div>
                   </div>
                   <div className="kahoot-info-extra">
@@ -138,7 +181,7 @@ useEffect(() => {
           </ul>
         ) : (
           <h1 className="no-kahoots-created">
-            <>{isLoading ? "Loading" : "You haven't created any kahoots..."}</>
+            <>{isLoadingPersonal ? "Loading" : "You haven't created any kahoots..."}</>
           </h1>
         )}
       </div>
@@ -146,7 +189,7 @@ useEffect(() => {
         <h1 className="kahoot-header">All kahoots</h1>
         <h4 className="kahoots-created">
           <>
-            {isLoading ? (
+            {isLoadingPersonal ? (
               `Loading`
             ) : (
               <>
@@ -159,9 +202,9 @@ useEffect(() => {
         </h4>
 
         <hr className="break-line"></hr>
-        {validQuizzes &&
+        {(validQuizzes &&
         Array.isArray(validQuizzes) &&
-        validQuizzes.length > 0 ? (
+        validQuizzes.length > 0) && !isLoadingPersonal ? (
           <ul className="kahoots-list">
             {validQuizzes.map((quiz) => (
               <li className="kahoot-list-item" key={quiz._id}>
@@ -195,7 +238,7 @@ useEffect(() => {
           </ul>
         ) : (
           <h1 className="no-kahoots-created">
-            <>{isLoading ? "Loading" : "You haven't created any kahoots..."}</>
+            <>{isLoadingPersonal ? "Loading" : "You haven't created any kahoots..."}</>
           </h1>
         )}
       </div>

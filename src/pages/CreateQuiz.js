@@ -239,11 +239,28 @@ function CreateQuiz({ quizes }) {
       Swal.fire({
         icon: "warning",
         title: "Wait a second!",
-        text: "Something quiz fields are invalid.",
-        footer: '<a href="/home">Continue anyway.</a>',
+        text: "Some quiz fields are invalid.",
+        footer: `<a href="#">Click here to continue anyway<a/>`,
+        didOpen: () => {
+          const footerElement = Swal.getFooter();
+          footerElement.addEventListener("click", handleFooterClick);
+        },
+        willClose: () => {
+          const footerElement = Swal.getFooter();
+          footerElement.removeEventListener("click", handleFooterClick);
+        },
       });
-    }
-  };
+  
+      return () => {
+        const footerElement = Swal.getFooter();
+        footerElement.removeEventListener("click", handleFooterClick);
+      };
+    }}
+
+const handleFooterClick = () => {
+  navigate("/home")
+  Swal.close();
+}
 
   const handleChangeQuestions = (e) => {
     e.preventDefault();

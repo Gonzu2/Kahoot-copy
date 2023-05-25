@@ -34,7 +34,6 @@ function App() {
       firstLoad = true;
       dispatch(getQuizes());
     }
-
   },[])
 
 
@@ -51,9 +50,8 @@ function App() {
 
   const handleUpdateQuizes = () => {
       setTimeout( () => {
-        console.log("updateData quizes");
         dispatch(getQuizes());
-      }, 3000 )
+      }, 1000 )
   }
     return (
     <>
