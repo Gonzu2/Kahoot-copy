@@ -1,9 +1,9 @@
 import React from "react";
-import {useSelector , useDispatch} from "react-redux"
-import {reset, register} from "../features/auth/authSlice"
+import { useSelector, useDispatch } from "react-redux";
+import { reset, register } from "../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Spinner from "../componnents/Spinner"
+import Spinner from "../componnents/Spinner";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,29 +14,28 @@ import "../style/login-register.css";
 var totalCompleted = 0;
 
 function Register() {
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
-  useEffect( () => {
-
-    if(isError){
-      console.log("error IsError", message)
-      alert(message, isError)
+  useEffect(() => {
+    if (isError) {
+      console.log("error IsError", message);
+      alert(message, isError);
     }
 
-    if(isSuccess){
-      navigate("/home")
+    if (isSuccess) {
+      navigate("/home");
       // console.log("success IsSuccess", message)
     }
-    dispatch(reset())
-
-  },[user, isError, isSuccess, message, isLoading, navigate, dispatch]) 
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, isLoading, navigate, dispatch]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -55,16 +54,15 @@ function Register() {
     e.preventDefault();
 
     const userData = {
-      name : username,
-      email : email,
-      password : password,
-    }
+      name: username,
+      email: email,
+      password: password,
+    };
 
-    dispatch(register(userData))
-
-  }
-  if(isLoading) {
-    return (<Spinner/>)
+    dispatch(register(userData));
+  };
+  if (isLoading) {
+    return <Spinner />;
   }
   return (
     <div id="main">
@@ -73,7 +71,6 @@ function Register() {
           {/* Login */}
 
           <h1 id="title">Register</h1>
-
           <label htmlFor="username">
             <p>Username</p>
           </label>
@@ -87,7 +84,12 @@ function Register() {
           <label htmlFor="email">
             <p>Email</p>
           </label>
-          <input type="text" name="email" onChange={handleOnChange} required />
+          <input
+            type="text"
+            name="email"
+            onChange={handleOnChange}
+            required
+          />
 
           <label htmlFor="password">
             <p>Password</p>
